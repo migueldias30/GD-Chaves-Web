@@ -1,0 +1,404 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background-color: #1e2444;
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  text-align: justify;
+  font-size: 15px;
+  width: 100%;
+}
+
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.navbar button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 10px;
+  outline: none;
+  padding: 10px;
+}
+
+.navbar button span {
+  font-size: 35px;
+  width: 35px;
+  height: 40;
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 210,
+    'GRAD' 0,
+    'opsz' 35;
+}
+
+.navbar button:hover {
+  color: #e3bf00;
+  transform: scale3d(1.1, 1.1, 1.1);
+}
+
+.carousel-container {
+  position: relative;
+  margin-top: 40px;
+  width: 100vw;
+  height: 85vh;
+  overflow: hidden;
+  background-color: #541833;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-slide {
+  width: 100vw;
+  height: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #520033;
+}
+
+.video-slide {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.kits-slide {
+  gap: 60px;
+  position: relative;
+}
+
+.kit-item {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.8s ease;
+}
+
+.kit-item img {
+  height: 350px;
+}
+
+.kit-item:hover {
+  transform: scale(1.05);
+}
+
+.kits-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin: 20px 0;
+  background-color: #67003f;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.kit-info {
+  color: #fff;
+  font-family: Arial, sans-serif;
+  background-color: #3f0027;
+  width: 100%;
+  padding: 20px;
+}
+
+.kit-name {
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+  text-align: left;
+  color: #fff;
+}
+
+.kit-price {
+  display: flex;
+  justify-content: left;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.preco {
+  color: #b3b0b0;
+  font-size: 16px;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.carousel-container:hover .carousel-arrow {
+  opacity: 1;
+}
+
+.carousel-arrow svg {
+  width: 32px;
+  height: 64px;
+  stroke: white;
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: stroke 0.3s ease;
+}
+
+.carousel-arrow:hover svg {
+  stroke: #ccc;
+}
+
+.carousel-arrow.left {
+  left: 20px;
+}
+
+.carousel-arrow.right {
+  right: 20px;
+}
+
+.shop-button-wrapper {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.shop-button {
+  padding: 15px 45px;
+  background-color: #3f0027;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  border-radius: 25px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.shop-button:hover {
+  background-color: #1e2444;
+
+}
+
+.text-section {
+  padding: 30px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+}
+
+.text-section h1 {
+  font-size: 28px;
+  margin-top: 8px;
+}
+
+.text-section p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.card-container {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.match-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  width: 100%;
+  max-width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  flex: 1 1 300px;
+}
+
+.match-info p {
+  font-size: 14px;
+  margin: 3px 0;
+  color: #555;
+}
+
+.match-info .canal {
+  color: #888;
+  font-weight: bold;
+}
+
+.teams-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.team-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.team-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.team-info img {
+  height: 60px;
+  width: 48px;
+  object-fit: contain;
+}
+
+.team-name-chaves {
+  font-size: 16px;
+  font-weight: bold;
+  color: #222;
+}
+
+.team-name {
+  font-size: 16px;
+  font-weight: normal;
+  color: #222;
+}
+
+.score {
+  font-size: 22px;
+  font-weight: bold;
+  color: #111;
+  min-width: 24px;
+  text-align: right;
+}
+
+.match-action a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s ease;
+}
+
+.match-action a span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.match-action a:hover span {
+  transform: translateX(5px);
+}
+
+.tabela-classificacao {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.text-section h2 {
+  font-size: 28px;
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+
+.tabela-classificacao thead {
+  background-color: #111;
+  color: white;
+}
+
+.tabela-classificacao th, .tabela-classificacao td {
+  padding: 10px 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabela-classificacao td:nth-child(2) {
+  text-align: left;
+  padding-left: 16px;
+}
+
+.clube-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 24px;
+  width: 24px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.clube-wrapper span {
+  margin-left: 10px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.tabela-classificacao td:first-child {
+  width: 50px;
+  font-weight: bold;
+}
+
+.tabela-classificacao tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tabela-classificacao .logo {
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.tabela-classificacao td:nth-child(2) {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 16px;
+}
+
+.tabela-classificacao .destaque-chaves {
+  font-weight: bold;
+}
+
+
+.tabela-classificacao .top3 {
+  border-top: 2px solid blue;
+  border-bottom: 2px solid blue;
+}
+
+.tabela-classificacao .descida {
+  border-top: 2px solid red;
+  border-bottom: 2px solid red;
+}
