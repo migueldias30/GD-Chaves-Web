@@ -1,88 +1,174 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #0025e2;
-    color: white;
-    text-align: center;
-  }
+.match-section {
+  background-color: #541833;
+  color: white;
+  padding: 75px;
+  margin-top: 100px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
 
-  .match-section {
-    padding: 60px 20px;
-  }
+.match-header .match-date {
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  opacity: 0.95;
+}
 
-  .match-date {
-    font-size: 14px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0.8;
-    margin-bottom: 10px;
-  }
+.match-header .competition {
+  font-size: 0.95rem;
+  opacity: 0.8;
+  text-align: center;
 
-  .competition {
-    font-size: 13px;
-    letter-spacing: 1px;
-    opacity: 0.6;
-    margin-bottom: 30px;
-  }
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
 
-  .teams {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 60px;
-    margin-bottom: 20px;
-  }
+.teams-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  margin-left: 50px;
+  margin-right: 120px;
+}
 
-  .teams img {
-    height: 90px;
-  }
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1rem;
+}
 
-  .team-name {
-    font-size: 24px;
-    font-weight: bold;
-  }
+.team img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+}
 
-  .time-box {
-    border: 2px solid white;
-    padding: 20px 40px;
-    font-size: 32px;
-    font-weight: bold;
-    margin: 20px 0;
-    display: inline-block;
-  }
+.teams-name-right{
+  font-weight: 500;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-right: 80px;
+}
 
-  .stadium {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0.7;
-    margin-top: 10px;
-  }
+.teams-name-left{
+  font-weight: 500;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-left: 80px;
+}
 
-  .btn {
-    background-color: white;
-    color: #0025e2;
-    padding: 16px 32px;
-    font-weight: bold;
-    border-radius: 5px;
-    border: none;
-    margin-top: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
+.match-time {
+  text-align: center;
+  margin: 30px 0;
+}
 
-  .btn:hover {
-    background-color: #e3bf00;
-    color: #0025e2;
-  }
+.time-box {
+  background-color: white;
+  color: #1e2444;
+  font-weight: bold;
+  padding: 14px 35px;
+  font-size: 1.6rem;
+  border-radius: 6px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  letter-spacing: 1px;
+  display: inline-block;
+}
 
-  .news-button {
-    background-color: white;
-    color: #0025e2;
-    font-weight: bold;
-    padding: 20px 40px;
-    border-radius: 40px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    margin: 50px auto 0;
-    width: fit-content;
-  }
+.stadium {
+  margin-top: 50px;
+  font-size: 18px;
+  opacity: 0.9;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.stats-comparison {
+  background-color: rgb(229, 229, 229);
+  border-radius: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px 20px;
+  margin: 40px;
+  margin-top: 50px;
+  font-family: Arial, sans-serif;
+  position: relative;
+}
+
+.stat-row {
+  position: relative;
+  margin-bottom: 35px;
+  height: 40px;
+}
+
+.stat-value.left{
+  position: absolute;
+  top: 0;
+  font-weight: bold;
+  color: #556;
+  font-size: 18px;
+  width: 50px;
+  text-align: left;
+  margin-left: 50px;
+}
+
+.stat-value.right {
+  position: absolute;
+  top: 0;
+  font-weight: bold;
+  color: #556;
+  font-size: 18px;
+  width: 50px;
+  text-align: right;
+  margin-right: 50px;
+}
+
+.stat-value.left {
+  left: 0;
+}
+
+.stat-value.right {
+  right: 0;
+}
+
+.stat-center {
+  width: 93%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.stat-label {
+  font-weight: 700;
+  font-size: 18px;
+  color: #1a2a4f;
+  margin-bottom: 8px;
+}
+
+.stat-bar-container {
+  position: relative;
+  height: 6px;
+  background-color: #dde3ee;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.stat-bar {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  border-radius: 5px;
+}
+
+.left-bar {
+  left: 0;
+  background-color: #781c39;
+}
+
+.right-bar {
+  right: 0;
+  background-color: #0033a0;
+}

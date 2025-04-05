@@ -1,12 +1,13 @@
+<!DOCTYPE html>
 <html lang="pt">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Próximo Jogo - GD Chaves</title>
-  <link rel="stylesheet" href="/Users/migueldias/Documents/ProjetoWeb/GDChaves/CSS/styles1.css">
-  <link rel="icon" type="image/png" href="/Users/migueldias/Documents/ProjetoWeb/GDChaves/Images/icon_chaves.png" />
-  <link rel="stylesheet" href="/Users/migueldias/Documents/ProjetoWeb/GDChaves/CSS/styles.css">
+  <title>GD Chaves - Informações</title>
+  <link rel="icon" type="image/png" href="../Images/icon_chaves.png" />
+  <link rel="stylesheet" href="../CSS/styles.css" />
+  <link rel="stylesheet" href="../CSS/styles1.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
 
@@ -24,14 +25,14 @@
 
     <div class="navbar">
       <a href="#" id="logo-link">
-        <img src="/Users/migueldias/Documents/ProjetoWeb/GDChaves/Images/logo_chaves.png" alt="Logo do Chaves"
-          class="logo" style="height: 85px; width: 65px;" />
+        <img src="../Images/logo_chaves.png" alt="Logo do Chaves" class="logo" style="height: 87px; width: auto;" />
       </a>
 
       <nav class="main-nav">
         <a href="#">Equipa</a>
         <a href="#">Bilhetes</a>
         <a href="#">Loja</a>
+        <a href="#">História</a>
       </nav>
 
       <div class="icon-buttons">
@@ -43,30 +44,113 @@
   </header>
 
   <div class="match-section">
-    <div class="match-date">Dom 06 Abr 2025</div>
-    <div class="competition">Liga Portugal 2</div>
-
-    <div class="teams">
-      <div>
-        <div class="team-name">Brentford</div>
-        <img src="brentford_logo.png" alt="Brentford" />
-      </div>
-
-      <div>
-        <div class="time-box">14:00</div>
-      </div>
-
-      <div>
-        <img src="chelsea_logo.png" alt="Chelsea" />
-        <div class="team-name">Chelsea</div>
-      </div>
+    <div class="match-header">
+      <div class="match-date">DOM 05 ABR 2025</div>
+      <div class="competition">LIGA PORTUGAL 2 MEU SUPER</div>
     </div>
+  
+    <div class="teams-row">
+      <div class="teams-name-left">GD Chaves</div>
+      <div class="team">
+        <img src="../Images/logo_chaves.png" alt="Brentford" />
+      </div>
 
-    <div class="stadium">GTECH COMMUNITY STADIUM</div>
-
-    <button class="btn">Tickets →</button>
-
-    <div class="news-button">MATCH NEWS</div>
+      <div class="match-time">
+        <div class="time-box">18:00</div>
+      </div>
+      
+      <div class="team">
+        <img src="../Images/logo_vizela.png" alt="Chelsea" />
+      </div>
+      <div class="teams-name-right">Vizela</div>
+    </div>
   </div>
+
+  <div class="stats-comparison">
+    <div class="stat-row">
+      <div class="stat-value left">3</div>
+      <div class="stat-center">
+        <div class="stat-label">VITÓRIAS</div>
+        <div class="stat-bar-container">
+          <div class="stat-bar left-bar" style="width: 100%;"></div>
+          <div class="stat-bar right-bar" style="width: 0%;"></div>
+        </div>
+      </div>
+      <div class="stat-value right">0</div>
+    </div>
+  
+    <div class="stat-row">
+      <div class="stat-value left">2</div>
+      <div class="stat-center">
+        <div class="stat-label">EMPATES</div>
+        <div class="stat-bar-container">
+          <div class="stat-bar left-bar" style="width: 66%;"></div>
+          <div class="stat-bar right-bar" style="width: 66%;"></div>
+        </div>
+      </div>
+      <div class="stat-value right">2</div>
+    </div>
+  
+    <div class="stat-row">
+      <div class="stat-value left">0</div>
+      <div class="stat-center">
+        <div class="stat-label">DERROTAS</div>
+        <div class="stat-bar-container">
+          <div class="stat-bar left-bar" style="width: 0%;"></div>
+          <div class="stat-bar right-bar" style="width: 100%;"></div>
+        </div>
+      </div>
+      <div class="stat-value right">3</div>
+    </div>
+  
+    <div class="stat-row">
+      <div class="stat-value left">1.20</div>
+      <div class="stat-center">
+        <div class="stat-label">GOLOS MARCADOS POR JOGO</div>
+        <div class="stat-bar-container">
+          <div class="stat-bar left-bar" style="width: 90%;"></div>
+          <div class="stat-bar right-bar" style="width: 45%;"></div>
+        </div>
+      </div>
+      <div class="stat-value right">0.60</div>
+    </div>
+  
+    <div class="stat-row">
+      <div class="stat-value left">0.60</div>
+      <div class="stat-center">
+        <div class="stat-label">GOLOS SOFRIDOS POR JOGO</div>
+        <div class="stat-bar-container">
+          <div class="stat-bar left-bar" style="width: 45%;"></div>
+          <div class="stat-bar right-bar" style="width: 90%;"></div>
+        </div>
+      </div>
+      <div class="stat-value right">1.20</div>
+    </div>
+  
+    <div class="stat-row">
+      <div class="stat-value left">6</div>
+      <div class="stat-center">
+        <div class="stat-label">GOLOS</div>
+        <div class="stat-bar-container">
+          <div class="stat-bar left-bar" style="width: 100%;"></div>
+          <div class="stat-bar right-bar" style="width: 50%;"></div>
+        </div>
+      </div>
+      <div class="stat-value right">3</div>
+    </div>
+  </div>
+  
+  
+  
+  
+
+  <script>
+    document.getElementById("logo-link").addEventListener("click", function (e) {
+      e.preventDefault(
+      ); // Evita comportamento padrão (se necessário)
+      window.location.href = "../../Index.html"; // Vai para a página principal
+    });
+
+  </script>
 
 </body>
