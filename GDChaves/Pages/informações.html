@@ -1,0 +1,56 @@
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Próximo Jogo - GD Chaves</title>
+  <link rel="stylesheet" href="/Users/migueldias/Documents/ProjetoWeb/GDChaves/CSS/styles1.css">
+</head>
+<body>
+    <div id="header"></div>
+  <div class="match-section">
+    <div class="match-date">Dom 06 Abr 2025</div>
+    <div class="competition">Liga Portugal 2</div>
+
+    <div class="teams">
+      <div>
+        <div class="team-name">Brentford</div>
+        <img src="brentford_logo.png" alt="Brentford" />
+      </div>
+
+      <div>
+        <div class="time-box">14:00</div>
+      </div>
+
+      <div>
+        <img src="chelsea_logo.png" alt="Chelsea" />
+        <div class="team-name">Chelsea</div>
+      </div>
+    </div>
+
+    <div class="stadium">GTECH COMMUNITY STADIUM</div>
+
+    <button class="btn">Tickets →</button>
+
+    <div class="news-button">MATCH NEWS</div>
+  </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      fetch('../header.html')  // AJUSTA O CAMINHO SE NECESSÁRIO
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("header-placeholder").innerHTML = data;
+  
+          // Reativa scroll suave ao clicar no logo
+          const logo = document.querySelector("#logo-link");
+          if (logo) {
+            logo.addEventListener("click", function (e) {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+          }
+        });
+    });
+  </script>
+  
+</body>

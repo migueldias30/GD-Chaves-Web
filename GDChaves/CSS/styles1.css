@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0025e2;
+    color: white;
+    text-align: center;
+  }
+
+  .match-section {
+    padding: 60px 20px;
+  }
+
+  .match-date {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+    margin-bottom: 10px;
+  }
+
+  .competition {
+    font-size: 13px;
+    letter-spacing: 1px;
+    opacity: 0.6;
+    margin-bottom: 30px;
+  }
+
+  .teams {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 20px;
+  }
+
+  .teams img {
+    height: 90px;
+  }
+
+  .team-name {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .time-box {
+    border: 2px solid white;
+    padding: 20px 40px;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 20px 0;
+    display: inline-block;
+  }
+
+  .stadium {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    margin-top: 10px;
+  }
+
+  .btn {
+    background-color: white;
+    color: #0025e2;
+    padding: 16px 32px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn:hover {
+    background-color: #e3bf00;
+    color: #0025e2;
+  }
+
+  .news-button {
+    background-color: white;
+    color: #0025e2;
+    font-weight: bold;
+    padding: 20px 40px;
+    border-radius: 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    margin: 50px auto 0;
+    width: fit-content;
+  }
