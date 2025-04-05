@@ -33,24 +33,5 @@
 
     <div class="news-button">MATCH NEWS</div>
   </div>
-
-  <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      fetch('../header.html')  // AJUSTA O CAMINHO SE NECESSÁRIO
-        .then(res => res.text())
-        .then(data => {
-          document.getElementById("header-placeholder").innerHTML = data;
-  
-          // Reativa scroll suave ao clicar no logo
-          const logo = document.querySelector("#logo-link");
-          if (logo) {
-            logo.addEventListener("click", function (e) {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            });
-          }
-        });
-    });
-  </script>
   
 </body>
