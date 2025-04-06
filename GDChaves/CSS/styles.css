@@ -61,6 +61,13 @@ header {
   height: 100%;
 }
 
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+
 .icon-buttons {
   display: flex;
   align-items: center; /* NOVO: centra ícones verticalmente */
