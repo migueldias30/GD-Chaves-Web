@@ -1,0 +1,48 @@
+.text-section {
+    margin-top: 140px;
+    font-size: 1.2rem;
+    color: #1a2a4f;
+}
+
+.tabela-classificacao{
+    margin-bottom: 30px;
+}
+.tabela-classificacao tr.destaque-chaves {
+    background-color: #f0f4ff;
+    font-weight: bold;
+    color: #1e2444;
+  }
+  
+  .tabela-classificacao tr.descida {
+    background-color: #fabbc1;
+  }
+  
+  .tabela-classificacao tr.descida-playoff {
+    background-color: #f8d7da;
+  }
+  
+  .forma {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .bolinha {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  
+  .bolinha.vitoria {
+    background-color: #28a745;
+  }
+  
+  .bolinha.empate {
+    background-color: #ffc107;
+  }
+  
+  .bolinha.derrota {
+    background-color: #dc3545;
+  }

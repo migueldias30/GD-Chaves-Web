@@ -8,6 +8,7 @@
     <link rel="icon" type="image/png" href="GDChaves/Images/icon_chaves.png" />
     <link rel="stylesheet" href="GDChaves/CSS/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -28,17 +29,53 @@
                     style="height: 87px; width: auto;" />
             </a>
 
-            <nav class="main-nav">
-                <a href="#">Equipa</a>
+            <div class="main-nav">
+                <div class="dropdown">
+                    <button class="dropbtn">Equipa</button>
+                    <div class="dropdown-content">
+                        <div class="dropdown-row">
+                            <div class="column">
+                                <a href="">Jogadores <span>›</span></a>
+                                <a href="">Calendário <span>›</span></a>
+                                <a href="GDChaves/Pages/Classificação.html">Classificação <span>›</span></a>
+                            </div>
+                            <div class="next-match">
+                                <p class="title">PRÓXIMO JOGO</p>
+                                <div class="match-details">
+                                    <p class="date">DOM 5 ABR, 18h00</p>
+                                    <p class="competition">LIGA PORTUGAL 2 MEU SUPER<br>24/25</p>
+                                </div>
+                                <div class="team-info-row">
+                                    <img src="GDChaves/Images/logo_chaves.png" alt="Logo GD Chaves" />
+                                    <div class="time-box">18:00</div>
+                                    <div class="team-right">
+                                        <img src="GDChaves/Images/logo_vizela.png" alt="Logo Vizela" />
+                                    </div>
+                                </div>
+                                <a href="GDChaves/Pages/informacoes.html" class="match-centre">INFORMAÇÕES</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <a href="#">Bilhetes</a>
                 <a href="#">Loja</a>
-                <a href="#">Clube</a>
-            </nav>
+                <div class="dropdown">
+                    <button class="dropbtn">Equipa
+                    </button>
+                    <div class="dropdown-content">
+                        <div class="column">
+                            <a href="">História <span>›</span></a>
+                            <a href="">Estrutura <span>›</span></a>
+                            <a href="">Palmarés <span>›</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="icon-buttons">
                 <button><span class="material-symbols-outlined">search</span></button>
                 <button><span class="material-symbols-outlined">person</span></button>
-                <button><span class="material-symbols-outlined">menu</span></button>
             </div>
         </div>
     </header>
@@ -59,7 +96,7 @@
 
             <div class="carousel-slide kits-slide">
 
-                <a href="GDChaves/Pages/equipamentos.html" class="kit-item">
+                <a href="GDChaves/Pages/equipamentoprincipal.html" class="kit-item">
                     <div class="kits-container">
                         <img src="GDChaves/Images/equipamento_principal.png" alt="Equipamento Principal">
                         <div class="kit-info">
@@ -71,7 +108,7 @@
                     </div>
                 </a>
 
-                <a href="GDChaves/Pages/equipamentos.html" class="kit-item">
+                <a href="GDChaves/Pages/equipamentoalternativo.html" class="kit-item">
                     <div class="kits-container">
                         <img src="GDChaves/Images/equipamento_alternativo.png" alt="Equipamento Alternativo">
                         <div class="kit-info">
@@ -83,7 +120,7 @@
                     </div>
                 </a>
 
-                <a class="kit-item">
+                <a href="GDChaves/Pages/terceiroequipamento.html" class="kit-item">
                     <div class="kits-container">
                         <img src="GDChaves/Images/terceiro_equipamento.png?" alt="Terceiro Equipamento">
                         <div class="kit-info">
@@ -201,476 +238,130 @@
         </div>
     </div>
 
-    <div class="text-section">
-        <h2>Classificação Liga Portugal 2 Meu Super | 24/25</h2>
-        <table class="tabela-classificacao">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th>JOGOS</th>
-                    <th>V</th>
-                    <th>E</th>
-                    <th>D</th>
-                    <th>PONTOS</th>
-                    <th>FORMA</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>
-                        <div class="clube-wrapper">
-                            <div class="logo-box">
-                                <img src="GDChaves/Images/logo_tondela.png" alt="CD Tondela" class="logo">
-                            </div>
-                            <span>CD Tondela</span>
-                        </div>
-                    </td>
-                    <td>27</td>
-                    <td>13</td>
-                    <td>12</td>
-                    <td>2</td>
-                    <td>51</td>
-                    <td>
-                        <div class="forma">
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha empate"></span>
-                            <span class="bolinha empate"></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>
-                        <div class="clube-wrapper">
-                            <div class="logo-box">
-                                <img src="GDChaves/Images/logo_vizela.png" alt="Vizela" class="logo">
-                            </div>
-                            <span>Vizela</span>
-                        </div>
-                    </td>
-                    <td>27</td>
-                    <td>13</td>
-                    <td>8</td>
-                    <td>6</td>
-                    <td>47</td>
-                    <td>
-                        <div class="forma">
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha vitoria"></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>
-                        <div class="clube-wrapper">
-                            <div class="logo-box">
-                                <img src="GDChaves/Images/logo_alverca.png" alt="FC Alverca" class="logo">
-                            </div>
-                            <span>FC Alverca</span>
-                        </div>
-                    </td>
-                    <td>27</td>
-                    <td>12</td>
-                    <td>10</td>
-                    <td>5</td>
-                    <td>46</td>
-                    <td>
-                        <div class="forma">
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha empate"></span>
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha empate"></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="destaque-chaves">
-                    <td>4</td>
-                    <td>
-                        <div class="clube-wrapper">
-                            <div class="logo-box">
-                                <img src="GDChaves/Images/logo_chaves.png" alt="GD Chaves" class="logo">
-                            </div>
-                            <span>GD Chaves</span>
-                        </div>
-                    </td>
-                    <td>27</td>
-                    <td>12</td>
-                    <td>8</td>
-                    <td>7</td>
-                    <td>44</td>
-                    <td>
-                        <div class="forma">
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha vitoria"></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>
-                        <div class="clube-wrapper">
-                            <div class="logo-box">
-                                <img src="GDChaves/Images/logo_leiria.png" alt="UD Leiria" class="logo">
-                            </div>
-                            <span>UD Leiria</span>
-                        </div>
-                    </td>
-                    <td>27</td>
-                    <td>12</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>43</td>
-                    <td>
-                        <div class="forma">
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha empate"></span>
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha vitoria"></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>
-                        <div class="clube-wrapper">
-                            <div class="logo-box">
-                                <img src="GDChaves/Images/logo_benficab.png" alt="Benfica B" class="logo">
-                            </div>
-                            <span>Benfica B</span>
-                        </div>
-                    </td>
-                    <td>27</td>
-                    <td>12</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>43</td>
-                    <td>
-                        <div class="forma">
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha empate"></span>
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha empate"></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>
-                        <div class="clube-wrapper">
-                            <div class="logo-box">
-                                <img src="GDChaves/Images/logo_penafiel.png" alt="Penafiel" class="logo">
-                            </div>
-                            <span>Penafiel</span>
-                        </div>
-                    </td>
-                    <td>27</td>
-                    <td>12</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>43</td>
-                    <td>
-                        <div class="forma">
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha vitoria"></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>
-                        <div class="clube-wrapper">
-                            <div class="logo-box">
-                                <img src="GDChaves/Images/logo_torreense.png" alt="Torreense" class="logo">
-                            </div>
-                            <span>Torreense</span>
-                        </div>
-                    </td>
-                    <td>27</td>
-                    <td>11</td>
-                    <td>7</td>
-                    <td>9</td>
-                    <td>40</td>
-                    <td>
-                        <div class="forma">
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha empate"></span>
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha empate"></span>
-                            <span class="bolinha derrota"></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>
-                        <div class="clube-wrapper">
-                            <div class="logo-box">
-                                <img src="GDChaves/Images/logo_feirense.png" alt="Feirense" class="logo">
-                            </div>
-                            <span>Feirense</span>
-                        </div>
-                    </td>
-                    <td>27</td>
-                    <td>10</td>
-                    <td>9</td>
-                    <td>8</td>
-                    <td>39</td>
-                    <td>
-                        <div class="forma">
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha vitoria"></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>
-                        <div class="clube-wrapper">
-                            <div class="logo-box">
-                                <img src="GDChaves/Images/logo_academico_viseu.png" alt="Académico de Viseu"
-                                    class="logo">
-                            </div>
-                            <span>Académico de Viseu</span>
-                        </div>
-                    </td>
-                    <td>27</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>8</td>
-                    <td>37</td>
-                    <td>
-                        <div class="forma">
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha empate"></span>
-                            <span class="bolinha empate"></span>
-                            <span class="bolinha empate"></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>11</td>
-                    <td>
-                        <div class="clube-wrapper">
-                            <div class="logo-box">
-                                <img src="GDChaves/Images/logo_maritimo.png" alt="CS Marítimo" class="logo">
-                            </div>
-                            <span>CS Marítimo</span>
-                        </div>
-                    </td>
-                    <td>27</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>33</td>
-                    <td>
-                        <div class="forma">
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha empate"></span>
-                            <span class="bolinha empate"></span>
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha derrota"></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>
-                        <div class="clube-wrapper">
-                            <div class="logo-box">
-                                <img src="GDChaves/Images/logo_felgueiras.png" alt="FC Felgueiras" class="logo">
-                            </div>
-                            <span>FC Felgueiras</span>
-                        </div>
-                    </td>
-                    <td>27</td>
-                    <td>7</td>
-                    <td>10</td>
-                    <td>10</td>
-                    <td>31</td>
-                    <td>
-                        <div class="forma">
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha empate"></span>
-                            <span class="bolinha empate"></span>
-                            <span class="bolinha empate"></span>
-                            <span class="bolinha vitoria"></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>13</td>
-                    <td>
-                        <div class="clube-wrapper">
-                            <div class="logo-box">
-                                <img src="GDChaves/Images/logo_leixoes.png" alt="Leixões" class="logo">
-                            </div>
-                            <span>Leixões</span>
-                        </div>
-                    </td>
-                    <td>27</td>
-                    <td>7</td>
-                    <td>9</td>
-                    <td>11</td>
-                    <td>30</td>
-                    <td>
-                        <div class="forma">
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha empate"></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>14</td>
-                    <td>
-                        <div class="clube-wrapper">
-                            <div class="logo-box">
-                                <img src="GDChaves/Images/logo_portimonense.png" alt="Portimonense" class="logo">
-                            </div>
-                            <span>Portimonense</span>
-                        </div>
-                    </td>
-                    <td>27</td>
-                    <td>8</td>
-                    <td>6</td>
-                    <td>13</td>
-                    <td>30</td>
-                    <td>
-                        <div class="forma">
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha empate"></span>
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha derrota"></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>15</td>
-                    <td>
-                        <div class="clube-wrapper">
-                            <div class="logo-box">
-                                <img src="GDChaves/Images/logo_pacosdeferreira.png" alt="Paços de Ferreira"
-                                    class="logo">
-                            </div>
-                            <span>Paços de Ferreira</span>
-                        </div>
-                    </td>
-                    <td>27</td>
-                    <td>8</td>
-                    <td>6</td>
-                    <td>13</td>
-                    <td>30</td>
-                    <td>
-                        <div class="forma">
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha empate"></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="descida-playoff">
-                    <td>17</td>
-                    <td>
-                        <div class="clube-wrapper">
-                            <div class="logo-box">
-                                <img src="GDChaves/Images/logo_portob.png" alt="Porto B" class="logo">
-                            </div>
-                            <span>Porto B</span>
-                        </div>
-                    </td>
-                    <td>27</td>
-                    <td>5</td>
-                    <td>10</td>
-                    <td>12</td>
-                    <td>25</td>
-                    <td>
-                        <div class="forma">
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha empate"></span>
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha derrota"></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="descida">
-                    <td>17</td>
-                    <td>
-                        <div class="clube-wrapper">
-                            <div class="logo-box">
-                                <img src="GDChaves/Images/logo_mafra.png" alt="Mafra" class="logo">
-                            </div>
-                            <span>Mafra</span>
-                        </div>
-                    </td>
-                    <td>27</td>
-                    <td>4</td>
-                    <td>9</td>
-                    <td>14</td>
-                    <td>21</td>
-                    <td>
-                        <div class="forma">
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha empate"></span>
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha derrota"></span>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="descida">
-                    <td>18</td>
-                    <td>
-                        <div class="clube-wrapper">
-                            <div class="logo-box">
-                                <img src="GDChaves/Images/logo_oliveirense.png" alt="Oliveirense" class="logo">
-                            </div>
-                            <span>Oliveirense</span>
-                        </div>
-                    </td>
-                    <td>27</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>16</td>
-                    <td>21</td>
-                    <td>
-                        <div class="forma">
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha derrota"></span>
-                            <span class="bolinha vitoria"></span>
-                            <span class="bolinha derrota"></span>
-                        </div>
-                    </td>
-            </tbody>
-        </table>
+    <div class="sponsors-section">
+        <div class="main-sponsor">
+            <a href="https://www.espacial.pt/" target="_blank">
+                <img src="GDChaves/Images/espacial_musica.png" data-color="GDChaves/Images/espacial_musica.png"
+                    alt="Espacial Musica">
+            </a>
+            <a href="https://www.chaves.pt/" target="_blank">
+                <img src="GDChaves/Images/municipio_de_chaves.png" data-color="GDChaves/Images/municipio_de_chaves.png"
+                    alt="Municipio de Chaves">
+            </a>
+        </div>
+
+        <div class="sponsors-grid">
+            <a href="https://cm-vpaguiar.pt/" target="_blank">
+                <img src="GDChaves/Images/municipio_de_vilapouca.png"
+                    data-color="GDChaves/Images/municipio_de_vilapouca.png" alt="Municipio de Vila Pouca">
+            </a>
+            <a href="https://marilina.pt/" target="_blank">
+                <img src="GDChaves/Images/mariliana.png" data-color="GDChaves/Images/mariliana.png" alt="Mariliana">
+            </a>
+            <a href="https://meltino.com/" target="_blank">
+                <img src="GDChaves/Images/meltino.png" data-color="GDChaves/Images/meltino.png" alt="Meltino">
+            </a>
+            <a href="https://www.premiumchaves.com/" target="_blank">
+                <img src="GDChaves/Images/premium_chaves.png" data-color="GDChaves/Images/premium_chaves.png"
+                    alt="Premium Chaves">
+            </a>
+            <a href="https://naturwaterpark.pt/inicio" target="_blank">
+                <img src="GDChaves/Images/nature_waterpark.png" data-color="GDChaves/Images/nature_waterpark.png"
+                    alt="Nature Waterpark">
+            </a>
+            <a href="https://www.cervejaquinas.com/" target="_blank">
+                <img src="GDChaves/Images/quinas.png" data-color="GDChaves/Images/quinas.png" alt="Quinas">
+            </a>
+            <a href="https://www.qviagem.com/" target="_blank">
+                <img src="GDChaves/Images/qviagem.png" data-color="GDChaves/Images/qviagem.png" alt="Q Viagem">
+            </a>
+            <a href="https://www.pixellight.pt/" target="_blank">
+                <img src="GDChaves/Images/pixel_light.png" data-color="GDChaves/Images/pixel_light.png"
+                    alt="Pixel Light">
+            </a>
+            <a href="https://reconco.pt/" target="_blank">
+                <img src="GDChaves/Images/reconco.png" data-color="GDChaves/Images/reconco.png" alt="Reconco">
+            </a>
+            <a href="https://www.facebook.com/TrazmusicaEspectaculos/" target="_blank">
+                <img src="GDChaves/Images/tras_musica.png" data-color="GDChaves/Images/tras_musica.png"
+                    alt="Traz Música">
+            </a>
+            <a href="https://www.mcoutinho.pt/" target="_blank">
+                <img src="GDChaves/Images/mcoutinho.png" data-color="GDChaves/Images/mcoutinho.png" alt="MCoutinho">
+            </a>
+            <a href="https://www.underblue.net/" target="_blank">
+                <img src="GDChaves/Images/under_blue.png" data-color="GDChaves/Images/under_blue.png" alt="Under Blue">
+            </a>
+            <a href="https://www.fortesaofrancisco.com/pt/index.html" target="_blank">
+                <img src="GDChaves/Images/forte_sfrancisco.png" data-color="GDChaves/Images/forte_sfrancisco.png"
+                    alt="Forte de S. Francisco">
+            </a>
+            <a href="https://www.fercarvalho.pt/" target="_blank">
+                <img src="GDChaves/Images/fercarvalho.png" data-color="GDChaves/Images/fercarvalho.png"
+                    alt="FerCarvalho">
+            </a>
+            <a href="https://ecocozinhas.pt/www/" target="_blank">
+                <img src="GDChaves/Images/ecocozinhas.png" data-color="GDChaves/Images/ecocozinhas.png"
+                    alt="EcoCozinhas">
+            </a>
+            <a href="https://www.anteros.pt/" target="_blank">
+                <img src="GDChaves/Images/anteros.png" data-color="GDChaves/Images/anteros.png" alt="Anteros">
+            </a>
+            <a href="https://lacatoni.com/" target="_blank">
+                <img src="GDChaves/Images/lacatoni.png" data-color="GDChaves/Images/lacatoni.png" alt="Lacatoni">
+            </a>
+        </div>
     </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="GDChaves/Images/logo_chaves.png" alt="GD Chaves">
+            </div>
+
+            <div class="footer-section">
+                <h3>Contactos</h3>
+                <h4>Morada:</h4>
+                <p><a href="#">Estádio Municipal Engº Manuel Branco Teixeira;<br>
+                        Av. do Estádio Municipal;<br>
+                        5400-234 Chaves</a></p>
+                <h4>Telemóvel:</h4>
+                <p><a href="tel:+351968382311"> +351 968 382 311</a></p>
+                <h4>Email:</h4>
+                <p><a href="mailto:geral@gdchaves.pt">geral@gdchaves.pt</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Menu</h3>
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Equipa</a></li>
+                    <li><a href="#">Bilhetes</a></li>
+                    <li><a href="#">Loja</a></li>
+                    <li><a href="#">Clube</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Políticas</h3>
+                <ul>
+                    <li><a href="#">Termos e Condições</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                </ul>
+
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/GDChaves/" target="_blank"><i class="fa fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/grupo_desportivo_chaves/?hl=en" target="_blank"><i
+                            class="fa fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@GDChaves1949" target="_blank"><i class="fa fa-youtube"></i></a>
+                    <a href="https://x.com/gdchaves1949" target="_blank"><i class="fa fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 
     <script>
         let currentSlide = 0;
@@ -698,6 +389,20 @@
                 behavior: "smooth"
             });
         });
+
+        document.querySelectorAll('.sponsors-grid img').forEach(img => {
+            const original = img.src;
+            const color = img.getAttribute('data-color');
+
+            img.addEventListener('mouseenter', () => {
+                img.src = color;
+            });
+
+            img.addEventListener('mouseleave', () => {
+                img.src = original;
+            });
+        });
+
     </script>
 
 

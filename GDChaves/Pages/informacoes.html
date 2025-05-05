@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="../CSS/styles.css" />
   <link rel="stylesheet" href="../CSS/styles1.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 
 <body>
@@ -25,24 +27,60 @@
 
     <div class="navbar">
       <a href="#" id="logo-link">
-        <img src="../Images/logo_chaves.png" alt="Logo do Chaves" class="logo" style="height: 87px; width: auto;" />
+        <img src="../Images/logo_chaves.png" alt="Logo do Chaves" class="logo"
+          style="height: 87px; width: auto;" />
       </a>
 
-      <nav class="main-nav">
-        <a href="#">Equipa</a>
+      <div class="main-nav">
+        <div class="dropdown">
+          <button class="dropbtn">Equipa</button>
+          <div class="dropdown-content">
+            <div class="dropdown-row">
+              <div class="column">
+                <a href="">Jogadores <span>›</span></a>
+                <a href="">Calendário <span>›</span></a>
+                <a href="../Pages/Classificação.html">Classificação <span>›</span></a>
+              </div>
+              <div class="next-match">
+                <p class="title">PRÓXIMO JOGO</p>
+                <div class="match-details">
+                  <p class="date">DOM 5 ABR, 18h00</p>
+                  <p class="competition">LIGA PORTUGAL 2 MEU SUPER<br>24/25</p>
+                </div>
+                <div class="team-info-row">
+                  <img src="../Images/logo_chaves.png" alt="Logo GD Chaves" />
+                  <div class="time-box">18:00</div>
+                  <div class="team-right">
+                    <img src="../Images/logo_vizela.png" alt="Logo Vizela" />
+                  </div>
+                </div>
+                <a href="../Pages/informacoes.html" class="match-centre">INFORMAÇÕES</a>
+              </div>
+            </div>
+          </div>
+        </div>
         <a href="#">Bilhetes</a>
         <a href="#">Loja</a>
-        <a href="#">História</a>
-      </nav>
+        <div class="dropdown">
+          <button class="dropbtn">Equipa
+          </button>
+          <div class="dropdown-content">
+            <div class="column">
+              <a href="">História <span>›</span></a>
+              <a href="">Estrutura <span>›</span></a>
+              <a href="">Palmarés <span>›</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
       <div class="icon-buttons">
         <button><span class="material-symbols-outlined">search</span></button>
         <button><span class="material-symbols-outlined">person</span></button>
-        <button><span class="material-symbols-outlined">menu</span></button>
       </div>
     </div>
   </header>
-
   <div class="match-section">
     <div class="match-header">
       <div class="match-date">DOM 05 ABR 2025</div>
@@ -181,12 +219,59 @@
         </div>
       </div>
     </div>
-    
+
     <div class="stadium-info">
       <img src="../Images/estadio_chaves.png" alt="Estádio Municipal Eng. Manuel Branco Teixeira" class="stadium-image">
       <p class="stadium-name">Estádio Municipal Eng. Manuel Branco Teixeira</p>
     </div>
   </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+        <div class="footer-logo">
+            <img src="../Images/logo_chaves.png" alt="GD Chaves">
+        </div>
+
+        <div class="footer-section">
+            <h3>Contactos</h3>
+            <h4>Morada:</h4>
+            <p><a href="#">Estádio Municipal Engº Manuel Branco Teixeira;<br>
+                    Av. do Estádio Municipal;<br>
+                    5400-234 Chaves</a></p>
+            <h4>Telemóvel:</h4>
+            <p><a href="tel:+351968382311"> +351 968 382 311</a></p>
+            <h4>Email:</h4>
+            <p><a href="mailto:geral@gdchaves.pt">geral@gdchaves.pt</a></p>
+        </div>
+
+        <div class="footer-section">
+            <h3>Menu</h3>
+            <ul>
+                <li><a href="#">Início</a></li>
+                <li><a href="#">Equipa</a></li>
+                <li><a href="#">Bilhetes</a></li>
+                <li><a href="#">Loja</a></li>
+                <li><a href="#">Clube</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Políticas</h3>
+            <ul>
+                <li><a href="#">Termos e Condições</a></li>
+                <li><a href="#">Política de Privacidade</a></li>
+            </ul>
+
+            <div class="social-icons">
+                <a href="https://www.facebook.com/GDChaves/" target="_blank"><i class="fa fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/grupo_desportivo_chaves/?hl=en" target="_blank"><i
+                        class="fa fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@GDChaves1949" target="_blank"><i class="fa fa-youtube"></i></a>
+                <a href="https://x.com/gdchaves1949" target="_blank"><i class="fa fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
 
 
   <script>
@@ -195,7 +280,6 @@
       ); // Evita comportamento padrão (se necessário)
       window.location.href = "../../Index.html"; // Vai para a página principal
     });
-
   </script>
 
 </body>
