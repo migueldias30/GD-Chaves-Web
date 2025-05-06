@@ -77,7 +77,6 @@ header {
   overflow: hidden;
 }
 
-/* Dropdown button */
 .dropdown .dropbtn {
   color: white;
   text-decoration: none;
@@ -109,12 +108,10 @@ header {
 
 }
 
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* Create three equal columns that floats next to each other */
 .column {
   width: 100%;
   float: none;
@@ -123,7 +120,6 @@ header {
   padding-bottom: 60px;
 }
 
-/* Style links inside the columns */
 .dropdown-content .column a {
   font-size: 25px;
   font-weight: bold;
@@ -134,7 +130,6 @@ header {
   text-align: left;
 }
 
-/* Add a background color on hover */
 .column a:hover {
   color: #f1c40f;
 }

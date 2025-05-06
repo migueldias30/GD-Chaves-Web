@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    margin-top: 170px;
+}
+
+h2 {
+    font-size: 32px;
+    padding-left: 20px;
+    margin-top: 40px;
+}
+
+.jogadores {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 370px));
+    margin-bottom: 60px;
+    padding: 0 12px;
+}
+
+.jogadores-guarda-redes {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 370px));
+    margin-bottom: 60px;
+    padding-left: 12px;
+    max-width: 75%;
+}
+
+.jogador {
+    text-align: center;
+}
+
+.jogador a {
+    display: inline-block;
+    background-color: transparent;
+    transition: background-color 0.5s ease;
+}
+
+.jogador a:hover {
+    background-color: #1e2444;
+}
+
+.jogador img {
+    width: 300px;
+    height: auto;
+    display: block;
+}
+
+.info-jogador {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.numero {
+    font-size: 60px;
+    font-weight: bold;
+    color: #ccc;
+    min-width: 60px;
+}
+
+.detalhes {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
+}
+
+.nome {
+    font-size: 30px;
+    margin: 0;
+    color: #1e2444;
+}
+
+.posicao {
+    font-size: 17px;
+    color: #777;
+    margin: 0;
+}
