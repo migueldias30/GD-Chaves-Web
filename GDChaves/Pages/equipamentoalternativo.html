@@ -15,76 +15,8 @@
 </head>
 
 <body>
-    <header>
-        <div class="top-bar">
-            <div class="top-links-left">
-                <a href="#">Estádio</a>
-            </div>
-            <div class="top-links-right">
-                <a href="#">Login</a>
-                <a href="#">Registar</a>
-            </div>
-        </div>
+    <header></header>
 
-        <div class="navbar">
-            <a href="#" id="logo-link">
-                <img src="../Images/logo_chaves.png" alt="Logo do Chaves" class="logo"
-                    style="height: 87px; width: auto;" />
-            </a>
-
-            <div class="main-nav">
-                <div class="dropdown">
-                    <button class="dropbtn">Equipa</button>
-                    <div class="dropdown-content">
-                        <div class="dropdown-row">
-                            <div class="column">
-                                <a href="../Pages/jogadores.html">Jogadores <span>›</span></a>
-                                <a href="">Calendário <span>›</span></a>
-                                <a href="../Pages/classificação.html">Classificação <span>›</span></a>
-                            </div>
-                            <div class="next-match">
-                                <p class="title">PRÓXIMO JOGO</p>
-                                <div class="match-details">
-                                    <p class="date">DOM 5 ABR, 18h00</p>
-                                    <p class="competition">LIGA PORTUGAL 2 MEU SUPER<br>24/25</p>
-                                </div>
-                                <div class="team-info-row">
-                                    <img src="../Images/logo_chaves.png" alt="Logo GD Chaves" />
-                                    <div class="time-box">18:00</div>
-                                    <div class="team-right">
-                                        <img src="../Images/logo_vizela.png" alt="Logo Vizela" />
-                                    </div>
-                                </div>
-                                <a href="../Pages/informacoes.html" class="match-centre">INFORMAÇÕES</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <a href="#">Bilhetes</a>
-                <a href="#">Loja</a>
-                <div class="dropdown">
-                    <button class="dropbtn">Clube
-                    </button>
-                    <div class="dropdown-content">
-                        <div class="column">
-                            <a href="">História <span>›</span></a>
-                            <a href="">Estrutura <span>›</span></a>
-                            <a href="">Estádio <span>›</span></a>
-                            <a href="">Palmarés <span>›</span></a>
-                            <a href="">Estatisticas <span>›</span></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="icon-buttons">
-                <button><span class="material-symbols-outlined">search</span></button>
-                <button><span class="material-symbols-outlined">person</span></button>
-            </div>
-        </div>
-    </header>
-    
     <div class="container">
         <div class="images-area">
             <div class="slider-wrapper">
@@ -93,13 +25,13 @@
                         <polyline points="15 18 9 12 15 6" />
                     </svg>
                 </button>
-        
+
                 <div class="slider" id="slider">
                     <img src="../Images/equipamento_alternativo.png" alt="Front of jersey">
                     <img src="../Images/equipamento_alternativo_back.png" alt="Back of jersey">
                     <img src="../Images/modelo_alternativo.png" alt="Model wearing jersey">
                 </div>
-        
+
                 <button class="carousel-arrow right" onclick="nextSlide()">
                     <svg viewBox="0 0 24 24">
                         <polyline points="9 6 15 12 9 18" />
@@ -107,7 +39,7 @@
                 </button>
             </div>
         </div>
-        
+
 
         <div class="details">
             <span class="tag">Equipamentos</span>
@@ -128,91 +60,48 @@
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-logo">
-                <img src="../Images/logo_chaves.png" alt="GD Chaves">
-            </div>
+    <footer class="footer"></footer>
 
-            <div class="footer-section">
-                <h3>Contactos</h3>
-                <h4>Morada:</h4>
-                <p><a href="#">Estádio Municipal Engº Manuel Branco Teixeira;<br>
-                        Av. do Estádio Municipal;<br>
-                        5400-234 Chaves</a></p>
-                <h4>Telemóvel:</h4>
-                <p><a href="tel:+351968382311"> +351 968 382 311</a></p>
-                <h4>Email:</h4>
-                <p><a href="mailto:geral@gdchaves.pt">geral@gdchaves.pt</a></p>
-            </div>
+    <script src="main.js"></script>
 
-            <div class="footer-section">
-                <h3>Menu</h3>
-                <ul>
-                    <li><a href="#">Início</a></li>
-                    <li><a href="#">Equipa</a></li>
-                    <li><a href="#">Bilhetes</a></li>
-                    <li><a href="#">Loja</a></li>
-                    <li><a href="#">Clube</a></li>
-                </ul>
-            </div>
+    <script>
+        const slider = document.getElementById('slider');
+        const slides = slider.querySelectorAll('img');
+        let currentIndex = 0;
 
-            <div class="footer-section">
-                <h3>Políticas</h3>
-                <ul>
-                    <li><a href="#">Termos e Condições</a></li>
-                    <li><a href="#">Política de Privacidade</a></li>
-                </ul>
+        function updateSlider() {
+            const width = slides[0].clientWidth;
+            slider.style.transform = `translateX(-${currentIndex * width}px)`;
+        }
 
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/GDChaves/" target="_blank"><i class="fa fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/grupo_desportivo_chaves/?hl=en" target="_blank"><i
-                            class="fa fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/@GDChaves1949" target="_blank"><i class="fa fa-youtube"></i></a>
-                    <a href="https://x.com/gdchaves1949" target="_blank"><i class="fa fa-twitter"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlider();
+        }
 
-<script>
-    const slider = document.getElementById('slider');
-    const slides = slider.querySelectorAll('img');
-    let currentIndex = 0;
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlider();
+        }
 
-    function updateSlider() {
-        const width = slides[0].clientWidth;
-        slider.style.transform = `translateX(-${currentIndex * width}px)`;
-    }
+        window.addEventListener('resize', updateSlider); // responsivo
 
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        updateSlider();
-    }
-
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        updateSlider();
-    }
-
-    window.addEventListener('resize', updateSlider); // responsivo
-
-    document.getElementById("logo-link").addEventListener("click", function (e) {
-        e.preventDefault(
-        ); // Evita comportamento padrão (se necessário)
-        window.location.href = "../../Index.html"; // Vai para a página principal
-    });
-
-    const sizeLinks = document.querySelectorAll('.sizes a');
-
-    sizeLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            sizeLinks.forEach(l => l.classList.remove('active')); // remove todos
-            link.classList.add('active'); // ativa o clicado
+        document.getElementById("logo-link").addEventListener("click", function (e) {
+            e.preventDefault(
+            ); // Evita comportamento padrão (se necessário)
+            window.location.href = "../../Index.html"; // Vai para a página principal
         });
-    });
 
-</script>
+        const sizeLinks = document.querySelectorAll('.sizes a');
+
+        sizeLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                sizeLinks.forEach(l => l.classList.remove('active')); // remove todos
+                link.classList.add('active'); // ativa o clicado
+            });
+        });
+
+    </script>
 </body>
 
 </html>
