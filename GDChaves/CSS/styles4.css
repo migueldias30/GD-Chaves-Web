@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background: #fff;
-    margin-top: 170px;
+    margin-top: 150px;
 }
 
 h2 {
@@ -13,19 +13,17 @@ h2 {
 
 .jogadores {
     display: grid;
-    justify-content: space-between;
+    justify-content: space-around;
     grid-template-columns: repeat(auto-fit, minmax(320px, 370px));
     margin-bottom: 60px;
-    padding: 0 13px;
 }
 
 .jogadores-guarda-redes {
     display: grid;
-    justify-content: space-between;
+    justify-content: space-around;
     grid-template-columns: repeat(auto-fit, minmax(320px, 370px));
     margin-bottom: 60px;
-    padding-left: 13px;
-    max-width: 75%;
+    max-width: 100%;
 }
 
 .jogador {
@@ -80,3 +78,44 @@ h2 {
     color: #777;
     margin: 0;
 }
+
+.sub-header {
+  background-color: #541833;
+  color: white;
+  padding-top: 70px;
+  padding-left: 20px;
+  text-align: left;;
+}
+
+.sub-header h1 {
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+.nav-positions {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.nav-positions button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s;
+}
+
+.nav-positions button:hover,
+.nav-positions button.active {
+  color: #ffdd00;
+}
+
+/* Remove completamente o sublinhado amarelo */
+.nav-positions button::after {
+  display: none;
+}
+

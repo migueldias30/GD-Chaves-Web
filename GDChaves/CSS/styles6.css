@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    margin-top: 150px;
+}
+
+.fixtures-section {
+    padding: 40px 20px;
+    font-family: sans-serif;
+}
+
+.fixtures-section h2 {
+    color: #1a1a40;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.fixtures-section p {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 30px;
+}
+
+.match-card {
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.match-header {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.match-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 25px 20px;
+}
+
+.team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+}
+
+.team img {
+    height: 50px;
+    margin-bottom: 5px;
+}
+
+.team span {
+    font-weight: bold;
+    color: #1a1a40;
+}
+
+.score {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1a1a40;
+    text-align: center;
+}
+
+.score small {
+    display: block;
+    font-size: 12px;
+    color: #777;
+    margin-top: 5px;
+}
+
+.match-link {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    background-color: #001f87;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-top: 1px solid #ccc;
+}
+
+.sub-header {
+  background-color: #541833;
+  color: white;
+  padding-top: 70px;
+  padding-left: 20px;
+  text-align: left;;
+}
+
+.sub-header h1 {
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+.nav-fixtures {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 20px;
+}
+
+.nav-fixtures button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s;
+}
+
+.nav-fixtures button:hover,
+.nav-fixtures button.active {
+    color: #ffdd00;
+}
