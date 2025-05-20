@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ChavesApplication<Chaves>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "ChavesWeb.Chaves.ChavesApplication",
+            "projectName": "Chaves",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
