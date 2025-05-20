@@ -696,7 +696,7 @@ header {
 
 
 .footer {
-  background-color: #1b1f39;
+  background-color: #1e2444;
   color: #ffffff;
   padding: 50px 0;
   font-family: 'Poppins', sans-serif;
@@ -704,7 +704,6 @@ header {
 }
 
 .footer-container {
-  background-color: #1b1f39;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
