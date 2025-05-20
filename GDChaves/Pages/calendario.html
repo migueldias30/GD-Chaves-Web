@@ -7,9 +7,9 @@
     <title>GD Chaves - Jogadores</title>
     <link rel="icon" type="image/png" href="../Images/icon_chaves.png" />
     <link rel="stylesheet" href="../CSS/styles.css">
+    <link rel="stylesheet" href="../CSS/styles6.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../CSS/styles6.css">
 </head>
 
 <body>
@@ -83,139 +83,239 @@
         </div>
     </header>
 
+    <div class="sub-header">
+        <h1>Calendário e Resultados</h1>
+        <nav class="nav-fixtures">
+            <button data-fixture="futuro" class="active">Próximos Jogos</button>
+            <button data-fixture="passado">Jogos Realizados</button>
+        </nav>
+    </div>
+
     <section class="fixtures-section">
-        <h2>Maio</h2>
-        <div class="match-card">
-            <div class="match-header">
-                <p>DOM 05 MAIO 2025</p>
-                <span>Liga Portugal 2</span>
+        <div class="mes-wrapper" data-mes="maio">
+            <h2>Maio</h2>
+            <div class="match-card futuro">
+                <div class="match-header">
+                    <p>SÁB 11 MAIO 2025</p>
+                    <span>Taça de Portugal</span>
+                </div>
+                <div class="match-content">
+                    <div class="team">
+                        <img src="../Images/logo_chaves.png" alt="GD Chaves">
+                        <span>GD Chaves</span>
+                    </div>
+                    <div class="score">
+                        <span>—</span>
+                    </div>
+                    <div class="team">
+                        <img src="../Images/logo_pacosdeferreira.png" alt="Paços de Ferreira">
+                        <span>Paços de Ferreira</span>
+                    </div>
+                </div>
+                <a href="#" class="match-link">Centro de Jogo →</a>
             </div>
-            <div class="match-content">
-                <div class="team">
-                    <img src="../Images/logo_chaves.png" alt="GD Chaves">
-                    <span>GD Chaves</span>
+
+            <div class="match-card futuro">
+                <div class="match-header">
+                    <p>QUA 15 MAIO 2025</p>
+                    <span>Amigável</span>
                 </div>
-                <div class="score">
-                    <span>2 - 1</span>
-                    <small>(Global: 4-2)</small>
+                <div class="match-content">
+                    <div class="team">
+                        <img src="../Images/logo_academico_viseu.png" alt="Vitória SC">
+                        <span>Vitória SC</span>
+                    </div>
+                    <div class="score">
+                        <span>—</span>
+                    </div>
+                    <div class="team">
+                        <img src="../Images/logo_chaves.png" alt="GD Chaves">
+                        <span>GD Chaves</span>
+                    </div>
                 </div>
-                <div class="team">
-                    <img src="../Images/logo_vizela.png" alt="FC Vizela">
-                    <span>FC Vizela</span>
-                </div>
+                <a href="#" class="match-link">Centro de Jogo →</a>
             </div>
-            <a href="#" class="match-link">Centro de Jogo →</a>
+
+            <!-- REPETIÇÕES PARA EXEMPLO -->
+            <div class="match-card futuro">
+                <div class="match-header">
+                    <p>SÁB 11 MAIO 2025</p>
+                    <span>Taça de Portugal</span>
+                </div>
+                <div class="match-content">
+                    <div class="team">
+                        <img src="../Images/logo_chaves.png" alt="GD Chaves">
+                        <span>GD Chaves</span>
+                    </div>
+                    <div class="score">
+                        <span>—</span>
+                    </div>
+                    <div class="team">
+                        <img src="../Images/logo_pacosdeferreira.png" alt="Paços de Ferreira">
+                        <span>Paços de Ferreira</span>
+                    </div>
+                </div>
+                <a href="#" class="match-link">Centro de Jogo →</a>
+            </div>
+
+            <!-- PASSADOS -->
+            <div class="match-card passado">
+                <div class="match-header">
+                    <p>DOM 05 MAIO 2025</p>
+                    <span>Liga Portugal 2</span>
+                </div>
+                <div class="match-content">
+                    <div class="team">
+                        <img src="../Images/logo_chaves.png" alt="GD Chaves">
+                        <span>GD Chaves</span>
+                    </div>
+                    <div class="score">
+                        <span>2 - 1</span>
+                        <small>(Global: 4-2)</small>
+                    </div>
+                    <div class="team">
+                        <img src="../Images/logo_vizela.png" alt="FC Vizela">
+                        <span>FC Vizela</span>
+                    </div>
+                </div>
+                <a href="#" class="match-link">Centro de Jogo →</a>
+            </div>
+
+            <div class="match-card passado">
+                <div class="match-header">
+                    <p>DOM 05 MAIO 2025</p>
+                    <span>Liga Portugal 2</span>
+                </div>
+                <div class="match-content">
+                    <div class="team">
+                        <img src="../Images/logo_chaves.png" alt="GD Chaves">
+                        <span>GD Chaves</span>
+                    </div>
+                    <div class="score">
+                        <span>2 - 1</span>
+                        <small>(Global: 4-2)</small>
+                    </div>
+                    <div class="team">
+                        <img src="../Images/logo_vizela.png" alt="FC Vizela">
+                        <span>FC Vizela</span>
+                    </div>
+                </div>
+                <a href="#" class="match-link">Centro de Jogo →</a>
+            </div>
         </div>
 
-        <div class="match-card">
-            <div class="match-header">
-                <p>SÁB 11 MAIO 2025</p>
-                <span>Taça de Portugal</span>
+        <div class="mes-wrapper" data-mes="maio">
+            <h2>Junho</h2>
+            <div class="match-card futuro">
+                <div class="match-header">
+                    <p>SÁB 11 MAIO 2025</p>
+                    <span>Taça de Portugal</span>
+                </div>
+                <div class="match-content">
+                    <div class="team">
+                        <img src="../Images/logo_chaves.png" alt="GD Chaves">
+                        <span>GD Chaves</span>
+                    </div>
+                    <div class="score">
+                        <span>—</span>
+                    </div>
+                    <div class="team">
+                        <img src="../Images/logo_pacosdeferreira.png" alt="Paços de Ferreira">
+                        <span>Paços de Ferreira</span>
+                    </div>
+                </div>
+                <a href="#" class="match-link">Centro de Jogo →</a>
             </div>
-            <div class="match-content">
-                <div class="team">
-                    <img src="../Images/logo_chaves.png" alt="GD Chaves">
-                    <span>GD Chaves</span>
-                </div>
-                <div class="score">
-                    <span>1 - 1</span>
-                    <small>(Pen: 4-3)</small>
-                </div>
-                <div class="team">
-                    <img src="../Images/logo_pacosdeferreira.png" alt="Paços de Ferreira">
-                    <span>Paços de Ferreira</span>
-                </div>
-            </div>
-            <a href="#" class="match-link">Centro de Jogo →</a>
-        </div>
 
-        <div class="match-card">
-            <div class="match-header">
-                <p>QUA 15 MAIO 2025</p>
-                <span>Amigável</span>
+            <div class="match-card futuro">
+                <div class="match-header">
+                    <p>QUA 15 MAIO 2025</p>
+                    <span>Amigável</span>
+                </div>
+                <div class="match-content">
+                    <div class="team">
+                        <img src="../Images/logo_academico_viseu.png" alt="Vitória SC">
+                        <span>Vitória SC</span>
+                    </div>
+                    <div class="score">
+                        <span>—</span>
+                    </div>
+                    <div class="team">
+                        <img src="../Images/logo_chaves.png" alt="GD Chaves">
+                        <span>GD Chaves</span>
+                    </div>
+                </div>
+                <a href="#" class="match-link">Centro de Jogo →</a>
             </div>
-            <div class="match-content">
-                <div class="team">
-                    <img src="../Images/logo_academico_viseu.png" alt="Vitória SC">
-                    <span>Vitória SC</span>
-                </div>
-                <div class="score">
-                    <span>0 - 2</span>
-                </div>
-                <div class="team">
-                    <img src="../Images/logo_chaves.png" alt="GD Chaves">
-                    <span>GD Chaves</span>
-                </div>
-            </div>
-            <a href="#" class="match-link">Centro de Jogo →</a>
-        </div>
-        <h2>Maio</h2>
-        <div class="match-card">
-            <div class="match-header">
-                <p>DOM 05 MAIO 2025</p>
-                <span>Liga Portugal 2</span>
-            </div>
-            <div class="match-content">
-                <div class="team">
-                    <img src="../Images/logo_chaves.png" alt="GD Chaves">
-                    <span>GD Chaves</span>
-                </div>
-                <div class="score">
-                    <span>2 - 1</span>
-                    <small>(Global: 4-2)</small>
-                </div>
-                <div class="team">
-                    <img src="../Images/logo_vizela.png" alt="FC Vizela">
-                    <span>FC Vizela</span>
-                </div>
-            </div>
-            <a href="#" class="match-link">Centro de Jogo →</a>
-        </div>
 
-        <div class="match-card">
-            <div class="match-header">
-                <p>SÁB 11 MAIO 2025</p>
-                <span>Taça de Portugal</span>
+            <!-- REPETIÇÕES PARA EXEMPLO -->
+            <div class="match-card futuro">
+                <div class="match-header">
+                    <p>SÁB 11 MAIO 2025</p>
+                    <span>Taça de Portugal</span>
+                </div>
+                <div class="match-content">
+                    <div class="team">
+                        <img src="../Images/logo_chaves.png" alt="GD Chaves">
+                        <span>GD Chaves</span>
+                    </div>
+                    <div class="score">
+                        <span>—</span>
+                    </div>
+                    <div class="team">
+                        <img src="../Images/logo_pacosdeferreira.png" alt="Paços de Ferreira">
+                        <span>Paços de Ferreira</span>
+                    </div>
+                </div>
+                <a href="#" class="match-link">Centro de Jogo →</a>
             </div>
-            <div class="match-content">
-                <div class="team">
-                    <img src="../Images/logo_chaves.png" alt="GD Chaves">
-                    <span>GD Chaves</span>
-                </div>
-                <div class="score">
-                    <span>1 - 1</span>
-                    <small>(Pen: 4-3)</small>
-                </div>
-                <div class="team">
-                    <img src="../Images/logo_pacosdeferreira.png" alt="Paços de Ferreira">
-                    <span>Paços de Ferreira</span>
-                </div>
-            </div>
-            <a href="#" class="match-link">Centro de Jogo →</a>
-        </div>
 
-        <div class="match-card">
-            <div class="match-header">
-                <p>QUA 15 MAIO 2025</p>
-                <span>Amigável</span>
+            <!-- PASSADOS -->
+            <div class="match-card passado">
+                <div class="match-header">
+                    <p>DOM 05 MAIO 2025</p>
+                    <span>Liga Portugal 2</span>
+                </div>
+                <div class="match-content">
+                    <div class="team">
+                        <img src="../Images/logo_chaves.png" alt="GD Chaves">
+                        <span>GD Chaves</span>
+                    </div>
+                    <div class="score">
+                        <span>2 - 1</span>
+                        <small>(Global: 4-2)</small>
+                    </div>
+                    <div class="team">
+                        <img src="../Images/logo_vizela.png" alt="FC Vizela">
+                        <span>FC Vizela</span>
+                    </div>
+                </div>
+                <a href="#" class="match-link">Centro de Jogo →</a>
             </div>
-            <div class="match-content">
-                <div class="team">
-                    <img src="../Images/logo_academico_viseu.png" alt="Vitória SC">
-                    <span>Vitória SC</span>
+
+            <div class="match-card passado">
+                <div class="match-header">
+                    <p>DOM 05 MAIO 2025</p>
+                    <span>Liga Portugal 2</span>
                 </div>
-                <div class="score">
-                    <span>0 - 2</span>
+                <div class="match-content">
+                    <div class="team">
+                        <img src="../Images/logo_chaves.png" alt="GD Chaves">
+                        <span>GD Chaves</span>
+                    </div>
+                    <div class="score">
+                        <span>2 - 1</span>
+                        <small>(Global: 4-2)</small>
+                    </div>
+                    <div class="team">
+                        <img src="../Images/logo_vizela.png" alt="FC Vizela">
+                        <span>FC Vizela</span>
+                    </div>
                 </div>
-                <div class="team">
-                    <img src="../Images/logo_chaves.png" alt="GD Chaves">
-                    <span>GD Chaves</span>
-                </div>
+                <a href="#" class="match-link">Centro de Jogo →</a>
             </div>
-            <a href="#" class="match-link">Centro de Jogo →</a>
         </div>
     </section>
-
 
     <footer class="footer">
         <div class="footer-container">
@@ -270,6 +370,30 @@
             ); // Evita comportamento padrão (se necessário)
             window.location.href = "../../Index.html"; // Vai para a página principal
         });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            filtrarJogos('futuro'); // Exibir por padrão jogos futuros
+        });
+
+        document.querySelectorAll('.nav-fixtures button').forEach(button => {
+            button.addEventListener('click', function () {
+                document.querySelector('.nav-fixtures .active').classList.remove('active');
+                this.classList.add('active');
+                filtrarJogos(this.getAttribute('data-fixture'));
+            });
+        });
+
+        function filtrarJogos(tipoJogo) {
+            const jogos = document.querySelectorAll('.match-card');
+
+            jogos.forEach(jogo => {
+                if (jogo.classList.contains(tipoJogo)) {
+                    jogo.style.display = 'block';
+                } else {
+                    jogo.style.display = 'none';
+                }
+            });
+        }
     </script>
 </body>
 

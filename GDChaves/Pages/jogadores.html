@@ -82,6 +82,19 @@
     </div>
   </header>
 
+  <div class="sub-header">
+    <h1>Jogadores 24/25</h1>
+    <nav class="nav-positions">
+      <button data-pos="todos" class="active">Todos</button>
+      <button data-pos="guarda-redes">Guarda-redes</button>
+      <button data-pos="defesa">Defesas</button>
+      <button data-pos="médio">Médios</button>
+      <button data-pos="avançado">Avançados</button>
+    </nav>
+  </div>
+
+
+
   <div class="categoria">
     <h2>GUARDA-REDES</h2>
     <div class="jogadores-guarda-redes">
@@ -429,6 +442,37 @@
       ); // Evita comportamento padrão (se necessário)
       window.location.href = "../../Index.html"; // Vai para a página principal
     });
+
+    document.querySelectorAll('.nav-positions button').forEach(button => {
+      button.addEventListener('click', function () {
+        document.querySelector('.nav-positions .active').classList.remove('active');
+        this.classList.add('active');
+
+        const posicao = this.getAttribute('data-pos');
+        filtrarJogadores(posicao);
+      });
+    });
+
+    function filtrarJogadores(posicao) {
+      const categorias = document.querySelectorAll('.categoria');
+
+      categorias.forEach(cat => {
+        const jogadores = cat.querySelectorAll('.jogador');
+        let mostrarCategoria = false;
+
+        jogadores.forEach(jog => {
+          const posicaoJogador = jog.querySelector('.posicao').textContent.trim().toLowerCase();
+          if (posicao === 'todos' || posicaoJogador === posicao) {
+            jog.style.display = 'block';
+            mostrarCategoria = true;
+          } else {
+            jog.style.display = 'none';
+          }
+        });
+
+        cat.style.display = mostrarCategoria ? 'block' : 'none';
+      });
+    }
   </script>
 </body>
 
