@@ -18,16 +18,10 @@
     <header></header>
 
     <div class="stadium-card">
-        <img src="../Images/estadio_chaves.png" alt="Estádio Municipal Engº Manuel Branco Teixeira" class="stadium-img">
         <div class="stadium-details">
             <h2>Estádio Municipal Eng.º Manuel Branco Teixeira</h2>
-            <ul>
-                <li><strong>Localização:</strong> Chaves, Portugal</li>
-                <li><strong>Capacidade:</strong> 8.396 lugares</li>
-                <li><strong>Inauguração:</strong> 1949</li>
-                <li><strong>Relvado:</strong> Natural</li>
-            </ul>
         </div>
+        <img src="../Images/estadio_chaves.png" alt="Estádio Municipal Engº Manuel Branco Teixeira" class="stadium-img">
     </div>
 
     <div id="map"></div>
@@ -37,34 +31,53 @@
     <script src="main.js"></script>
 
     <script>
-        document.getElementById("logo-link").addEventListener("click", function (e) {
-            e.preventDefault(
-            ); // Evita comportamento padrão (se necessário)
-            window.location.href = "../../Index.html"; // Vai para a página principal
-        });
+        async function loadHTML(selector, url) {
+            const response = await fetch(url);
+            if (response.ok) {
+                const text = await response.text();
+                document.querySelector(selector).innerHTML = text;
+            }
+        }
 
-        document.getElementById("logo-link").addEventListener("click", function (e) {
-            e.preventDefault();
-            window.location.href = "../../Index.html";
-        });
+        async function inicializarPagina() {
+            // Carregar includes
+            await loadHTML('header', '../../header.html');
+            await loadHTML('footer', '../../footer.html');
 
-        const map = L.map('map', {
-            center: [41.75063740739709, -7.464861960105634],
-            zoom: 16,
-            scrollWheelZoom: false,
-            doubleClickZoom: false,
-            dragging: true,
-            zoomControl: true,
-            touchZoom: false,
-        });
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contribuidores'
-        }).addTo(map);
+            // Event listener para o logo (só depois do header carregado)
+            document.getElementById("logo-link")?.addEventListener("click", function (e) {
+                e.preventDefault();
+                window.location.href = "../../Index.html";
+            });
 
-        L.marker([41.75063740739709, -7.464861960105634]).addTo(map)
-            .bindPopup('<b>Estádio Municipal Engº Manuel Branco Teixeira')
-            .openPopup();
+            // Inicializar o mapa
+            const map = L.map('map', {
+                center: [41.75063740739709, -7.464861960105634],
+                zoom: 16,
+                scrollWheelZoom: false,
+                doubleClickZoom: false,
+                dragging: true,
+                zoomControl: true,
+                touchZoom: false,
+            });
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contribuidores'
+            }).addTo(map);
+
+            L.marker([41.75063740739709, -7.464861960105634]).addTo(map)
+                .bindPopup(`
+    <b>Estádio Municipal Eng.º Manuel Branco Teixeira</b><br>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=41.75063740739709,-7.464861960105634" target="_blank">
+      Obter direções
+    </a>`)
+                .openPopup();
+            ;
+        }
+
+        window.addEventListener('DOMContentLoaded', inicializarPagina);
     </script>
+
 </body>
 
 </html>

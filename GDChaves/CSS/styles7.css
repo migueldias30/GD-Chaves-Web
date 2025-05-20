@@ -1,0 +1,187 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    margin-top: 150px;
+}
+
+.sub-header {
+    background-color: #541833;
+    color: white;
+    padding-top: 70px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.sub-header h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+
+.highlight-section {
+    background-color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: auto;
+    margin-top: 30px;
+    margin-left: 40PX;
+    margin-right: 40PX;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+.highlight-section h2 {
+    font-size: 40px;
+    margin-bottom: 1rem;
+}
+
+.ticket-card {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.ticket-info {
+    text-align: center;
+}
+
+.ticket-info p {
+    margin: 0.3rem 0;
+}
+
+.teams {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 1rem 0;
+}
+
+.teams .team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.teams img {
+    width: 60px;
+    height: auto;
+}
+
+.ticket-action {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.ticket-action a {
+    background-color: #1e2444;
+    font-size: 18px;
+    width: 100%;
+    max-width: 100%;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    text-align: center;
+}
+
+.ticket-action a:hover {
+    background-color: #f1c40f;
+}
+
+
+.all-tickets {
+    max-width: 100%;
+    justify-content: space-evenly;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.ticket-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 0.5fr));
+    gap: 20px;
+}
+
+.jogo-info-container {
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.estadio-imagem img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.bancadas-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  min-width: 280px;
+}
+
+.bancadas-section {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+
+.bancada-card {
+  background-color: #f9f9f9;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.bancada-card h2 {
+  margin-bottom: 10px;
+  color: #541833;
+}
+
+.btn-comprar {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #d62828;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn-comprar:hover {
+  background-color: #a91919;
+}
+
+.data-jogo {
+  color: #eee;
+  font-size: 18px;
+  margin-top: -20px;
+  padding-left: 20px;
+}

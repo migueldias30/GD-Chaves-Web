@@ -12,9 +12,26 @@ async function loadHTML(selector, url) {
   }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  setBaseForIncludes('../../'); // base path para header.html e imagens
-  loadHTML('header', '../../header.html');
-  loadHTML('footer', '../../footer.html');
+window.addEventListener('DOMContentLoaded', async () => {
+  setBaseForIncludes('../../');
+  await loadHTML('header', '../../header.html');
+  await loadHTML('footer', '../../footer.html');
+
+  // Reativar os listeners só depois do header estar carregado
+  document.getElementById("logo-link")?.addEventListener("click", function (e) {
+    e.preventDefault();
+    window.location.href = "../../Index.html";
+  });
+
+  document.querySelectorAll('.nav-fixtures button').forEach(button => {
+    button.addEventListener('click', function () {
+      document.querySelector('.nav-fixtures .active')?.classList.remove('active');
+      this.classList.add('active');
+      filtrarJogos(this.getAttribute('data-fixture'));
+    });
+  });
+
+  filtrarJogos('futuro'); // Exibir por padrão jogos futuros
 });
+
 

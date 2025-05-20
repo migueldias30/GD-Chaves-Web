@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GD Chaves - Bilheteira</title>
+    <link rel="icon" type="image/png" href="../Images/icon_chaves.png" />
+    <link rel="stylesheet" href="../CSS/styles.css" />
+    <link rel="stylesheet" href="../CSS/styles7.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header></header>
+
+    <div class="sub-header">
+        <h1>Bilhetes</h1>
+    </div>
+
+    <section class="highlight-section">
+        <div class="ticket-info">
+            <p><strong>Dom 5 Abr, 18h00</strong></p>
+            <p>LIGA PORTUGAL 2 MEU SUPER</p>
+        </div>
+        <div class="teams">
+            <div class="team">
+                <img src="../Images/logo_chaves.png" alt="GD Chaves">
+                <span>GD Chaves</span>
+            </div>
+            <div class="team">
+                <img src="../Images/logo_vizela.png" alt="FC Vizela">
+                <span>Vizela</span>
+            </div>
+        </div>
+        <div class="ticket-action">
+            <a href="GDChaves/Pages/bilhetes.html?id=vizela">Bilhetes</a>
+        </div>
+    </section>
+
+    <section class="all-tickets">
+        <div class="ticket-grid">
+            <div class="ticket-card">
+                <div class="ticket-info">
+                    <p><strong>Sáb 12 Abr, 14h00</strong></p>
+                    <p>LIGA PORTUGAL 2 MEU SUPER</p>
+                </div>
+                <div class="teams">
+                    <div class="team">
+                        <img src="../Images/logo_chaves.png" alt="GD Chaves">
+                        <span>GD Chaves</span>
+                    </div>
+                    <div class="team">
+                        <img src="../Images/logo_portimonense.png" alt="Portimonense">
+                        <span>Portimonense</span>
+                    </div>
+                </div>
+                <div class="ticket-action">
+                    <a href="GDChaves/Pages/bilhetes.html?id=portimonense">Bilhetes</a>
+                </div>
+            </div>
+
+            <!-- Exemplo de mais um jogo -->
+            <div class="ticket-card">
+                <div class="ticket-info">
+                    <p><strong>Dom 19 Abr, 15h30</strong></p>
+                    <p>LIGA PORTUGAL 2 MEU SUPER</p>
+                </div>
+                <div class="teams">
+                    <div class="team">
+                        <img src="../Images/logo_portob.png" alt="Porto B">
+                        <span>Porto B</span>
+                    </div>
+                    <div class="team">
+                        <img src="../Images/logo_chaves.png" alt="GD Chaves">
+                        <span>GD Chaves</span>
+                    </div>
+                </div>
+                <div class="ticket-action">
+                    <a href="GDChaves/Pages/bilhetes.html?id=portob">Bilhetes</a>
+                </div>
+            </div>
+
+            <div class="ticket-card">
+                <div class="ticket-info">
+                    <p><strong>Sáb 28 Mai, 18h00</strong></p>
+                    <p>LIGA PORTUGAL 2 MEU SUPER</p>
+                </div>
+                <div class="teams">
+                    <div class="team">
+                        <img src="../Images/logo_chaves.png" alt="GD Chaves">
+                        <span>GD Chaves</span>
+                    </div>
+                    <div class="team">
+                        <img src="../Images/logo_alverca.png" alt="FC Alverca">
+                        <span>Tondela</span>
+                    </div>
+                </div>
+                <div class="ticket-action">
+                    <a href="GDChaves/Pages/bilhetes.html?id=alverca">Bilhetes</a>
+                </div>
+            </div>
+            <!-- Adiciona mais cards aqui conforme necessário -->
+
+        </div>
+    </section>
+
+    <footer class="footer"></footer>
+
+    <script src="main.js"></script>
+
+    <script>
+        // Logo click
+        document.getElementById("logo-link")?.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.location.href = "../../Index.html";
+        });
+    </script>
+</body>
+
+</html>

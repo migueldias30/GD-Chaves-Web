@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bilhetes - GD Chaves</title>
+    <link rel="stylesheet" href="../CSS/styles.css" />
+    <link rel="stylesheet" href="../CSS/styles7.css" />
+</head>
+
+<body>
+    <header></header>
+
+    <div class="sub-header">
+        <h1 id="titulo-jogo">GD Chaves vs Adversário</h1>
+        <p id="data-jogo" class="data-jogo">Data • Competição</p>
+    </div>
+
+    <section class="jogo-info-container">
+        <div class="estadio-imagem">
+            <img id="imagem-estadio" src="../Images/estadio_default.png" alt="Estádio" />
+        </div>
+
+        <div class="bancadas-section">
+            <div class="bancada-card">
+                <h2>Bancada Central</h2>
+                <p><strong>Preço:</strong> 20€</p>
+                <a href="#" class="btn-comprar">Comprar</a>
+            </div>
+            <div class="bancada-card">
+                <h2>Bancada Lateral</h2>
+                <p><strong>Preço:</strong> 15€</p>
+                <a href="#" class="btn-comprar">Comprar</a>
+            </div>
+            <div class="bancada-card">
+                <h2>Bancada Topo</h2>
+                <p><strong>Preço:</strong> 10€</p>
+                <a href="#" class="btn-comprar">Comprar</a>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer"></footer>
+
+    <script src="main.js"></script>
+
+    <script>
+        const jogos = {
+            vizela: {
+                adversario: "Vizela",
+                data: "Dom 5 Abr, 18h00",
+                competicao: "LIGA PORTUGAL 2 MEU SUPER",
+                estadioImg: "../Images/estadio_chaves.png",
+                casa: true
+            },
+            portimonense: {
+                adversario: "Portimonense",
+                data: "Sáb 12 Abr, 14h00",
+                competicao: "LIGA PORTUGAL 2 MEU SUPER",
+                estadioImg: "../Images/estadio_chaves.png",
+                casa: true
+            },
+            portob: {
+                adversario: "Porto B",
+                data: "Dom 19 Abr, 15h30",
+                competicao: "LIGA PORTUGAL 2 MEU SUPER",
+                estadioImg: "../Images/estadio_portob.png",
+                casa: false
+            },
+            alverca: {
+                adversario: "FC Alverca",
+                data: "Sáb 28 Mai, 18h00",
+                competicao: "LIGA PORTUGAL 2 MEU SUPER",
+                estadioImg: "../Images/estadio_chaves.png",
+                casa: true
+            }
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const jogoId = urlParams.get("id");
+
+        if (jogos[jogoId]) {
+            const jogo = jogos[jogoId];
+            const titulo = jogo.casa
+                ? `GD Chaves vs ${jogo.adversario}`
+                : `${jogo.adversario} vs GD Chaves`;
+
+            document.getElementById("titulo-jogo").textContent = titulo;
+            document.getElementById("data-jogo").textContent = `${jogo.data} • ${jogo.competicao}`;
+            document.getElementById("imagem-estadio").src = jogo.estadioImg;
+        } else {
+            document.getElementById("titulo-jogo").textContent = "Jogo não encontrado";
+            document.getElementById("data-jogo").textContent = "";
+            document.querySelector(".jogo-info-container").style.display = "none";
+        }
+    </script>
+
+</body>
+
+</html>
