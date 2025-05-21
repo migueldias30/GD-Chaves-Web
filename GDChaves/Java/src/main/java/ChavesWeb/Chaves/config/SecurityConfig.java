@@ -27,11 +27,10 @@ public class SecurityConfig {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
-    @SuppressWarnings("deprecation")
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf(csrf -> csrf.disable())
-            .authorizeRequests(requests -> requests
+            .authorizeHttpRequests(requests -> requests
                 .requestMatchers("/auth/**").permitAll()
                 .anyRequest().authenticated());
         return http.build();

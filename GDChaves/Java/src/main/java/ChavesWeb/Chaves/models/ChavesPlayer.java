@@ -12,10 +12,6 @@ public class ChavesPlayer {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "chpla_seas_id", nullable = false)
-    private Season season;
-
-    @ManyToOne
     @JoinColumn(name = "chpla_pla_id", nullable = false)
     private Player player;
 
@@ -29,14 +25,6 @@ public class ChavesPlayer {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Season getSeason() {
-        return season;
-    }
-
-    public void setSeason(Season season) {
-        this.season = season;
     }
 
     public Player getPlayer() {
