@@ -5,8 +5,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bilhetes - GD Chaves</title>
+    <link rel="icon" type="image/png" href="GDChaves/Images/icon_chaves.png" />
     <link rel="stylesheet" href="../CSS/styles.css" />
     <link rel="stylesheet" href="../CSS/styles7.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -24,7 +27,12 @@
 
         <div class="bancadas-section">
             <div class="bancada-card">
-                <h2>Bancada Central</h2>
+                <h2>Bancada Norte</h2>
+                <p><strong>Preço:</strong> 20€</p>
+                <a href="#" class="btn-comprar">Comprar</a>
+            </div>
+            <div class="bancada-card">
+                <h2>Bancada Sul</h2>
                 <p><strong>Preço:</strong> 20€</p>
                 <a href="#" class="btn-comprar">Comprar</a>
             </div>
@@ -34,12 +42,48 @@
                 <a href="#" class="btn-comprar">Comprar</a>
             </div>
             <div class="bancada-card">
-                <h2>Bancada Topo</h2>
+                <h2>Bancada Visitante</h2>
                 <p><strong>Preço:</strong> 10€</p>
                 <a href="#" class="btn-comprar">Comprar</a>
             </div>
         </div>
     </section>
+
+    <div id="modal-compra" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Finalizar Compra</h2>
+            <p id="bancada-selecionada" class="bancada-texto">Bancada: (não selecionada)</p>
+
+            <div class="checkbox-socio">
+                <input type="checkbox" id="tem-socio" />
+                <label for="tem-socio">Tenho número de sócio</label>
+            </div>
+
+            <div class="input-group" id="campo-email">
+                <input type="email" placeholder="Email" id="email-input" />
+            </div>
+
+            <div class="input-group" id="campo-nome">
+                <input type="text" placeholder="Nome" id="nome-input" />
+            </div>
+
+            <div class="input-group" id="campo-nascimento">
+                <input type="date" id="nascimento-input" placeholder="Data de nascimento" />
+            </div>
+
+            <div class="input-group hidden" id="campo-socio">
+                <input type="text" placeholder="Número de sócio" id="socio-input" />
+            </div>
+
+            <div class="input-group" id="campo-id">
+                <input type="text" placeholder="Número de identificação" id="id-input" />
+            </div>
+
+            <button id="confirmar-btn">Confirmar</button>
+        </div>
+    </div>
+
 
 
     <footer class="footer"></footer>
@@ -95,6 +139,47 @@
             document.getElementById("data-jogo").textContent = "";
             document.querySelector(".jogo-info-container").style.display = "none";
         }
+
+        const modal = document.getElementById("modal-compra");
+        const closeBtn = document.querySelector(".close-btn");
+        const comprarBtns = document.querySelectorAll(".btn-comprar");
+        const campoNome = document.getElementById("campo-nome");
+        const campoSocio = document.getElementById("campo-socio");
+        const campoNascimento = document.getElementById("campo-nascimento");
+        const bancadaTexto = document.getElementById("bancada-selecionada");
+
+        comprarBtns.forEach(btn => {
+            btn.addEventListener("click", (e) => {
+                e.preventDefault();
+                const bancada = btn.closest(".bancada-card").querySelector("h2").textContent;
+                bancadaTexto.textContent = `Bancada: ${bancada}`;
+                modal.classList.remove("hidden");
+            });
+        });
+
+        closeBtn.addEventListener("click", () => {
+            modal.classList.add("hidden");
+        });
+
+        window.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.classList.add("hidden");
+            }
+        });
+
+        document.getElementById("tem-socio").addEventListener("change", (e) => {
+            if (e.target.checked) {
+                campoNome.classList.add("hidden");
+                campoNascimento.classList.add("hidden");
+                campoSocio.classList.remove("hidden");
+            } else {
+                campoNome.classList.remove("hidden");
+                campoNascimento.classList.remove("hidden");
+                campoSocio.classList.add("hidden");
+            }
+        });
+
+
     </script>
 
 </body>
