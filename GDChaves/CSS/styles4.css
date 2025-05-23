@@ -5,7 +5,7 @@ body {
 }
 
 h2 {
-    font-size: 32px;
+    font-size: 35px;
     padding-left: 20px;
     margin-top: 40px;
     margin-bottom: 20px;
@@ -80,42 +80,42 @@ h2 {
 }
 
 .sub-header {
-  background-color: #541833;
-  color: white;
-  padding-top: 70px;
-  padding-left: 20px;
-  text-align: left;;
+    background-color: #541833;
+    color: white;
+    padding-top: 70px;
+    padding-left: 20px;
+    text-align: left;
+    ;
 }
 
 .sub-header h1 {
-  font-size: 40px;
-  margin-bottom: 40px;
+    font-size: 40px;
+    margin-bottom: 40px;
 }
 
 .nav-positions {
-  display: flex;
-  gap: 20px;
-  padding-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    padding-bottom: 20px;
 }
 
 .nav-positions button {
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-  position: relative;
-  padding-bottom: 5px;
-  transition: color 0.3s;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s;
 }
 
 .nav-positions button:hover,
 .nav-positions button.active {
-  color: #ffdd00;
+    color: #ffdd00;
 }
 
 /* Remove completamente o sublinhado amarelo */
 .nav-positions button::after {
-  display: none;
+    display: none;
 }
-
