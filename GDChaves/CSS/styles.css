@@ -304,6 +304,7 @@ header {
   border: none;
   cursor: pointer;
   transition: transform 0.8s ease;
+  text-decoration: none;
 }
 
 .kit-item img {
@@ -341,14 +342,37 @@ header {
 
 .kit-price {
   display: flex;
+  flex-direction: column;
   justify-content: left;
-  gap: 10px;
   margin-top: 5px;
+  gap: 5px;
 }
 
-.preco {
-  color: #b3b0b0;
-  font-size: 16px;
+.kit-price-socio {
+  color: #541833;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.kit-price-socio {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.kit-price-pvp {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-right: 5px;
+}
+
+.kit-price-pvp {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 500;
 }
 
 .carousel-arrow {
@@ -420,14 +444,14 @@ header {
   padding: 30px;
   font-family: Arial, sans-serif;
   width: 100%;
-  text-align: center;
-  justify-content: center;
+  text-align: left;
+  justify-content: left;
 }
 
 .text-section h1 {
   font-size: 28px;
   margin-top: 8px;
-  text-align: center;
+  text-align: left;
 }
 
 .text-section p {
@@ -514,7 +538,7 @@ header {
   color: #000;
   font-weight: bold;
   display: inline-flex;
-  align-items: center;
+  align-items: left;
   gap: 5px;
   transition: color 0.3s ease;
 }
