@@ -1,0 +1,150 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    margin-top: 150px;
+}
+
+.sub-header {
+    background-color: #541833;
+    color: white;
+    padding-top: 70px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+}
+
+.sub-header h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.idade-barra-container {
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.barra-container {
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.idade-label {
+    font-weight: bold;
+    color: #2c2c4d;
+    min-width: 60px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.barra-dinamica {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    position: relative;
+}
+
+.media-texto {
+    font-weight: bold;
+    font-size: 14px;
+    color: #2c2c4d;
+    margin-bottom: 5px;
+}
+
+.barra-wrapper {
+    position: relative;
+    background-color: #c4c4c4;
+    height: 10px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.barra-esquerda {
+    background-color: #541833;
+    height: 100%;
+    width: 50%;
+    border-radius: 10px 0 0 10px;
+}
+
+.tabela-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 60px;
+}
+
+.tabela-vendas {
+    width: 90%;
+    max-width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tabela-vendas thead {
+    background-color: #541833;
+    color: #fff;
+}
+
+.tabela-vendas th,
+.tabela-vendas td {
+    padding: 12px 16px;
+    text-align: center;
+}
+
+.tabela-vendas tr:nth-child(even) {
+    background-color: #f0f0f0;
+}
+
+.total-row {
+    background-color: #ddd;
+    font-weight: bold;
+}
+
+#boxplot-idades {
+    height: 300px;
+}
+
+.graficos-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    gap: 60px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.grafico-box {
+    width: 100%;
+    max-width: 800px;
+}
+
+.grafico-box h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.grafico-box-vendas {
+    width: 100%;
+    max-width: 550px;
+}
