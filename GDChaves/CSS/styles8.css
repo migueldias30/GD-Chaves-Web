@@ -1,12 +1,12 @@
 body {
     font-family: Arial, sans-serif;
-    background: #fff;
+    background: #ffffff;
     margin-top: 150px;
 }
 
 .sub-header {
-    background-color: #541833;
-    color: white;
+    background-image: url('../Background Images/Slide 16_9 - 8_ background.png');
+    color: #ffffff;
     padding-top: 70px;
     padding-bottom: 20px;
     padding-left: 20px;
@@ -26,15 +26,15 @@ body {
 }
 
 .text-section-loja h1 {
-  font-size: 35px;
-  margin-top: 8px;
+    font-size: 35px;
+    margin-top: 8px;
 }
 
 .kits-list {
     display: flex;
     justify-content: space-around;
     margin-bottom: 30px;
-    background: #fff;
+    background: white;
     margin-left: 10px;
     margin-right: 10px;
 }
@@ -78,7 +78,6 @@ body {
     margin-top: 18px;
     padding-left: 15px;
     padding-right: 15px;
-    filter: drop-shadow(0 12px 32px rgba(0, 0, 0, 0.10));
 }
 
 .kit-details {
@@ -134,4 +133,97 @@ body {
     color: #232323;
     font-size: 1.1rem;
     font-weight: 500;
+}
+
+.shop-list {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+    margin: 0;
+}
+
+.shop-list::-webkit-scrollbar {
+    display: none;
+}
+
+.shop-card {
+    flex: 0 0 calc(25% - 20px);
+    min-width: calc(25% - 20px);
+    box-sizing: border-box;
+    margin: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 680px;
+    border-radius: 12px;
+}
+
+.shop-card a {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.shop-card img {
+    width: 100%;
+    height: auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.shop-card .kit-details {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.carousel-wrapper-shop {
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin: 0 10px;
+}
+
+.carousel-wrapper-shop:hover .carousel-arrow-shop {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.carousel-arrow-shop {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+    padding: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-arrow-shop svg {
+    width: 48px;
+    height: 120px;
+    stroke: white;
+    stroke-width: 1.5;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transition: stroke 0.3s ease;
+}
+
+.carousel-arrow-shop:hover svg {
+    stroke: #ccc;
+}
+
+.carousel-arrow-shop.left {
+    left: -10px;
+}
+
+.carousel-arrow-shop.right {
+    right: -10px;
 }

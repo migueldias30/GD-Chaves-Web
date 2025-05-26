@@ -37,7 +37,7 @@ h2 {
 }
 
 .jogador a:hover {
-    background-color: #1e2444;
+    background-image: url('../Background Images/Slide 16_9 - 5_ background.png');
 }
 
 .jogador img {
@@ -80,7 +80,7 @@ h2 {
 }
 
 .sub-header {
-    background-color: #541833;
+    background-image: url('../Background Images/Slide 16_9 - 8_ background.png');
     color: white;
     padding-top: 70px;
     padding-left: 20px;
