@@ -1,63 +1,74 @@
 package ChavesWeb.Chaves.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import ChavesWeb.Chaves.dto.AuthBodyDto;
+import ChavesWeb.Chaves.models.User;
+import ChavesWeb.Chaves.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import ChavesWeb.Chaves.security.JwtUtils;
+import java.io.Serializable;
+import java.util.HashMap;
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/api/auth")
 public class AuthController {
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
+    private final UserService userService;
 
-    @Autowired
-    private JwtUtils jwtUtils;
+    public AuthController(UserService userService) {
+        this.userService = userService;
+    }
 
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        loginRequest.getUsername(),
-                                                loginRequest.getPassword()
-      )
-);
-                                                                        
-SecurityContextHolder.getContext().setAuthentication(authentication);
-String jwt = jwtUtils.generateToken(authentication.getName());
-                                                                        
-return ResponseEntity.ok(new JwtResponse(jwt));
-    }
-}
-                                                                        
-class LoginRequest {
-@SuppressWarnings("unused")
-private String username;
-    @SuppressWarnings("unused")
-    private String password;
-    public Object getUsername() {                                                                                
-    throw new UnsupportedOperationException("Unimplemented method 'getUsername'");
-}
-    public Object getPassword() {
-    throw new UnsupportedOperationException("Unimplemented method 'getPassword'");
-}
+    public ResponseEntity<? extends Serializable> login(@Valid @RequestBody AuthBodyDto user) {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        User userData = userService.getUserByEmail(user.getEmail());
+        HashMap<String, Object> response = new HashMap<>();
 
-}
-
-class JwtResponse {
-    private String token;
-
-    public JwtResponse(String token) {
-        this.token = token;
+        if (userData != null) {
+            if (bCryptPasswordEncoder.matches(user.getPassword(), userData.getPassword())) {
+                response.put("success", true);
+                response.put("message", "Login com sucesso");
+                response.put("userId", userData.getId());
+                return ResponseEntity.ok((Serializable) response);
+            } else {
+                response.put("success", false);
+                response.put("message", "Credenciais inválidas");
+                response.put("token", null);
+                return ResponseEntity.status(401).body((Serializable) response);
+            }
+        }
+        response.put("success", false);
+        response.put("message", "Credenciais inválidas");
+        response.put("token", null);
+        return ResponseEntity.status(401).body((Serializable) response);
     }
 
-    public String getToken() {
-        return token;
+    @PostMapping("/register")
+    public ResponseEntity<? extends Serializable> register(@Valid @RequestBody AuthBodyDto user) {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        HashMap<String, Object> response = new HashMap<>();
+        String encryptedPassword = bCryptPasswordEncoder.encode(user.getPassword());
+
+        User newUser = new User();
+        newUser.setEmail(user.getEmail());
+        newUser.setPassword(encryptedPassword);
+        try {
+            if (userService.createUser(newUser) != null) {
+                response.put("success", true);
+                response.put("message", "Utilizador criado com sucesso");
+                return ResponseEntity.ok((Serializable) response);
+            } else {
+                response.put("success", false);
+                response.put("message", "Utilizador já existe");
+                return ResponseEntity.status(409).body((Serializable) response);
+            }
+        } catch (Exception e) {
+            response.put("success", false);
+            response.put("message", "Utilizador já existe");
+            return ResponseEntity.status(409).body((Serializable) response);
+        }
     }
 }
