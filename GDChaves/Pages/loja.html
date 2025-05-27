@@ -17,20 +17,17 @@
 <body>
     <header></header>
 
-    <div class="sub-header">
-        <h1>Loja</h1>
-    </div>
+    <div class="highlight-carousel-wrapper">
+        <button class="highlight-arrow left" aria-label="Anterior">
+            <svg viewBox="0 0 24 24">
+                <path d="M15 6l-6 6 6 6" />
+            </svg>
+        </button>
 
-    <div class="text-section-loja">
-        <h1>CAMISOLAS DE JOGO 24/25</h1>
-    </div>
-    <div class="kits-list">
-        <div class="kit-card">
-            <a href="GDChaves/Pages/equipamentoprincipal.html">
-                <img src="../Images/equipamento_principal.png" alt="Equipamento Principal" class="kit-img">
-                <div class="kit-details">
-                    <span class="kit-final">Preço Final</span>
-                    <h2 class="kit-title">Equipamento Principal do GD Chaves 24/25</h2>
+        <div class="highlight-list">
+            <div class="kit-highlight">
+                <div class="kit-highlight-text">
+                    <h1 class="kit-highlight-title">CAMISOLA<br>PRINCIPAL 24-25</h1>
                     <div class="kit-prices">
                         <div>
                             <span class="kit-label-socio">Sócio</span>
@@ -41,15 +38,16 @@
                             <span class="kit-preco-pvp">60,00€</span>
                         </div>
                     </div>
+                    <a href="GDChaves/Pages/equipamentoprincipal.html" class="kit-highlight-button">Comprar</a>
                 </div>
-            </a>
-        </div>
-        <div class="kit-card">
-            <a href="GDChaves/Pages/equipamentoalternativo.html">
-                <img src="../Images/equipamento_alternativo.png" alt="Equipamento Alternativo" class="kit-img">
-                <div class="kit-details">
-                    <span class="kit-final">Preço Final</span>
-                    <h2 class="kit-title">Equipamento Alternativo do GD Chaves 24/25</h2>
+                <div class="kit-highlight-img">
+                    <img src="../Images/equipamento_principal.png" alt="Camisola Principal 24/25">
+                </div>
+            </div>
+
+            <div class="kit-highlight">
+                <div class="kit-highlight-text">
+                    <h1 class="kit-highlight-title">CAMISOLA<br>ALTERNATIVA 24-25</h1>
                     <div class="kit-prices">
                         <div>
                             <span class="kit-label-socio">Sócio</span>
@@ -60,15 +58,16 @@
                             <span class="kit-preco-pvp">60,00€</span>
                         </div>
                     </div>
+                    <a href="GDChaves/Pages/equipamentoalternativo.html" class="kit-highlight-button">Comprar</a>
                 </div>
-            </a>
-        </div>
-        <div class="kit-card">
-            <a href="GDChaves/Pages/terceiroequipamento.html">
-                <img src="../Images/terceiro_equipamento.png" alt="Terceiro Equipamento" class="kit-img">
-                <div class="kit-details">
-                    <span class="kit-final">Preço Final</span>
-                    <h2 class="kit-title">Terceiro Equipamento do GD Chaves 24/25</h2>
+                <div class="kit-highlight-img">
+                    <img src="../Images/equipamento_alternativo.png" alt="Camisola Alternativa 24/25">
+                </div>
+            </div>
+
+            <div class="kit-highlight">
+                <div class="kit-highlight-text">
+                    <h1 class="kit-highlight-title">TERCEIRO<br>EQUIPAMENTO 24-25</h1>
                     <div class="kit-prices">
                         <div>
                             <span class="kit-label-socio">Sócio</span>
@@ -79,9 +78,19 @@
                             <span class="kit-preco-pvp">60,00€</span>
                         </div>
                     </div>
+                    <a href="GDChaves/Pages/terceiroequipamento.html" class="kit-highlight-button">Comprar</a>
                 </div>
-            </a>
+                <div class="kit-highlight-img">
+                    <img src="../Images/terceiro_equipamento.png" alt="Terceiro Equipamento 24/25">
+                </div>
+            </div>
         </div>
+
+        <button class="highlight-arrow right" aria-label="Seguinte">
+            <svg viewBox="0 0 24 24">
+                <path d="M9 6l6 6-6 6" />
+            </svg>
+        </button>
     </div>
 
     <div class="text-section-loja">
@@ -98,16 +107,15 @@
                 <a href="">
                     <img src="../Images/Loja/cachecol_gdchaves.png" alt="Equipamento Principal" class="shop-img">
                     <div class="kit-details">
-                        <span class="kit-final">Preço Final</span>
                         <h2 class="kit-title">Equipamento Principal do GD Chaves 24/25</h2>
-                        <div class="kit-prices">
+                        <div class="prices">
                             <div>
-                                <span class="kit-label-socio">Sócio</span>
-                                <span class="kit-preco-socio">40,00€</span>
+                                <span class="label-socio">Sócio</span>
+                                <span class="preco-socio">40,00€</span>
                             </div>
                             <div>
-                                <span class="kit-label-pvp">PVP</span>
-                                <span class="kit-preco-pvp">60,00€</span>
+                                <span class="label-pvp">PVP</span>
+                                <span class="preco-pvp">60,00€</span>
                             </div>
                         </div>
                     </div>
@@ -117,16 +125,15 @@
                 <a href="">
                     <img src="../Images/Loja/cachecol_1949.png" alt="Equipamento Alternativo" class="kit-img">
                     <div class="kit-details">
-                        <span class="kit-final">Preço Final</span>
                         <h2 class="kit-title">Equipamento Alternativo do GD Chaves 24/25</h2>
-                        <div class="kit-prices">
+                        <div class="prices">
                             <div>
-                                <span class="kit-label-socio">Sócio</span>
-                                <span class="kit-preco-socio">40,00€</span>
+                                <span class="label-socio">Sócio</span>
+                                <span class="preco-socio">40,00€</span>
                             </div>
                             <div>
-                                <span class="kit-label-pvp">PVP</span>
-                                <span class="kit-preco-pvp">60,00€</span>
+                                <span class="label-pvp">PVP</span>
+                                <span class="preco-pvp">60,00€</span>
                             </div>
                         </div>
                     </div>
@@ -136,16 +143,15 @@
                 <a href="">
                     <img src="../Images/Loja/cachecol_valentes.png" alt="Equipamento Alternativo" class="kit-img">
                     <div class="kit-details">
-                        <span class="kit-final">Preço Final</span>
                         <h2 class="kit-title">Equipamento Alternativo do GD Chaves 24/25</h2>
-                        <div class="kit-prices">
+                        <div class="prices">
                             <div>
-                                <span class="kit-label-socio">Sócio</span>
-                                <span class="kit-preco-socio">40,00€</span>
+                                <span class="label-socio">Sócio</span>
+                                <span class="preco-socio">40,00€</span>
                             </div>
                             <div>
-                                <span class="kit-label-pvp">PVP</span>
-                                <span class="kit-preco-pvp">60,00€</span>
+                                <span class="label-pvp">PVP</span>
+                                <span class="preco-pvp">60,00€</span>
                             </div>
                         </div>
                     </div>
@@ -155,16 +161,15 @@
                 <a href="">
                     <img src="../Images/Loja/bola.png" alt="Equipamento Alternativo" class="kit-img">
                     <div class="kit-details">
-                        <span class="kit-final">Preço Final</span>
                         <h2 class="kit-title">Equipamento Alternativo do GD Chaves 24/25</h2>
-                        <div class="kit-prices">
+                        <div class="prices">
                             <div>
-                                <span class="kit-label-socio">Sócio</span>
-                                <span class="kit-preco-socio">40,00€</span>
+                                <span class="label-socio">Sócio</span>
+                                <span class="preco-socio">40,00€</span>
                             </div>
                             <div>
-                                <span class="kit-label-pvp">PVP</span>
-                                <span class="kit-preco-pvp">60,00€</span>
+                                <span class="label-pvp">PVP</span>
+                                <span class="preco-pvp">60,00€</span>
                             </div>
                         </div>
                     </div>
@@ -172,37 +177,17 @@
             </div>
             <div class="shop-card">
                 <a href="">
-                    <img src="../Images/Loja/cachecol_gdchaves.png" alt="Equipamento Principal" class="kit-img">
+                    <img src="../Images/Loja/gorro_azul.png" alt="Equipamento Principal" class="kit-img">
                     <div class="kit-details">
-                        <span class="kit-final">Preço Final</span>
                         <h2 class="kit-title">Equipamento Principal do GD Chaves 24/25</h2>
-                        <div class="kit-prices">
+                        <div class="prices">
                             <div>
-                                <span class="kit-label-socio">Sócio</span>
-                                <span class="kit-preco-socio">40,00€</span>
+                                <span class="label-socio">Sócio</span>
+                                <span class="preco-socio">40,00€</span>
                             </div>
                             <div>
-                                <span class="kit-label-pvp">PVP</span>
-                                <span class="kit-preco-pvp">60,00€</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="shop-card">
-                <a href="">
-                    <img src="../Images/Loja/cachecol_1949.png" alt="Equipamento Alternativo" class="kit-img">
-                    <div class="kit-details">
-                        <span class="kit-final">Preço Final</span>
-                        <h2 class="kit-title">Equipamento Alternativo do GD Chaves 24/25</h2>
-                        <div class="kit-prices">
-                            <div>
-                                <span class="kit-label-socio">Sócio</span>
-                                <span class="kit-preco-socio">40,00€</span>
-                            </div>
-                            <div>
-                                <span class="kit-label-pvp">PVP</span>
-                                <span class="kit-preco-pvp">60,00€</span>
+                                <span class="label-pvp">PVP</span>
+                                <span class="preco-pvp">60,00€</span>
                             </div>
                         </div>
                     </div>
@@ -210,18 +195,17 @@
             </div>
             <div class="shop-card">
                 <a href="">
-                    <img src="../Images/Loja/cachecol_valentes.png" alt="Equipamento Alternativo" class="kit-img">
+                    <img src="../Images/Loja/mochila.png" alt="Equipamento Alternativo" class="kit-img">
                     <div class="kit-details">
-                        <span class="kit-final">Preço Final</span>
                         <h2 class="kit-title">Equipamento Alternativo do GD Chaves 24/25</h2>
-                        <div class="kit-prices">
+                        <div class="prices">
                             <div>
-                                <span class="kit-label-socio">Sócio</span>
-                                <span class="kit-preco-socio">40,00€</span>
+                                <span class="label-socio">Sócio</span>
+                                <span class="preco-socio">40,00€</span>
                             </div>
                             <div>
-                                <span class="kit-label-pvp">PVP</span>
-                                <span class="kit-preco-pvp">60,00€</span>
+                                <span class="label-pvp">PVP</span>
+                                <span class="preco-pvp">60,00€</span>
                             </div>
                         </div>
                     </div>
@@ -229,18 +213,197 @@
             </div>
             <div class="shop-card">
                 <a href="">
-                    <img src="../Images/Loja/bola.png" alt="Equipamento Alternativo" class="kit-img">
+                    <img src="../Images/Loja/toalhavermelha_modelo.png" alt="Equipamento Alternativo" class="kit-img">
                     <div class="kit-details">
-                        <span class="kit-final">Preço Final</span>
                         <h2 class="kit-title">Equipamento Alternativo do GD Chaves 24/25</h2>
-                        <div class="kit-prices">
+                        <div class="prices">
                             <div>
-                                <span class="kit-label-socio">Sócio</span>
-                                <span class="kit-preco-socio">40,00€</span>
+                                <span class="label-socio">Sócio</span>
+                                <span class="preco-socio">40,00€</span>
                             </div>
                             <div>
-                                <span class="kit-label-pvp">PVP</span>
-                                <span class="kit-preco-pvp">60,00€</span>
+                                <span class="label-pvp">PVP</span>
+                                <span class="preco-pvp">60,00€</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="shop-card">
+                <a href="">
+                    <img src="../Images/Loja/caneca_azul.png" alt="Equipamento Alternativo" class="kit-img">
+                    <div class="kit-details">
+                        <h2 class="kit-title">Equipamento Alternativo do GD Chaves 24/25</h2>
+                        <div class="prices">
+                            <div>
+                                <span class="label-socio">Sócio</span>
+                                <span class="preco-socio">40,00€</span>
+                            </div>
+                            <div>
+                                <span class="label-pvp">PVP</span>
+                                <span class="preco-pvp">60,00€</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="shop-card">
+                <a href="">
+                    <img src="../Images/Loja/manta_azul.png" alt="Equipamento Alternativo" class="kit-img">
+                    <div class="kit-details">
+                        <h2 class="kit-title">Equipamento Alternativo do GD Chaves 24/25</h2>
+                        <div class="prices">
+                            <div>
+                                <span class="label-socio">Sócio</span>
+                                <span class="preco-socio">40,00€</span>
+                            </div>
+                            <div>
+                                <span class="label-pvp">PVP</span>
+                                <span class="preco-pvp">60,00€</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <button class="carousel-arrow-shop right" aria-label="Seguinte">
+            <svg viewBox="0 0 24 24">
+                <path d="M9 6l6 6-6 6" />
+            </svg>
+        </button>
+    </div>
+
+    <div class="text-section-loja">
+        <h1>ROUPA</h1>
+    </div>
+    <div class="carousel-wrapper-shop">
+        <button class="carousel-arrow-shop left" aria-label="Anterior">
+            <svg viewBox="0 0 24 24">
+                <path d="M15 6l-6 6 6 6" />
+            </svg>
+        </button>
+        <div class="shop-list">
+            <div class="shop-card">
+                <a href="">
+                    <img src="../Images/Loja/parka.png" alt="Equipamento Principal" class="shop-img">
+                    <div class="kit-details">
+                        <h2 class="kit-title">Equipamento Principal do GD Chaves 24/25</h2>
+                        <div class="prices">
+                            <div>
+                                <span class="label-socio">Sócio</span>
+                                <span class="preco-socio">40,00€</span>
+                            </div>
+                            <div>
+                                <span class="label-pvp">PVP</span>
+                                <span class="preco-pvp">60,00€</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="shop-card">
+                <a href="">
+                    <img src="../Images/Loja/Kispo.png" alt="Equipamento Principal" class="shop-img">
+                    <div class="kit-details">
+                        <h2 class="kit-title">Equipamento Principal do GD Chaves 24/25</h2>
+                        <div class="prices">
+                            <div>
+                                <span class="label-socio">Sócio</span>
+                                <span class="preco-socio">40,00€</span>
+                            </div>
+                            <div>
+                                <span class="label-pvp">PVP</span>
+                                <span class="preco-pvp">60,00€</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="shop-card">
+                <a href="">
+                    <img src="../Images/Loja/casaco_carapuço.png" alt="Equipamento Principal" class="shop-img">
+                    <div class="kit-details">
+                        <h2 class="kit-title">Equipamento Principal do GD Chaves 24/25</h2>
+                        <div class="prices">
+                            <div>
+                                <span class="label-socio">Sócio</span>
+                                <span class="preco-socio">40,00€</span>
+                            </div>
+                            <div>
+                                <span class="label-pvp">PVP</span>
+                                <span class="preco-pvp">60,00€</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="shop-card">
+                <a href="">
+                    <img src="../Images/Loja/pulover.png" alt="Equipamento Principal" class="shop-img">
+                    <div class="kit-details">
+                        <h2 class="kit-title">Equipamento Principal do GD Chaves 24/25</h2>
+                        <div class="prices">
+                            <div>
+                                <span class="label-socio">Sócio</span>
+                                <span class="preco-socio">40,00€</span>
+                            </div>
+                            <div>
+                                <span class="label-pvp">PVP</span>
+                                <span class="preco-pvp">60,00€</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="shop-card">
+                <a href="">
+                    <img src="../Images/Loja/fato_treino.png" alt="Equipamento Principal" class="shop-img">
+                    <div class="kit-details">
+                        <h2 class="kit-title">Equipamento Principal do GD Chaves 24/25</h2>
+                        <div class="prices">
+                            <div>
+                                <span class="label-socio">Sócio</span>
+                                <span class="preco-socio">40,00€</span>
+                            </div>
+                            <div>
+                                <span class="label-pvp">PVP</span>
+                                <span class="preco-pvp">60,00€</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="shop-card">
+                <a href="">
+                    <img src="../Images/Loja/parka_azul.png" alt="Equipamento Principal" class="shop-img">
+                    <div class="kit-details">
+                        <h2 class="kit-title">Equipamento Principal do GD Chaves 24/25</h2>
+                        <div class="prices">
+                            <div>
+                                <span class="label-socio">Sócio</span>
+                                <span class="preco-socio">40,00€</span>
+                            </div>
+                            <div>
+                                <span class="label-pvp">PVP</span>
+                                <span class="preco-pvp">60,00€</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="shop-card">
+                <a href="">
+                    <img src="../Images/Loja/kispo_criança.png" alt="Equipamento Principal" class="shop-img">
+                    <div class="kit-details">
+                        <h2 class="kit-title">Equipamento Principal do GD Chaves 24/25</h2>
+                        <div class="prices">
+                            <div>
+                                <span class="label-socio">Sócio</span>
+                                <span class="preco-socio">40,00€</span>
+                            </div>
+                            <div>
+                                <span class="label-pvp">PVP</span>
+                                <span class="preco-pvp">60,00€</span>
                             </div>
                         </div>
                     </div>
@@ -269,17 +432,56 @@
             });
         }
 
-        document.addEventListener("DOMContentLoaded", function () {
-            const container = document.querySelector(".carousel-wrapper-shop .shop-list");
+        document.addEventListener("DOMContentLoaded", () => {
+            // 🔁 Carrossel principal (kits em destaque)
+            const highlightList = document.querySelector(".highlight-list");
+            const btnLeftHighlight = document.querySelector(".highlight-arrow.left");
+            const btnRightHighlight = document.querySelector(".highlight-arrow.right");
 
-            document.querySelector(".carousel-arrow-shop.left").addEventListener("click", () => {
-                container.scrollBy({ left: -container.clientWidth, behavior: "smooth" });
+            btnLeftHighlight.addEventListener("click", () => {
+                if (highlightList.scrollLeft <= 0) {
+                    highlightList.scrollTo({ left: highlightList.scrollWidth, behavior: "smooth" });
+                } else {
+                    highlightList.scrollBy({ left: -highlightList.clientWidth, behavior: "smooth" });
+                }
             });
 
-            document.querySelector(".carousel-arrow-shop.right").addEventListener("click", () => {
-                container.scrollBy({ left: container.clientWidth, behavior: "smooth" });
+            btnRightHighlight.addEventListener("click", () => {
+                const maxScrollLeft = highlightList.scrollWidth - highlightList.clientWidth;
+                if (highlightList.scrollLeft >= maxScrollLeft - 5) {
+                    highlightList.scrollTo({ left: 0, behavior: "smooth" });
+                } else {
+                    highlightList.scrollBy({ left: highlightList.clientWidth, behavior: "smooth" });
+                }
+            });
+
+            // 🔁 Carrosséis de loja (acessórios, roupa, etc.)
+            const carousels = document.querySelectorAll(".carousel-wrapper-shop");
+
+            carousels.forEach(carousel => {
+                const container = carousel.querySelector(".shop-list");
+                const btnLeft = carousel.querySelector(".carousel-arrow-shop.left");
+                const btnRight = carousel.querySelector(".carousel-arrow-shop.right");
+
+                btnLeft.addEventListener("click", () => {
+                    if (container.scrollLeft <= 0) {
+                        container.scrollTo({ left: container.scrollWidth, behavior: "smooth" });
+                    } else {
+                        container.scrollBy({ left: -container.clientWidth, behavior: "smooth" });
+                    }
+                });
+
+                btnRight.addEventListener("click", () => {
+                    const maxScrollLeft = container.scrollWidth - container.clientWidth;
+                    if (container.scrollLeft >= maxScrollLeft - 5) {
+                        container.scrollTo({ left: 0, behavior: "smooth" });
+                    } else {
+                        container.scrollBy({ left: container.clientWidth, behavior: "smooth" });
+                    }
+                });
             });
         });
+
     </script>
 </body>
 

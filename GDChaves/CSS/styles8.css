@@ -4,21 +4,6 @@ body {
     margin-top: 150px;
 }
 
-.sub-header {
-    background-image: url('../Background Images/Slide 16_9 - 8_ background.png');
-    color: #ffffff;
-    padding-top: 70px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    text-align: left;
-}
-
-.sub-header h1 {
-    font-size: 40px;
-    margin-bottom: 30px;
-}
-
 .text-section-loja {
     padding: 30px;
     text-align: left;
@@ -27,119 +12,164 @@ body {
 
 .text-section-loja h1 {
     font-size: 35px;
-    margin-top: 8px;
+    margin-top: 15px;
 }
 
-.kits-list {
+.highlight-carousel-wrapper {
+    position: relative;
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 30px;
-    background: white;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.kit-card {
-    display: flex;
-    flex-direction: column;
     align-items: center;
+    overflow: hidden;
+    background-image: url('../Background Images/Slide 16_9 - 7_ background.png');
     width: 100%;
-    min-height: 680px;
-    border-radius: 12px;
-    padding-left: 15px;
-    padding-right: 15px;
 }
 
-.kit-card a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-.kit-card a:hover {
-    transform: scale(1.05);
-    transition: transform 0.5s ease;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10);
-    border-radius: 12px;
-}
-
-.kit-card a:visited,
-.kit-card a:active,
-.kit-card a:focus {
-    color: inherit;
-    text-decoration: none;
-    outline: none;
-}
-
-
-.kit-card img {
+.highlight-list {
+    display: flex;
     width: 100%;
-    height: auto;
-    margin-top: 18px;
-    padding-left: 15px;
-    padding-right: 15px;
+    margin-left: 100px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-.kit-details {
-    width: 100%;
-    padding: 20px;
+.kit-highlight {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    gap: 40px;
 }
 
-.kit-final {
-    color: #000;
+.kit-highlight-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.kit-highlight-title {
+    font-size: 3rem;
     font-weight: bold;
-    font-size: 1.1rem;
-    margin-bottom: 6px;
-    display: block;
+    color: white;
+    text-transform: uppercase;
+    line-height: 1.2;
 }
 
-.kit-title {
-    color: #000000;
-    font-size: 1.35rem;
-    font-weight: 500;
-    margin: 5px 0 22px 0;
-    line-height: 1.25;
-    min-height: 48px;
+.kit-highlight-button {
+    display: inline-block;
+    padding: 12px 32px;
+    background-color: #1e2444;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.kit-highlight-button:hover {
+    background-color: #1e2444;
+}
+
+.kit-highlight-img {
+    flex: 1;
+    text-align: center;
+    min-width: 300px;
+}
+
+.kit-highlight-img img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.highlight-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.highlight-arrow:hover {
+    opacity: 1;
+}
+
+.highlight-carousel-wrapper:hover .highlight-arrow {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.highlight-arrow svg {
+    width: 60px;
+    height: 48px;
+    stroke: white;
+    stroke-width: 1;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.highlight-arrow.left {
+    left: 10px;
+}
+
+.highlight-arrow.right {
+    right: 10px;
 }
 
 .kit-prices {
     display: flex;
     flex-direction: column;
     gap: 4px;
+    margin-bottom: 30px;
 }
 
 .kit-label-socio {
-    color: #541833;
-    font-size: 1rem;
+    color: white;
+    font-size: 20px;
     font-weight: bold;
     margin-right: 10px;
 }
 
 .kit-preco-socio {
-    color: #541833;
-    font-size: 1.1rem;
+    color: white;
+    font-size: 20px;
     font-weight: bold;
     margin-right: 18px;
 }
 
 .kit-label-pvp {
-    color: #888;
-    font-size: 1rem;
+    color: #979797;
+    font-size: 20px;
     font-weight: 500;
     margin-right: 10px;
 }
 
 .kit-preco-pvp {
-    color: #232323;
-    font-size: 1.1rem;
+    color: #d5d5d5;
+    font-size: 20px;
     font-weight: 500;
+}
+
+.kit-details,
+.shop-card .kit-details {
+    padding: 20px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .shop-list {
     display: flex;
     overflow-x: auto;
     scroll-behavior: smooth;
-    padding: 10px 0;
     margin: 0;
 }
 
@@ -148,15 +178,15 @@ body {
 }
 
 .shop-card {
-    flex: 0 0 calc(25% - 20px);
-    min-width: calc(25% - 20px);
+    flex: 0 0 25%;
+    min-width: 25%;
     box-sizing: border-box;
-    margin: 0 10px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    min-height: 680px;
     border-radius: 12px;
+    margin-bottom: 10px;
 }
 
 .shop-card a {
@@ -167,16 +197,44 @@ body {
     flex-direction: column;
 }
 
+.kit-card img,
 .shop-card img {
     width: 100%;
     height: auto;
-    padding: 0 15px;
-    box-sizing: border-box;
+    padding: 0;
 }
 
-.shop-card .kit-details {
-    padding: 20px;
-    box-sizing: border-box;
+.prices {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.label-socio {
+    color: #541833;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.preco-socio {
+    color: #541833;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-right: 18px;
+}
+
+.label-pvp {
+    color: #888;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.preco-pvp {
+    color: #232323;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
 .carousel-wrapper-shop {
@@ -184,13 +242,14 @@ body {
     display: flex;
     align-items: center;
     width: 100%;
+    max-width: 100%;
+    padding-left: 30px;
+    padding-right: 20px;
     overflow: hidden;
-    margin: 0 10px;
 }
 
 .carousel-wrapper-shop:hover .carousel-arrow-shop {
-  opacity: 1;
-  pointer-events: all;
+    opacity: 1;
 }
 
 .carousel-arrow-shop {
@@ -203,18 +262,17 @@ body {
     z-index: 1000;
     padding: 0;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.5s ease;
 }
 
 .carousel-arrow-shop svg {
     width: 48px;
     height: 120px;
-    stroke: white;
     stroke-width: 1.5;
     fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
-    transition: stroke 0.3s ease;
+    transition: stroke 0.5s ease;
 }
 
 .carousel-arrow-shop:hover svg {
@@ -222,9 +280,9 @@ body {
 }
 
 .carousel-arrow-shop.left {
-    left: -10px;
+    left: 0px;
 }
 
 .carousel-arrow-shop.right {
-    right: -10px;
+    right: 0px;
 }
