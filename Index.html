@@ -29,7 +29,6 @@
             </div>
 
             <div class="carousel-slide kits-slide">
-
                 <a href="GDChaves/Pages/equipamentoprincipal.html" class="kit-item">
                     <div class="kits-container">
                         <img src="GDChaves/Images/equipamento_principal.png" alt="Equipamento Principal">
@@ -99,7 +98,6 @@
                 <path d="M9 4L19 24L9 44" />
             </svg>
         </button>
-
     </div>
     <div class="text-section">
         <h1>Acompanha os jogos do GD Chaves</h1>
@@ -268,6 +266,60 @@
         </div>
     </div>
 
+    <div id="registerModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" id="closeRegisterModal">&times;</span>
+            <h2>Registo de Conta</h2>
+
+            <div class="checkbox-socio">
+                <input type="checkbox" id="isMember" name="isMember">
+                <label for="isMember">Sou sócio</label>
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="name" name="name" placeholder="Nome" required />
+            </div>
+
+            <div class="input-group">
+                <input type="email" id="email" name="email" placeholder="Email" required />
+            </div>
+
+            <div class="input-group">
+                <input type="date" id="birthdate" name="birthdate" placeholder="Data de nascimento" required />
+            </div>
+
+            <div class="input-group hidden" id="memberNumberContainer">
+                <input type="text" id="memberNumber" name="memberNumber" placeholder="Número de Sócio" />
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" name="password" placeholder="Password" required />
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirmar Password"
+                    required />
+            </div>
+
+            <button type="submit">Criar Conta</button>
+        </div>
+    </div>
+
+    <div id="loginModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-button" id="closeLoginModal">&times;</span>
+            <h2>Iniciar Sessão</h2>
+
+            <div class="input-group">
+                <input type="email" id="email" name="email" placeholder="Email" required />
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="password" name="password" placeholder="Password" required />
+            </div>
+
+            <button id="loginBtn">Entrar</button>
+        </div>
     </div>
 
     <footer class="footer"></footer>
@@ -293,14 +345,6 @@
             track.style.transform = `translateX(${offset}px)`;
         }
 
-        document.getElementById("logo-link").addEventListener("click", function (e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
-
         document.querySelectorAll('.sponsors-grid img').forEach(img => {
             const original = img.src;
             const color = img.getAttribute('data-color');
@@ -314,7 +358,79 @@
             });
         });
 
+        async function loadHTML(selector, url) {
+            const response = await fetch(url);
+            if (response.ok) {
+                const text = await response.text();
+                document.querySelector(selector).innerHTML = text;
+
+                if (selector === 'header') {
+                    const logo = document.getElementById("logo-link");
+                    if (logo) {
+                        logo.addEventListener("click", function (e) {
+                            e.preventDefault();
+                            window.scrollTo({
+                                top: 0,
+                                behavior: "smooth"
+                            });
+                        });
+                    }
+
+                    const registerModal = document.getElementById("registerModal");
+                    const openLink = document.getElementById("openRegisterModal");
+                    const closeBtn = document.getElementById("closeRegisterModal");
+
+                    if (openLink && registerModal && closeBtn) {
+                        openLink.addEventListener("click", (e) => {
+                            e.preventDefault();
+                            registerModal.style.display = "block";
+                        });
+
+                        closeBtn.addEventListener("click", () => {
+                            registerModal.style.display = "none";
+                        });
+
+                        window.addEventListener("click", (event) => {
+                            if (event.target === registerModal) {
+                                registerModal.style.display = "none";
+                            }
+                        });
+                    }
+                    const isMemberCheckbox = document.getElementById("isMember");
+                    const memberNumberContainer = document.getElementById("memberNumberContainer");
+
+                    memberNumberContainer.style.display = "none";
+                    isMemberCheckbox.checked = false;
+
+                    isMemberCheckbox.addEventListener("change", () => {
+                        memberNumberContainer.style.display = isMemberCheckbox.checked ? "block" : "none";
+                    });
+
+                    const loginModal = document.getElementById("loginModal");
+                    const openLoginlink = document.getElementById("openLoginModal");
+                    const closeLoginBtn = document.getElementById("closeLoginModal");
+
+                    if (openLoginlink && loginModal && closeLoginBtn) {
+                        openLoginlink.addEventListener("click", (e) => {
+                            e.preventDefault();
+                            loginModal.style.display = "block";
+                        });
+
+                        closeLoginBtn.addEventListener("click", () => {
+                            loginModal.style.display = "none";
+                        });
+
+                        window.addEventListener("click", (event) => {
+                            if (event.target === loginModal) {
+                                loginModal.style.display = "none";
+                            }
+                        });
+                    }
+                }
+            }
+        }
     </script>
+
 
 
 </body>
