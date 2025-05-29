@@ -55,6 +55,9 @@ public class AuthController {
         User newUser = new User();
         newUser.setEmail(user.getEmail());
         newUser.setPassword(encryptedPassword);
+        newUser.setSocio(user.isSocio());
+        newUser.setRole("USER");
+
         try {
             if (userService.createUser(newUser) != null) {
                 response.put("success", true);
@@ -67,8 +70,8 @@ public class AuthController {
             }
         } catch (Exception e) {
             response.put("success", false);
-            response.put("message", "Utilizador já existe");
-            return ResponseEntity.status(409).body((Serializable) response);
+            response.put("message", "Erro ao criar utilizador");
+            return ResponseEntity.status(500).body((Serializable) response);
         }
     }
 }
