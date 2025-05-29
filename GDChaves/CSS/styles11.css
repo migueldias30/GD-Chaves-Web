@@ -1,0 +1,69 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    margin-top: 150px;
+}
+
+.sub-header {
+    background-image: url('../Background Images/Slide 16_9 - 8_ background.png');
+    color: white;
+    padding-top: 70px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+}
+
+.sub-header h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.historia-galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 40px 5%;
+    box-sizing: border-box;
+}
+
+.historia-card {
+    text-align: center;
+}
+
+.imagem-container {
+    width: 100%;
+    height: 200px; /* Altura igual para todas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f8f8; /* opcional: fundo neutro */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.imagem-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.historia-card h2 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #1e2444;
+}
+
+.historia-card h2 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #1e2444;
+}
+
+.historia-card p {
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+}

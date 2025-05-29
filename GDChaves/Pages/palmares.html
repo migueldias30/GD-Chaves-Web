@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GD Chaves - História</title>
+    <link rel="icon" type="image/png" href="GDChaves/Images/icon_chaves.png" />
+    <link rel="stylesheet" href="../CSS/styles.css" />
+    <link rel="stylesheet" href="../CSS/styles11.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header></header>
+
+    <div class="sub-header">
+        <h1>Palmarés</h1>
+    </div>
+
+    <div class="historia-galeria">
+        <div class="historia-card">
+            <img src="../Images/primeira_liga.png" alt="Fundação" />
+            <h2>PRIMEIRA LIGA</h2>
+            <h3>18 PRESENÇAS</h3>
+            <p>MELHOR: 5º LUGAR (1986/87 E 1989/90)</p>
+        </div>
+        <div class="historia-card">
+            <img src="../Images/taca_uefa.png" alt="Primeira Liga" />
+            <h2>TAÇA UEFA</h2>
+            <h3>1 PRESENÇA</h3>
+            <p>MELHOR: 2ª ELIMINATÓRIA (1987/88)</p>
+        </div>
+        <div class="historia-card">
+            <img src="../Images/taca_de_portugal.png" alt="Europa" />
+            <h2>TAÇA DE PORTUGAL</h2>
+            <h3>61 PRESENÇAS</h3>
+            <p>MELHOR: FINALISTA (2009/10)</p>
+        </div>
+        <div class="historia-card">
+            <img src="../Images/segunda_liga.png" alt="2ª Liga" />
+            <h2>SEGUNDA LIGA</h2>
+            <h3>17 PRESENÇAS</h3>
+            <p>MELHOR: 2º LUGAR (2015/2016)</p>
+        </div>
+        <div class="historia-card">
+            <img src="../Images/segunda_divisao.png" alt="2ª Divisão" />
+            <h2>SEGUNDA DIVIDÃO</h2>
+            <h3>26 PRESENÇAS</h3>
+            <p>MELHOR: CAMPEÃO (2012/2013)</p>
+        </div>
+        <div class="historia-card">
+            <img src="../Images/terceira_divisao.png" alt="3ª Divisão" />
+            <h2>TERCEIRA DIVISÃO</h2>
+            <h3>17 PRESENÇAS</h3>
+            <p>MELHOR: FINALISTA (1954/55)</p>
+        </div>
+    </div>
+
+
+    <footer class="footer"></footer>
+
+    <script src="main.js"></script>
+
+    <script>
+        async function inicializarPagina() {
+            await loadHTML('header', '../../header.html');
+            await loadHTML('footer', '../../footer.html');
+            document.getElementById("logo-link")?.addEventListener("click", function (e) {
+                e.preventDefault();
+                window.location.href = "../../Index.html";
+            });
+        }
+        inicializarPagina();
+    </script>
+</body>
+
+</html>
