@@ -1,0 +1,71 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  margin-top: 150px;
+}
+
+.sub-header {
+  background-image: url('../Background Images/Slide 16_9 - 8_ background.png');
+  color: white;
+  padding-top: 70px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: left;
+}
+
+.sub-header h1 {
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+.historia-intro {
+    max-width: 1000px;
+    margin: 55px auto 40px;
+    padding: 0 20px;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.8;
+    text-align: center;
+    color: rgb(78, 78, 78);
+}
+
+.historia-detalhes {
+    display: flex;
+    max-width: 100%;
+    padding: 20px 30px;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+.text-section {
+    flex: 1;
+    min-width: 300px;
+    align-items: flex-start;
+}
+
+.text-section h2 {
+    color: #1e2444;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.text-section p {
+    font-size: 19px;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.image-section {
+    flex: 1;
+    min-width: 300px;
+}
+
+.image-section img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
