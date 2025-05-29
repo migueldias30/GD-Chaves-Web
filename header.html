@@ -49,7 +49,7 @@
             </button>
             <div class="dropdown-content">
                 <div class="column">
-                    <a href="">História <span>›</span></a>
+                    <a href="GDChaves/Pages/historia.html">História <span>›</span></a>
                     <a href="">Estrutura <span>›</span></a>
                     <a href="GDChaves/Pages/estadio.html">Estádio <span>›</span></a>
                     <a href="">Palmarés <span>›</span></a>
@@ -59,9 +59,29 @@
         </div>
     </div>
 
-
     <div class="icon-buttons">
-        <button><span class="material-symbols-outlined">search</span></button>
-        <button><span class="material-symbols-outlined">person</span></button>
+        <div class="dropdown search-dropdown">
+            <button class="dropbtn">
+                <span class="material-symbols-outlined">search</span>
+            </button>
+            <div class="dropdown-content">
+                <div class="column">
+                    <form action="GDChaves/Pages/pesquisa.html" method="GET" class="search-form">
+                        <input type="text" name="q" placeholder="Pesquisar..." class="search-input" />
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown user-dropdown">
+            <button class="dropbtn">
+                <span class="material-symbols-outlined">person</span>
+            </button>
+            <div class="dropdown-content">
+                <div class="column">
+                    <a href="#">Conta <span>›</span></a>
+                    <a href="#">Encomendas <span>›</span></a>
+                    <a href="#">Terminar sessão <span>›</span></a>
+                </div>
+            </div>
+        </div>
     </div>
-</div>

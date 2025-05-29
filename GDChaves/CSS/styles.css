@@ -92,7 +92,7 @@ header {
   margin-bottom: 10px;
 }
 
-#loginModal button{
+#loginModal button {
   background-color: #1e2444;
   color: white;
   border: none;
@@ -231,8 +231,7 @@ header {
   transform: translateX(-50%);
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-  padding-left: 250px;
-
+  padding-left: 250px
 }
 
 .dropdown:hover .dropdown-content {
@@ -371,10 +370,92 @@ header {
   height: 100%;
 }
 
+.icon-buttons .user-dropdown .dropbtn {
+  padding: 0;
+  height: 100px;
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-buttons .user-dropdown .dropdown-content {
+  width: 100%;
+  left: auto;
+  right: 0;
+  transform: none;
+  padding-left: 0;
+  padding-top: 20px;
+}
+
+.icon-buttons .user-dropdown .dropdown-content .column a {
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+  float: none;
+  padding: 16px;
+  padding-left: 270px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.icon-buttons .user-dropdown .dropdown-content .column a:hover {
+  color: #f1c40f;
+}
+
+.icon-buttons .search-dropdown .dropbtn {
+  padding: 0;
+  height: 100px;
+  display: block;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-buttons .search-dropdown .dropdown-content {
+  width: 100%;
+  left: auto;
+  right: 0;
+  transform: none;
+  padding-left: 0;
+  padding-top: 20px;
+}
+
+.icon-buttons .search-dropdown .dropdown-content .column a {
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+  float: none;
+  padding: 16px;
+  padding-left: 270px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.icon-buttons .search-dropdown .dropdown-content .column a:hover {
+  background-color: #f1c40f;
+  color: #1e2444;
+}
+
+.search-input {
+  width: 100%;
+  max-width: 1400px;
+  padding: 10px;
+  margin-left: 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: transparent; /* tom escuro */
+}
+
+.search-input::placeholder {
+  color: #cccccc;
+}
+
 .icon-buttons button {
   background: none;
   border: none;
-  color: white;
+  color: transparent;
   cursor: pointer;
   padding: 10px;
 }
