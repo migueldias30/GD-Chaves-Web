@@ -266,6 +266,55 @@
         </div>
     </div>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const btnRegister = document.getElementById("btnRegister");
+            btnRegister.addEventListener("click", async (e) => {
+                e.preventDefault();
+
+                const isMember = document.getElementById("isMember").checked;
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const birthdate = document.getElementById("birthdate").value;
+                const memberNumber = isMember ? document.getElementById("memberNumber").value : "";
+                const password = document.getElementById("password").value;
+                const confirmPassword = document.getElementById("confirmPassword").value;
+
+                if (password !== confirmPassword) {
+                    alert("As passwords não coincidem.");
+                    return;
+                }
+
+                try {
+                    const response = await fetch('', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            isMember,
+                            name,
+                            email,
+                            birthdate,
+                            memberNumber,
+                            password
+                        })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Erro ao registar a conta.');
+                    }
+
+                    alert('Conta criada com sucesso!');
+                    window.location.href = 'GDChaves/Pages/conta.html';
+                } catch (error) {
+                    console.error(error);
+                    alert('Ocorreu um erro ao criar a conta. Por favor, tente novamente.');
+                }
+            });
+        });
+    </script>
+
     <div id="registerModal" class="modal hidden">
         <div class="modal-content">
             <span class="close-button" id="closeRegisterModal">&times;</span>
@@ -301,9 +350,41 @@
                     required />
             </div>
 
-            <button type="submit">Criar Conta</button>
+            <button id="btnRegister" type="submit">Criar Conta</button>
         </div>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginBtn = document.getElementById("loginBtn");
+            loginBtn.addEventListener("click", async (e) => {
+                e.preventDefault();
+
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+
+                try {
+                    const response = await fetch('', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ email, password })
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('Erro ao iniciar sessão.');
+                    }
+
+                    alert('Sessão iniciada com sucesso!');
+                    window.location.href = 'GDChaves/Pages/conta.html';
+                } catch (error) {
+                    console.error(error);
+                    alert('Ocorreu um erro ao iniciar sessão. Por favor, tente novamente.');
+                }
+            });
+        });
+    </script>
 
     <div id="loginModal" class="modal hidden">
         <div class="modal-content">

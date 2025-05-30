@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    margin-top: 150px;
+}
+
+.sub-header {
+    background-image: url('../Background Images/Slide 16_9 - 8_ background.png');
+    color: white;
+    padding-top: 70px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+}
+
+.sub-header h1 {
+    font-size: 40px;
+    margin-bottom: 30px;
+}
+
+.perfil-container {
+    max-width: 100%;
+    margin: 40px 20px;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left;
+    justify-content: left;
+}
+
+.foto-perfil {
+    width: 100%;
+    height: 150px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+}
+
+.foto-perfil .material-symbols-outlined {
+    font-size: 150px;
+    color: #1e2444;
+}
+
+.dados-perfil p {
+    font-size: 20px;
+    margin: 10px 0;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.dados-perfil {
+    margin-top: 10px;
+}
