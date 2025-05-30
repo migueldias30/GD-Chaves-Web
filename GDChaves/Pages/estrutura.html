@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GD Chaves - Estrutura</title>
+    <link rel="icon" type="image/png" href="GDChaves/Images/icon_chaves.png" />
+    <link rel="stylesheet" href="../CSS/styles.css" />
+    <link rel="stylesheet" href="../CSS/styles13.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header></header>
+
+    <div class="sub-header">
+        <h1>Estrutura</h1>
+        <p>"O desejo mede os obstáculos; a vontade vence-os."</p>
+    </div>
+
+    <div class="direcao-column">
+        <div class="direcao-container">
+            <div class="coluna">
+                <h3>Direção do Grupo Desportivo de Chaves</h3>
+                <p><strong>Presidente:</strong> Bruno Miguel Esteves Carvalho – Sócio n.º 698</p>
+                <p>Vice-Presidente: Francisco da Costa Carvalho – Sócio n.º 80</p>
+                <p>Vice-Presidente: Francisco José Gomes de Carvalho – Sócio n.º 576</p>
+                <p>Vice-Presidente: Francisco Alexandre Sousa Carvalho – Sócio n.º 511</p>
+                <p>Vice-Presidente: Óscar Ricardo Dias dos Santos – Sócio n.º 510</p>
+                <p>Vice-Presidente: Rui Carvalho Martins – Sócio n.º 61</p>
+                <p>Vice-Presidente: António Luís Pereira – Sócio n.º 122</p>
+                <p>Vice-Presidente: José Armindo Oliveira Lopes – Sócio n.º 704</p>
+                <p>Vice-Presidente: Luís Miguel Batista Silva – Sócio n.º 815</p>
+                <p>Vogal: Acácio Filipe Almeida – Sócio n.º 934</p>
+                <p>Vogal: Carlos Manuel da Silva Teixeira – Sócio n.º 5642</p>
+                <p>Vogal: Filipe Frazão Ferreira Rodrigues Alves – Sócio n.º 206</p>
+                <p>Vogal: Gilbert Portugal Pereira – Sócio n.º 552</p>
+                <p>Vogal: Inês Soares de Melo – Sócio n.º 5640</p>
+                <p>Vogal: Luís Miguel do Cabo Pereira – Sócio n.º 190</p>
+                <p>Vogal: Luís Miguel Gonçalves Pereira – Sócio n.º 987</p>
+                <p>Vogal: Sérgio Rui Oliveira Mota – Sócio n.º 497</p>
+            </div>
+        </div>
+        <hr>
+        <div class="direcao-container">
+            <div class="coluna">
+                <h3>Grupo Desportivo de Chaves Futebol, SAD</h3>
+                <p><strong>Presidente:</strong> Francisco José Carvalho</p>
+                <p>Francisco Costa Carvalho (Administração)</p>
+                <p>Liliana Gomes de Carvalho (Administração)</p>
+                <p>Diretor Geral: Óscar Santos</p>
+                <p>Diretor Desportivo: Nelson Lenho</p>
+                <p>Diretor de Comunicação: Sérgio Mota</p>
+                <p>Diretor de Marketing: Rui Ferreira</p>
+                <p>Diretor de Campo: Luís Pereira</p>
+                <p>Diretor de Segurança: Luís Miguel Pereira</p>
+                <p>Oficial de Ligação de Adeptos: Eduardo Cruz</p>
+                <p>Secretário Técnico: Delfim Cruz</p>
+                <br>
+                <h3>Mesa da Assembleia Geral</h3>
+                <p>Presidente: Bruno Miguel Esteves de Carvalho</p>
+                <p>Secretário: Rui de Carvalho Martins</p>
+                <p>Fiscal Único: Pinto Leite Machado Vaz Sociedade de Revisores de Contas, Lda representada por André da Silva Antunes Machado Vaz</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer"></footer>
+
+    <script src="main.js"></script>
+
+    <script>
+        async function inicializarPagina() {
+            await loadHTML('header', '../../header.html');
+            await loadHTML('footer', '../../footer.html');
+            document.getElementById("logo-link")?.addEventListener("click", function (e) {
+                e.preventDefault();
+                window.location.href = "../../Index.html";
+            });
+        }
+        inicializarPagina();
+    </script>
+</body>
+
+</html>
