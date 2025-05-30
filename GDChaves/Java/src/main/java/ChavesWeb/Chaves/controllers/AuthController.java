@@ -1,6 +1,7 @@
 package ChavesWeb.Chaves.controllers;
 
 import ChavesWeb.Chaves.dto.AuthBodyDto;
+import ChavesWeb.Chaves.dto.RegisterDto;
 import ChavesWeb.Chaves.models.User;
 import ChavesWeb.Chaves.services.UserService;
 import jakarta.validation.Valid;
@@ -47,7 +48,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<? extends Serializable> register(@Valid @RequestBody AuthBodyDto user) {
+    public ResponseEntity<? extends Serializable> register(@Valid @RequestBody RegisterDto user) {
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         HashMap<String, Object> response = new HashMap<>();
         String encryptedPassword = bCryptPasswordEncoder.encode(user.getPassword());
@@ -55,8 +56,9 @@ public class AuthController {
         User newUser = new User();
         newUser.setEmail(user.getEmail());
         newUser.setPassword(encryptedPassword);
-        newUser.setSocio(user.isSocio());
-        newUser.setRole("USER");
+        newUser.setSocio(user.isMember());
+        newUser.setNome(user.getNome());
+        newUser.getBirthdate();
 
         try {
             if (userService.createUser(newUser) != null) {
