@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GD Chaves - História</title>
+    <link rel="icon" type="image/png" href="GDChaves/Images/icon_chaves.png" />
+    <link rel="stylesheet" href="../CSS/styles.css" />
+    <link rel="stylesheet" href="../CSS/styles12.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header></header>
+
+    <div class="sub-header">
+        <h1>Conta</h1>
+    </div>
+
+    <div class="perfil-container">
+        <div class="foto-perfil">
+            <span class="material-symbols-outlined">account_circle</span>
+        </div>
+        <div class="dados-perfil">
+            <p><strong>Nome:</strong> <span id="name"></span></p>
+            <p><strong>Email:</strong> <span id="email"></span></p>
+            <p><strong>Data de Nascimento:</strong> <span id="birth"></span></p>
+            <p><strong>Tipo de Conta:</strong> <span id="socio"></span></p>
+            <p><strong>Número de Sócio:</strong> <span id="nrsocio"></span></p>
+        </div>
+    </div>
+
+
+    <footer class="footer"></footer>
+
+    <script src="main.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao obter os dados do perfil');
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById('name').textContent = data.name || 'N/A';
+                document.getElementById('email').textContent = data.email || 'N/A';
+                document.getElementById('birth').textContent = data.birth || 'N/A';
+                document.getElementById('socio').textContent = data.socio ? 'Sócio' : 'Não Sócio';
+                document.getElementById('nrsocio').textContent = data.nrsocio || 'N/A';
+            })
+        });
+    </script>
+
+    <script>
+        async function inicializarPagina() {
+            await loadHTML('header', '../../header.html');
+            await loadHTML('footer', '../../footer.html');
+            document.getElementById("logo-link")?.addEventListener("click", function (e) {
+                e.preventDefault();
+                window.location.href = "../../Index.html";
+            });
+        }
+        inicializarPagina();
+    </script>
+</body>
+
+</html>
