@@ -1,6 +1,8 @@
 package ChavesWeb.Chaves.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.Date;
 
@@ -12,8 +14,9 @@ public class RegisterDto {
     @NotBlank
     private String password;
 
-    @NotBlank
-    private boolean isMember;
+    @NotNull
+    @JsonProperty("isMember")
+    private boolean member;
 
     private String memberNumber;
 
@@ -21,7 +24,7 @@ public class RegisterDto {
     private String nome;
 
     @NotBlank
-    private Date birthdate;
+    private String birthdate;
 
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
@@ -29,8 +32,8 @@ public class RegisterDto {
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
-    public boolean isMember() { return isMember; }
-    public void setMember(boolean member) { this.isMember = member; }
+    public boolean isMember() { return member; }
+    public void setMember(boolean member) { this.member = member; }
 
     public String getMemberNumber() { return memberNumber; }
     public void setMemberNumber(String memberNumber) { this.memberNumber = memberNumber; }
@@ -39,7 +42,7 @@ public class RegisterDto {
 
     public void setNome(String nome) { this.nome = nome; }
 
-    public Date getBirthdate() { return birthdate; }
+    public String getBirthdate() { return birthdate; }
 
-    public void setBirthdate(Date birthdate) { this.birthdate = birthdate; }
+    public void setBirthdate(String birthdate) { this.birthdate = birthdate; }
 }

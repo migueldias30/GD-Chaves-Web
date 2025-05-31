@@ -39,29 +39,26 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const id = localStorage.getItem('userId');
-            fetch(`http://localhost:8080/users/${id}`, {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Erro ao obter os dados do perfil');
-                }
-                return response.json();
-            })
-            .then(data => {
-                document.getElementById('name').textContent = data.name || 'N/A';
-                document.getElementById('email').textContent = data.email || 'N/A';
-                document.getElementById('birth').textContent = data.birth || 'N/A';
-                document.getElementById('socio').textContent = data.socio ? 'Sócio' : 'Não Sócio';
-                document.getElementById('nrsocio').textContent = data.nrsocio || 'N/A';
-            })
+            const id = localStorage.getItem("userId");
+
+            if (!id) {
+                alert("Utilizador não autenticado.");
+                window.location.href = "../../index.html";
+                return;
+            }
+
+            fetch(`http://localhost:8080/api/users/${id}`)
+                .then(res => res.json())
+                .then(data => {
+                    const user = data.userData;
+                    document.getElementById("name").textContent = user.nome || "N/A";
+                    document.getElementById("email").textContent = user.email || "N/A";
+                    document.getElementById('birth').textContent = new Date(user.birthdate).toLocaleDateString('pt-PT') || "N/A";
+                    document.getElementById("socio").textContent = user.socio ? "Sócio" : "Não Sócio";
+                    document.getElementById("nrsocio").textContent = user.memberNumber || "N/A";
+                });
         });
     </script>
-
     <script>
         async function inicializarPagina() {
             await loadHTML('header', '../../header.html');
@@ -70,6 +67,27 @@
                 e.preventDefault();
                 window.location.href = "../../Index.html";
             });
+            document.getElementById("logoutBtn")?.addEventListener("click", function (e) {
+                e.preventDefault();
+                localStorage.removeItem("userId");
+                alert("Sessão terminada com sucesso.");
+                window.location.href = "../../index.html";
+            });
+            const loginLink = document.getElementById("openLoginModal");
+            const registerLink = document.getElementById("openRegisterModal");
+            const userDropdown = document.getElementById("userDropdown");
+
+            const userId = localStorage.getItem("userId");
+
+            if (userId) {
+                if (loginLink) loginLink.style.display = "none";
+                if (registerLink) registerLink.style.display = "none";
+                if (userDropdown) userDropdown.style.display = "block";
+            } else {
+                if (loginLink) loginLink.style.display = "inline-block";
+                if (registerLink) registerLink.style.display = "inline-block";
+                if (userDropdown) userDropdown.style.display = "none";
+            }
         }
         inicializarPagina();
     </script>

@@ -273,7 +273,7 @@
                 e.preventDefault();
 
                 const isMember = document.getElementById("isMember").checked;
-                const name = document.getElementById("name").value;
+                const nome = document.getElementById("name").value;
                 const email = document.getElementById("email").value;
                 const birthdate = document.getElementById("birthdate").value;
                 const memberNumber = isMember ? document.getElementById("memberNumber").value : "";
@@ -286,14 +286,22 @@
                 }
 
                 try {
-                    const response = await fetch('http://localhost:8080/register', {
+                    console.log({
+                        isMember,
+                        nome,
+                        email,
+                        birthdate,
+                        memberNumber,
+                        password
+                    });
+                    const response = await fetch('http://localhost:8080/api/auth/register', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
                         },
                         body: JSON.stringify({
                             isMember,
-                            name,
+                            nome,
                             email,
                             birthdate,
                             memberNumber,
@@ -305,8 +313,9 @@
                         throw new Error('Erro ao registar a conta.');
                     }
 
+                    localStorage.setItem('userId', (await response.json()).userId);
                     alert('Conta criada com sucesso!');
-                    window.location.href = 'GDChaves/Pages/conta.html';
+                    //window.location.href = 'GDChaves/Pages/conta.html';
                 } catch (error) {
                     console.error(error);
                     alert('Ocorreu um erro ao criar a conta. Por favor, tente novamente.');
@@ -357,35 +366,38 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const loginBtn = document.getElementById("loginBtn");
-            loginBtn.addEventListener("click", async (e) => {
-                e.preventDefault();
+            if (loginBtn) {
+                loginBtn.addEventListener("click", async (e) => {
+                    e.preventDefault();
 
-                const email = document.getElementById("email").value;
-                const password = document.getElementById("password").value;
+                    const email = document.getElementById("emailLogin").value;
+                    const password = document.getElementById("passwordLogin").value;
 
-                try {
-                    const response = await fetch('http://localhost:8080/login', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({ email, password })
-                    });
+                    try {
+                        const response = await fetch("http://localhost:8080/api/auth/login", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            body: JSON.stringify({ email, password })
+                        });
 
-                    if (!response.ok) {
-                        throw new Error('Erro ao iniciar sessão.');
+                        if (!response.ok) {
+                            throw new Error("Credenciais inválidas.");
+                        }
+
+                        const result = await response.json();
+                        localStorage.setItem("userId", result.userId); // Guarda o ID
+                        window.location.href = "GDChaves/Pages/conta.html"; // Redireciona
+                    } catch (error) {
+                        console.error("Erro no login:", error);
+                        alert("Login falhou: " + error.message);
                     }
-                    localStorage.setItem('userId', (await response.json()).id);
-
-                    alert('Sessão iniciada com sucesso!');
-                    window.location.href = 'GDChaves/Pages/conta.html';
-                } catch (error) {
-                    console.error(error);
-                    alert('Ocorreu um erro ao iniciar sessão. Por favor, tente novamente.');
-                }
-            });
+                });
+            }
         });
     </script>
+
 
     <div id="loginModal" class="modal hidden">
         <div class="modal-content">
@@ -393,11 +405,11 @@
             <h2>Iniciar Sessão</h2>
 
             <div class="input-group">
-                <input type="email" id="email" name="email" placeholder="Email" required />
+                <input type="email" id="emailLogin" name="email" placeholder="Email" required />
             </div>
 
             <div class="input-group">
-                <input type="password" id="password" name="password" placeholder="Password" required />
+                <input type="password" id="passwordLogin" name="password" placeholder="Password" required />
             </div>
 
             <button id="loginBtn">Entrar</button>
@@ -509,6 +521,28 @@
                         });
                     }
                 }
+                document.getElementById("logoutBtn")?.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    localStorage.removeItem("userId");
+                    alert("Sessão terminada com sucesso.");
+                    window.location.href = "../../index.html";
+                });
+            }
+            const loginLink = document.getElementById("openLoginModal");
+            const registerLink = document.getElementById("openRegisterModal");
+            const userDropdown = document.getElementById("userDropdown");
+
+            const userId = localStorage.getItem("userId");
+
+            if (userId) {
+                if (loginLink) loginLink.style.display = "none";
+                if (registerLink) registerLink.style.display = "none";
+                if (userDropdown) userDropdown.style.display = "block";
+            } else {
+                // Não está autenticado
+                if (loginLink) loginLink.style.display = "inline-block";
+                if (registerLink) registerLink.style.display = "inline-block";
+                if (userDropdown) userDropdown.style.display = "none";
             }
         }
     </script>

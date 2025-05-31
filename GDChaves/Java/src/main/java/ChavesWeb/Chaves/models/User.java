@@ -1,5 +1,6 @@
 package ChavesWeb.Chaves.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -26,18 +27,16 @@ public class User {
     private String role;
 
     @Column(nullable = false, columnDefinition = "BIT", length = 1)
-    private boolean socio = false;
+    private boolean socio;
 
     private String memberNumber;
 
-    @Column(nullable = false)
+    @Column(name = "nome", nullable = false)
     private String nome;
 
-    @Temporal(TemporalType.DATE)
-    @Column(nullable = false)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date birthdate;
 
-    // Getters e Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -59,6 +58,7 @@ public class User {
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
 
-    public Date getBirthdate() { return this.birthdate; }
+    public Date getBirthdate() { return birthdate;}
+
     public void setBirthdate(Date birthdate) { this.birthdate = birthdate; }
 }

@@ -32,7 +32,7 @@ public class ReturnUser {
 
     @Temporal(TemporalType.DATE)
     @Column(nullable = false)
-    private Date birthdate;
+    private String birthdate;
 
     // Getters e Setters
     public Long getId() { return id; }
@@ -53,6 +53,6 @@ public class ReturnUser {
     public String getNome() { return nome; }
     public void setNome(String nome) { this.nome = nome; }
 
-    public Date getBirthdate(Date birthdate) { return this.birthdate; }
-    public void setBirthdate(Date birthdate) { this.birthdate = birthdate; }
+    public String getBirthdate() { return this.birthdate; }
+    public void setBirthdate(String birthdate) { this.birthdate = birthdate; }
 }

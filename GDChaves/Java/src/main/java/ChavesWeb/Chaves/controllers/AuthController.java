@@ -10,6 +10,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 @RestController
@@ -58,22 +60,31 @@ public class AuthController {
         newUser.setPassword(encryptedPassword);
         newUser.setSocio(user.isMember());
         newUser.setNome(user.getNome());
-        newUser.getBirthdate();
+        newUser.setMemberNumber(user.getMemberNumber());
+        newUser.setRole("USER");
 
         try {
-            if (userService.createUser(newUser) != null) {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            Date parsedDate = sdf.parse(user.getBirthdate());
+            newUser.setBirthdate(parsedDate);
+
+            User createdUser = userService.createUser(newUser);
+            if (createdUser != null) {
                 response.put("success", true);
                 response.put("message", "Utilizador criado com sucesso");
+                response.put("userId", createdUser.getId());
                 return ResponseEntity.ok((Serializable) response);
             } else {
                 response.put("success", false);
                 response.put("message", "Utilizador já existe");
                 return ResponseEntity.status(409).body((Serializable) response);
             }
+
         } catch (Exception e) {
             response.put("success", false);
-            response.put("message", "Erro ao criar utilizador");
+            response.put("message", "Erro ao criar utilizador: " + e.getMessage());
             return ResponseEntity.status(500).body((Serializable) response);
         }
     }
+
 }

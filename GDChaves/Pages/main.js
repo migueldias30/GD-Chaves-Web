@@ -31,7 +31,12 @@ window.addEventListener('DOMContentLoaded', async () => {
     });
   });
 
-  filtrarJogos('futuro'); // Exibir por padrão jogos futuros
 });
+
+// Adicione esta função temporária se não estiver definida em outro lugar
+function filtrarJogos(tipo) {
+  // Implemente a lógica de filtragem aqui
+  console.warn('filtrarJogos não está implementado. Tipo:', tipo);
+}
 
 
