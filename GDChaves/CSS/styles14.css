@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    margin-top: 150px;
+}
+
+.player-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-image: url('../Background Images/Slide 16_9 - 8_ background.png');
+    color: white;
+    gap: 50px;
+}
+
+.player-photo img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.player-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player-name {
+    font-size: 80px;
+    margin: 0 0 20px 0;
+    font-weight: bold;
+}
+
+.player-info-box {
+    display: flex;
+    align-items: center;
+    background-color: #1a1e2e;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 20px;
+    gap: 15px;
+    max-width: fit-content;
+}
+
+.biografia-jogador {
+    padding: 40px 30px;
+    font-family: Arial, sans-serif;
+    color: #1e1e1e;
+    line-height: 1.6;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.biografia-jogador h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.biografia-jogador p {
+    margin-bottom: 18px;
+    font-size: 18px;
+    max-width: 800px;
+}
+
+.biografia-jogador .info-extra p {
+    margin-bottom: 8px;
+    font-size: 17px;
+    color: #333;
+}

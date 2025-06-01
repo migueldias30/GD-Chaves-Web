@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GD Chaves - Jogadores</title>
+    <link rel="icon" type="image/png" href="GDChaves/Images/icon_chaves.png" />
+    <link rel="stylesheet" href="../CSS/styles.css">
+    <link rel="stylesheet" href="../CSS/styles14.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header></header>
+
+    <div class="player-header">
+        <div class="player-photo">
+            <img src="../Images/vozinha.png" alt="Vozinha">
+        </div>
+        <div class="player-data">
+            <h1 class="player-name">Vozinha</h1>
+            <div class="player-info-box">
+                <span class="player-number">NÚMERO: 1</span>
+                <span class="player-position">POSIÇAO: GR</span>
+            </div>
+        </div>
+    </div>
+
+    <section class="biografia-jogador">
+        <h2>Biografia</h2>
+        <p>Guarda-redes, ex-Trencin (Eslováquia), é reforço para a baliza do GD Chaves.
+            Titularíssimo da Seleção de Cabo-Verde durante largos anos, Vozinha já logrou participar em quatro ediçõesdo
+            Campeonato Africano das Nações ao serviço dos Tubarões Azuis.
+            Está de regresso ao futebol português onde também já representou o Gil Vicente FC.</p>
+
+        <div class="info-extra">
+            <p><strong>Nascimento:</strong> 1986-06-03</p>
+            <p><strong>Idade:</strong> 38 anos</p>
+            <p><strong>Peso:</strong> 74 Kg</p>
+            <p><strong>Altura:</strong>:</strong> 1,89 m</p>
+            <p><strong>Nacionalidade:</strong> Cabo Verde</p>
+        </div>
+    </section>
+
+
+    <footer class="footer"></footer>
+
+    <script src="main.js"></script>
+
+    <script>
+        async function inicializarPagina() {
+            await loadHTML('header', '../../header.html');
+            await loadHTML('footer', '../../footer.html');
+            document.getElementById("logo-link")?.addEventListener("click", function (e) {
+                e.preventDefault();
+                window.location.href = "../../Index.html";
+            });
+        }
+        inicializarPagina();
+    </script>
+</body>
+
+</html>
