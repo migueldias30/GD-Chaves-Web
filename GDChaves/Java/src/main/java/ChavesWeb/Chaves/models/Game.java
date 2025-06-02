@@ -1,6 +1,9 @@
 package ChavesWeb.Chaves.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 import java.util.Date;
 
 @Entity
@@ -30,6 +33,31 @@ public class Game {
     @ManyToOne
     @JoinColumn(name = "game_opp_id")
     private Opponent opponent;
+
+    @Size(max = 40)
+    @NotNull
+    @Column(name = "game_hr", nullable = false, length = 40)
+    private String gameHr;
+
+    @Size(max = 20)
+    @Column(name = "game_res", length = 20)
+    private String gameRes;
+
+    public String getGameRes() {
+        return gameRes;
+    }
+
+    public void setGameRes(String gameRes) {
+        this.gameRes = gameRes;
+    }
+
+    public String getGameHr() {
+        return gameHr;
+    }
+
+    public void setGameHr(String gameHr) {
+        this.gameHr = gameHr;
+    }
 
     public Integer getId() {
         return id;

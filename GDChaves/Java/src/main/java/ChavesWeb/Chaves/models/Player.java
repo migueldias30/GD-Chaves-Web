@@ -1,7 +1,12 @@
 package ChavesWeb.Chaves.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 import java.util.Date;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "player")
@@ -30,6 +35,56 @@ public class Player {
 
     @Column(name = "pla_foto", length = 200)
     private String photo;
+
+    @Size(max = 400)
+    @NotNull
+    @Column(name = "pla_info", nullable = false, length = 400)
+    private String plaInfo;
+
+    @Size(max = 20)
+    @NotNull
+    @Column(name = "pla_wei", nullable = false, length = 20)
+    private String plaWei;
+
+    @Size(max = 20)
+    @NotNull
+    @Column(name = "pla_hei", nullable = false, length = 20)
+    private String plaHei;
+
+    @OneToMany(mappedBy = "player")
+    private Set<ChavesPlayer> chavesplayers = new LinkedHashSet<>();
+
+    public Set<ChavesPlayer> getChavesplayers() {
+        return chavesplayers;
+    }
+
+    public void setChavesplayers(Set<ChavesPlayer> chavesplayers) {
+        this.chavesplayers = chavesplayers;
+    }
+
+    public String getPlaHei() {
+        return plaHei;
+    }
+
+    public void setPlaHei(String plaHei) {
+        this.plaHei = plaHei;
+    }
+
+    public String getPlaWei() {
+        return plaWei;
+    }
+
+    public void setPlaWei(String plaWei) {
+        this.plaWei = plaWei;
+    }
+
+    public String getPlaInfo() {
+        return plaInfo;
+    }
+
+    public void setPlaInfo(String plaInfo) {
+        this.plaInfo = plaInfo;
+    }
 
     public Integer getId() {
         return id;
