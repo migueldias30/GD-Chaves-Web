@@ -15,108 +15,97 @@
 <body>
     <header></header>
 
-    <div class="sub-header">
-        <h1>Bilhetes</h1>
-        <p class="competicao">Liga Portugal 2 Meu Super</p>
+    <div class="ticket-grid" id="ticketContainer">
+        <!-- Conteúdo dinâmico será inserido aqui -->
     </div>
-
-    <section class="highlight-section">
-        <div class="ticket-info">
-            <p><strong>Dom 5 Abr, 18h00</strong></p>
-            <p>LIGA PORTUGAL 2 MEU SUPER</p>
-        </div>
-        <div class="teams">
-            <div class="team">
-                <img src="../Images/logo_chaves.png" alt="GD Chaves">
-                <span>GD Chaves</span>
-            </div>
-            <div class="team">
-                <img src="../Images/logo_vizela.png" alt="FC Vizela">
-                <span>Vizela</span>
-            </div>
-        </div>
-        <div class="ticket-action">
-            <a href="GDChaves/Pages/bilhetes.html?id=vizela">Bilhetes</a>
-        </div>
-    </section>
-
-    <section class="all-tickets">
-        <div class="ticket-grid">
-            <div class="ticket-card">
-                <div class="ticket-info">
-                    <p><strong>Sáb 12 Abr, 14h00</strong></p>
-                    <p>LIGA PORTUGAL 2 MEU SUPER</p>
-                </div>
-                <div class="teams">
-                    <div class="team">
-                        <img src="../Images/logo_chaves.png" alt="GD Chaves">
-                        <span>GD Chaves</span>
-                    </div>
-                    <div class="team">
-                        <img src="../Images/logo_portimonense.png" alt="Portimonense">
-                        <span>Portimonense</span>
-                    </div>
-                </div>
-                <div class="ticket-action">
-                    <a href="GDChaves/Pages/bilhetes.html?id=portimonense">Bilhetes</a>
-                </div>
-            </div>
-
-            <!-- Exemplo de mais um jogo -->
-            <div class="ticket-card">
-                <div class="ticket-info">
-                    <p><strong>Dom 19 Abr, 15h30</strong></p>
-                    <p>LIGA PORTUGAL 2 MEU SUPER</p>
-                </div>
-                <div class="teams">
-                    <div class="team">
-                        <img src="../Images/logo_portob.png" alt="Porto B">
-                        <span>Porto B</span>
-                    </div>
-                    <div class="team">
-                        <img src="../Images/logo_chaves.png" alt="GD Chaves">
-                        <span>GD Chaves</span>
-                    </div>
-                </div>
-                <div class="ticket-action">
-                    <a href="GDChaves/Pages/bilhetes.html?id=portob">Bilhetes</a>
-                </div>
-            </div>
-
-            <div class="ticket-card">
-                <div class="ticket-info">
-                    <p><strong>Sáb 28 Mai, 18h00</strong></p>
-                    <p>LIGA PORTUGAL 2 MEU SUPER</p>
-                </div>
-                <div class="teams">
-                    <div class="team">
-                        <img src="../Images/logo_chaves.png" alt="GD Chaves">
-                        <span>GD Chaves</span>
-                    </div>
-                    <div class="team">
-                        <img src="../Images/logo_alverca.png" alt="FC Alverca">
-                        <span>Tondela</span>
-                    </div>
-                </div>
-                <div class="ticket-action">
-                    <a href="GDChaves/Pages/bilhetes.html?id=alverca">Bilhetes</a>
-                </div>
-            </div>
-            <!-- Adiciona mais cards aqui conforme necessário -->
-
-        </div>
-    </section>
 
     <footer class="footer"></footer>
 
     <script src="main.js"></script>
 
     <script>
-        // Logo click
         document.getElementById("logo-link")?.addEventListener("click", function (e) {
             e.preventDefault();
             window.location.href = "../../Index.html";
         });
+        async function carregarBilhetes() {
+            const container = document.getElementById("ticketContainer");
+
+            try {
+                const response = await fetch("http://localhost:8080/games"); // Rota que retorna todos os jogos
+                if (!response.ok) throw new Error("Erro ao carregar jogos.");
+
+                const jogos = await response.json();
+
+                // Filtra apenas jogos futuros
+                const agora = new Date();
+                const jogosFuturos = jogos.filter(jogo => new Date(jogo.date) >= agora);
+
+                if (jogosFuturos.length === 0) {
+                    container.innerHTML = '<p class="sem-bilhetes">Não existem bilhetes disponíveis.</p>';
+                    return;
+                }
+
+                jogosFuturos.forEach(jogo => {
+                    const dataHora = new Date(jogo.date + 'T' + (jogo.time || "00:00"));
+                    const diaSemana = dataHora.toLocaleDateString("pt-PT", { weekday: "short" }).toUpperCase().substring(0, 3);
+                    const diaMes = dataHora.toLocaleDateString("pt-PT", { day: "2-digit", month: "short" });
+                    const horaFormatada = dataHora.toLocaleTimeString("pt-PT", {
+                        hour: "2-digit",
+                        minute: "2-digit"
+                    });
+
+                    const nomeNormalizado = jogo.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                    const chavesJogaEmCasa = nomeNormalizado.startsWith("gd chaves") || nomeNormalizado.startsWith("chaves");
+
+                    const equipaCasa = chavesJogaEmCasa ? "GD Chaves" : (jogo.opponent?.name || "Adversário");
+                    const equipaFora = chavesJogaEmCasa ? (jogo.opponent?.name || "Adversário") : "GD Chaves";
+
+                    const logoCasa = chavesJogaEmCasa ? "GDChaves/Images/logo_chaves.png" : `GDChaves/Images/logo_${limparNome(equipaCasa)}.png`;
+                    const logoFora = chavesJogaEmCasa ? `GDChaves/Images/logo_${limparNome(equipaFora)}.png` : "GDChaves/Images/logo_chaves.png";
+
+                    const card = document.createElement("div");
+                    card.className = "ticket-card";
+
+                    card.innerHTML = `
+                    <div class="ticket-info">
+                        <p><strong>${diaSemana} ${diaMes}, ${horaFormatada}</strong></p>
+                        <p>${jogo.competition?.name || "Competição Desconhecida"}</p>
+                    </div>
+                    <div class="teams">
+                        <div class="team">
+                            <img src="${logoCasa}" alt="${equipaCasa}" onerror="this.src='GDChaves/Images/logo_default.png'">
+                            <span>${equipaCasa}</span>
+                        </div>
+                        <div class="team">
+                            <img src="${logoFora}" alt="${equipaFora}" onerror="this.src='GDChaves/Images/logo_default.png'">
+                            <span>${equipaFora}</span>
+                        </div>
+                    </div>
+                    <div class="ticket-action">
+                        <a href="GDChaves/Pages/bilhetes.html?id=${jogo.id}">Bilhetes</a>
+                    </div>
+                `;
+
+                    container.appendChild(card);
+                });
+            } catch (err) {
+                console.error("Erro ao buscar bilhetes:", err);
+                container.innerHTML = `
+                    <p class="sem-bilhetes">Não existem bilhetes disponíveis.</p>
+                `;
+            }
+        }
+
+        function limparNome(nome) {
+            return nome
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/\s+/g, "");
+        }
+
+        window.addEventListener("DOMContentLoaded", carregarBilhetes);
     </script>
 </body>
 

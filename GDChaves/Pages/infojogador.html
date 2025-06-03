@@ -53,13 +53,73 @@
         async function inicializarPagina() {
             await loadHTML('header', '../../header.html');
             await loadHTML('footer', '../../footer.html');
-            document.getElementById("logo-link")?.addEventListener("click", function (e) {
-                e.preventDefault();
-                window.location.href = "../../Index.html";
-            });
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const playerId = urlParams.get('id');
+
+            if (!playerId) {
+                document.body.innerHTML = '<p style="text-align:center;">Jogador não especificado.</p>';
+                return;
+            }
+
+            try {
+                const res = await fetch(`http://localhost:8080/players/${playerId}`);
+                if (!res.ok) throw new Error('Erro ao obter dados do jogador');
+
+                const player = await res.json();
+
+                document.querySelector(".player-photo img").src = player.photo;
+                document.querySelector(".player-photo img").alt = player.name;
+                document.querySelector(".player-name").textContent = player.name;
+                document.querySelector(".player-number").textContent = `NÚMERO: ${player.number}`;
+                document.querySelector(".player-position").textContent = `POSIÇÃO: ${obterPosicao(player.number)}`;
+
+                const idade = calcularIdade(new Date(player.birthDate));
+                const altura = player.plaHeight || player.height;
+                const peso = player.plaWeight || player.weight;
+
+                document.querySelector(".biografia-jogador p").textContent = player.plaInfo || "Sem biografia disponível.";
+
+                document.querySelector(".info-extra").innerHTML = `
+                    <p><strong>Nascimento:</strong> ${formatarData(player.birthDate)}</p>
+                    <p><strong>Idade:</strong> ${idade} anos</p>
+                    <p><strong>Peso:</strong> ${peso} Kg</p>
+                    <p><strong>Altura:</strong> ${altura} m</p>
+                    <p><strong>Nacionalidade:</strong> ${player.nationality}</p>
+        `;
+            } catch (error) {
+                console.error(error);
+                document.body.innerHTML = '<p style="text-align:center;">Erro ao carregar informações do jogador.</p>';
+            }
         }
+
+        function calcularIdade(dataNascimento) {
+            const hoje = new Date();
+            let idade = hoje.getFullYear() - dataNascimento.getFullYear();
+            const mes = hoje.getMonth() - dataNascimento.getMonth();
+            if (mes < 0 || (mes === 0 && hoje.getDate() < dataNascimento.getDate())) {
+                idade--;
+            }
+            return idade;
+        }
+        function obterPosicao(numero) {
+            const n = parseInt(numero);
+            if (n <= 1 || n === 30 || n === 31) return "GR";
+            if (n >= 2 && n <= 20) return "DEF";
+            if (n >= 21 && n <= 70) return "MED";
+            return "AVA";
+        }
+        function formatarData(dataISO) {
+            const data = new Date(dataISO);
+            const dia = String(data.getDate()).padStart(2, '0');
+            const mes = String(data.getMonth() + 1).padStart(2, '0'); // meses são 0-based
+            const ano = data.getFullYear();
+            return `${dia}/${mes}/${ano}`;
+        }
+
         inicializarPagina();
     </script>
+
 </body>
 
 </html>

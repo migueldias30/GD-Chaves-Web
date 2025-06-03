@@ -120,9 +120,18 @@
                 document.querySelector('h1').textContent = produto.prodName;
 
 
-                const preco = Number(produto.prodPreco);
-                if (!isNaN(preco)) {
-                    document.querySelector('.valor-normal').textContent = `${preco.toFixed(2)}€`;
+                document.querySelector('h1').textContent = produto.prodName;
+
+                window.produtoInfo = {
+                    nome: produto.prodName,
+                    preco: parseFloat(
+                        String(produto.prodPreco).replace('€', '').replace(',', '.').trim()
+                    ),
+                    imagem: produto.prodFoto
+                };
+
+                if (!isNaN(window.produtoInfo.preco)) {
+                    document.querySelector('.valor-normal').textContent = `${window.produtoInfo.preco.toFixed(2)}€`;
                 } else {
                     document.querySelector('.valor-normal').textContent = "Preço indisponível";
                 }

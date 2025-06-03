@@ -51,6 +51,18 @@ public class Player {
     @Column(name = "pla_weight")
     private Double plaWeight;
 
+    @ManyToOne
+    @JoinColumn(name = "pla_pos_id") // FK na tabela player que aponta para position
+    private Position position;
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
     public Double getPlaWeight() {
         return plaWeight;
     }

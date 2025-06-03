@@ -62,6 +62,7 @@ public class PlayerController {
             map.put("photo", obj.getPhoto());
             map.put("height", obj.getHeight());
             map.put("weight", obj.getWeight());
+            map.put("position", obj.getPosition() != null ? obj.getPosition().getName() : "Desconhecida");
             return map;
         }).toList();
         return ResponseEntity.ok(mapped);

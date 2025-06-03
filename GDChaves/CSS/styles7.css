@@ -313,3 +313,18 @@ body {
 .close-btn:hover {
   color: #541833;
 }
+
+#ticketContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    flex-direction: column;
+}
+
+.sem-bilhetes {
+    font-size: 1.5em;
+    color: #555;
+    text-align: center;
+    padding: 20px;
+}

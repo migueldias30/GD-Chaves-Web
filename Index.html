@@ -303,8 +303,8 @@
                         }
 
                         const result = await response.json();
-                        localStorage.setItem("userId", result.userId); // Guarda o ID
-                        window.location.href = "GDChaves/Pages/conta.html"; // Redireciona
+                        localStorage.setItem("userId", result.userId);
+                        window.location.href = "GDChaves/Pages/conta.html";
                     } catch (error) {
                         console.error("Erro no login:", error);
                         alert("Login falhou: " + error.message);
