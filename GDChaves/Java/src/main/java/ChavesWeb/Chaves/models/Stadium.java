@@ -2,6 +2,9 @@ package ChavesWeb.Chaves.models;
 
 import jakarta.persistence.*;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "stadium")
 public class Stadium {
@@ -19,6 +22,17 @@ public class Stadium {
 
     @Column(name = "sta_foto", length = 200)
     private String photo;
+
+    @OneToMany(mappedBy = "stadium")
+    private Set<Game> games = new LinkedHashSet<>();
+
+    public Set<Game> getGames() {
+        return games;
+    }
+
+    public void setGames(Set<Game> games) {
+        this.games = games;
+    }
 
     public Integer getId() {
         return id;

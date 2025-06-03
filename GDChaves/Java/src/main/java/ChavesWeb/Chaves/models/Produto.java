@@ -1,6 +1,8 @@
 package ChavesWeb.Chaves.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "produto")
@@ -18,6 +20,19 @@ public class Produto {
 
     @Column(nullable = false, length = 300)
     private String prodDesc;
+
+    @Size(max = 20)
+    @NotNull
+    @Column(name = "prod_preco", nullable = false, length = 20)
+    private String prodPreco;
+
+    public String getProdPreco() {
+        return prodPreco;
+    }
+
+    public void setProdPreco(String prodPreco) {
+        this.prodPreco = prodPreco;
+    }
 
     public Integer getProdId() { return prodId; }
     public void setProdId(Integer prodId) { this.prodId = prodId; }
