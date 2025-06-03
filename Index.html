@@ -517,29 +517,29 @@
                 const resultado = jogo.gameRes ?? " : ";
 
                 return `
-        <div class="match-card horizontal-layout">
-            <div class="match-info">
-                <p><strong>${diaSemana} ${diaMes}, ${hora}</strong></p>
-                <p>${jogo.competition?.name ?? "Competição"} | <span class="canal">SPORT TV +</span></p>
-            </div>
-            <div class="match-content-horizontal">
-                <div class="team-horizontal">
-                    <img src="${logoCasa}" alt="${equipaCasa}" onerror="this.src='GDChaves/Images/logo_default.png'">
-                    <p>${equipaCasa}</p>
-                </div>
-                <div class="score-horizontal">
-                        <span class="score">${resultado.split(" : ")[0]}</span>
-                </div>
-                <div class="team-horizontal">
-                    <img src="${logoFora}" alt="${equipaFora}" onerror="this.src='GDChaves/Images/logo_default.png'">
-                    <p>${equipaFora}</p>
-                </div>
-            </div>
-            <div class="match-action">
-                <a href="${jogo.summaryUrl || "#"}" target="_blank">Resumo <span>›</span></a>
-            </div>
-        </div>
-    `;
+                    <div class="match-card horizontal-layout">
+                        <div class="match-info">
+                            <p><strong>${diaSemana} ${diaMes}, ${hora}</strong></p>
+                            <p>${jogo.competition?.name ?? "Competição"} | <span class="canal">SPORT TV +</span></p>
+                        </div>
+                        <div class="match-content-horizontal">
+                            <div class="team-horizontal">
+                                <img src="${logoCasa}" alt="${equipaCasa}" onerror="this.src='GDChaves/Images/logo_default.png'">
+                                <p>${equipaCasa}</p>
+                            </div>
+                            <div class="score-horizontal">
+                                    <span class="score">${resultado.split(" : ")[0]}</span>
+                            </div>
+                            <div class="team-horizontal">
+                                <img src="${logoFora}" alt="${equipaFora}" onerror="this.src='GDChaves/Images/logo_default.png'">
+                                <p>${equipaFora}</p>
+                            </div>
+                        </div>
+                        <div class="match-action">
+                            <a href="${jogo.summaryUrl || "#"}" target="_blank">Resumo <span>›</span></a>
+                        </div>
+                    </div>
+                
             }).join("");
 
         }
