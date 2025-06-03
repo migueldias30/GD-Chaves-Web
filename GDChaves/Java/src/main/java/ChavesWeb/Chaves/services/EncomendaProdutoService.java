@@ -28,16 +28,6 @@ public class EncomendaProdutoService {
         return encomendaProdutoRepository.save(item);
     }
 
-    public EncomendaProduto update(Integer id, EncomendaProduto updatedItem) {
-        return encomendaProdutoRepository.findById(id)
-                .map(e -> {
-                    e.setEncprodProdId(updatedItem.getEncprodProdId());
-                    e.setEncprodEncId(updatedItem.getEncprodEncId());
-                    return encomendaProdutoRepository.save(e);
-                })
-                .orElseThrow(() -> new RuntimeException("EncomendaProduto not found"));
-    }
-
     public void delete(Integer id) {
         encomendaProdutoRepository.deleteById(id);
     }

@@ -34,15 +34,6 @@ public class EncomendaProdutoController {
         return service.create(item);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<EncomendaProduto> update(@PathVariable Integer id, @RequestBody EncomendaProduto item) {
-        try {
-            return ResponseEntity.ok(service.update(id, item));
-        } catch (RuntimeException e) {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         service.delete(id);

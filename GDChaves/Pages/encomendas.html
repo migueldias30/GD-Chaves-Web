@@ -7,18 +7,74 @@
     <title>GD Chaves - Encomendas</title>
     <link rel="icon" type="image/png" href="GDChaves/Images/icon_chaves.png" />
     <link rel="stylesheet" href="../CSS/styles.css" />
-    <link rel="stylesheet" href="../CSS/styles15.css" />
+    <link rel="stylesheet" href="../CSS/styles16.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <header></header>\
+    <header></header>
+
+    <div class="sub-header">
+        <h1>Encomendas Realizadas</h1>
+    </div>
+
+    <div id="lista-encomendas"></div>
 
     <footer class="footer"></footer>
-
     <script src="main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            const lista = document.getElementById("lista-encomendas");
 
+            try {
+                const response = await fetch("http://localhost:8080/api/encomendas");
+                if (!response.ok) throw new Error("Erro ao buscar encomendas");
+
+                const encomendas = await response.json();
+
+                if (!encomendas.length) {
+                    lista.innerHTML = '<p class="nenhuma-encomenda">Não existem encomendas registadas.</p>';
+                    return;
+                }
+
+                encomendas.forEach((enc) => {
+                    const itemDiv = document.createElement("div");
+                    itemDiv.classList.add("encomenda");
+
+                    const produtosHTML = enc.produtos?.length
+                        ? enc.produtos.map(p => `
+                    <div class="produto">
+                        <p>${p.nome} - ${p.preco.toFixed(2)}€</p>
+                    </div>
+                `).join("")
+                        : "<p><em>Sem produtos.</em></p>";
+
+                    const total = enc.produtos?.reduce((sum, p) => sum + p.preco, 0).toFixed(2) || "0.00";
+
+                    itemDiv.innerHTML = `
+                <div class="info">
+                    <p><strong>Encomenda #${enc.encId}</strong></p>
+                    <p><strong>Nome:</strong> ${enc.nome}</p>
+                    <p><strong>Email:</strong> ${enc.email}</p>
+                    <p><strong>Morada:</strong> ${enc.encAdress}</p>
+                    <p><strong>Data:</strong> ${enc.encDate}</p>
+                    <div class="produtos">
+                        <p><strong>Produtos:</strong></p>
+                        ${produtosHTML}
+                    </div>
+                    <p class="total"><strong>Total:</strong> ${total}€</p>
+                </div>
+            `;
+                    lista.appendChild(itemDiv);
+                });
+            } catch (err) {
+                console.error("Erro ao carregar encomendas:", err);
+                lista.innerHTML = '<p class="nenhuma-encomenda">Erro ao carregar encomendas.</p>';
+            }
+        });
+        
+    </script>
 </body>
 
 </html>

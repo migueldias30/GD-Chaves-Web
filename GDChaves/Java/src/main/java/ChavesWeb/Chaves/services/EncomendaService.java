@@ -1,6 +1,7 @@
 package ChavesWeb.Chaves.services;
 
 import ChavesWeb.Chaves.models.Encomenda;
+import ChavesWeb.Chaves.repositories.EncomendaProdutoRepository;
 import ChavesWeb.Chaves.repositories.EncomendaRepository;
 import org.springframework.stereotype.Service;
 
@@ -11,9 +12,11 @@ import java.util.Optional;
 public class EncomendaService {
 
     private final EncomendaRepository encomendaRepository;
+    private final EncomendaProdutoRepository encomendaProdutoRepository;
 
-    public EncomendaService(EncomendaRepository encomendaRepository) {
+    public EncomendaService(EncomendaRepository encomendaRepository, EncomendaProdutoRepository encomendaProdutoRepository) {
         this.encomendaRepository = encomendaRepository;
+        this.encomendaProdutoRepository = encomendaProdutoRepository;
     }
 
     public List<Encomenda> getAllEncomendas() {
@@ -25,13 +28,16 @@ public class EncomendaService {
     }
 
     public Encomenda createEncomenda(Encomenda encomenda) {
-        return encomendaRepository.save(encomenda);
+        Encomenda saved = encomendaRepository.save(encomenda);
+        encomendaProdutoRepository.saveAll(encomenda.getProdutos());
+        return saved;
     }
 
     public Encomenda updateEncomenda(Integer id, Encomenda updatedEncomenda) {
         return encomendaRepository.findById(id)
                 .map(e -> {
-                    e.setEncSocioId(updatedEncomenda.getEncSocioId());
+                    e.setNome(updatedEncomenda.getNome());
+                    e.setEmail(updatedEncomenda.getEmail());
                     e.setEncDate(updatedEncomenda.getEncDate());
                     e.setEncAdress(updatedEncomenda.getEncAdress());
                     return encomendaRepository.save(e);

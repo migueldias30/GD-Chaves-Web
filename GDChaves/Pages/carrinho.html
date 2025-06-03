@@ -28,7 +28,24 @@
                 <p class="total">Total <span>0,00€</span></p>
             </div>
         </div>
-        <button id="finalizarCompraBtn" class="buy-button" onclick="finalizarCompra()">Finalizar Compra</button>
+        <button id="finalizarCompraBtn" class="buy-button" onclick="abrirModal()">Finalizar Compra</button>
+    </div>
+
+    <div id="modal-dados" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" onclick="fecharModal()">&times;</span>
+            <h2>Finalizar Encomenda</h2>
+            <div class="input-group">
+                <input type="text" id="nome" placeholder="Nome" />
+            </div>
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Email" />
+            </div>
+            <div class="input-group">
+                <input type="text" id="morada" placeholder="Morada" />
+            </div>
+            <button onclick="submeterEncomenda()">Submeter</button>
+        </div>
     </div>
 
     <footer class="footer"></footer>
@@ -75,7 +92,7 @@
             } else {
                 totalSection.classList.remove('hidden');
             }
-            
+
             const finalizarBtn = document.getElementById('finalizarCompraBtn');
             if (carrinho.length === 0) {
                 finalizarBtn.classList.add('hidden');
@@ -90,6 +107,47 @@
             carrinho.splice(index, 1);
             localStorage.setItem('carrinho', JSON.stringify(carrinho));
             location.reload();
+        }
+
+        function abrirModal() {
+            document.getElementById('modal-dados').classList.remove('hidden');
+        }
+
+        function fecharModal() {
+            document.getElementById('modal-dados').classList.add('hidden');
+        }
+
+        async function submeterEncomenda() {
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const morada = document.getElementById('morada').value;
+            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+            if (!nome || !email || !morada || carrinho.length === 0) {
+                alert("Preenche todos os dados e adiciona produtos ao carrinho!");
+                return;
+            }
+
+            const encomenda = {
+                nome,
+                email,
+                endereco: morada,
+                produtos: carrinho.map(p => ({
+                    id: p.id,
+                    nome: p.nome,
+                    preco: p.preco
+                }))
+            };
+
+            await fetch("http://localhost:8080/api/encomendas", {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(encomenda)
+            });
+
+            localStorage.removeItem('carrinho');
+            fecharModal();
+            window.location.href = "GDChaves/Pages/encomendas.html";
         }
         window.addEventListener("DOMContentLoaded", renderizarCarrinho);
         inicializarPagina();

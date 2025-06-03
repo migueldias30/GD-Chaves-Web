@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    margin-top: 150px;
+}
+
+.sub-header {
+    background-image: url('../Background Images/Slide 16_9 - 8_ background.png');
+    color: white;
+    padding: 70px 20px 20px;
+    text-align: left;
+}
+
+.sub-header h1 {
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.encomendas-container {
+    max-width: 1000px;
+    margin: 60px auto;
+    min-height: 300px;
+    padding: 0 20px;
+}
+
+.encomendas-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.encomenda {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.encomenda img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.encomenda {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+.encomenda .info p {
+    margin: 5px 0;
+}
+.nenhuma-encomenda {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 1.2em;
+    color: #777;
+}
