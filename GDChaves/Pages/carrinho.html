@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GD Chaves - Carrinho</title>
+    <link rel="icon" type="image/png" href="GDChaves/Images/icon_chaves.png" />
+    <link rel="stylesheet" href="../CSS/styles.css" />
+    <link rel="stylesheet" href="../CSS/styles15.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header></header>
+
+    <div class="sub-header">
+        <h1>Carrinho</h1>
+        <button onclick="localStorage.removeItem('carrinho'); location.reload();">Limpar Carrinho</button>
+    </div>
+    <div class="cart-container">
+        <div class="cart-left">
+        </div>
+
+        <div class="cart-right">
+            <div class="total-section">
+                <p>Envio <span>0,00€</span></p>
+                <p class="total">Total <span>0,00€</span></p>
+            </div>
+        </div>
+        <button id="finalizarCompraBtn" class="buy-button" onclick="finalizarCompra()">Finalizar Compra</button>
+    </div>
+
+    <footer class="footer"></footer>
+
+    <script src="main.js"></script>
+
+    <script>
+        async function inicializarPagina() {
+            await loadHTML('header', '../../header.html');
+            await loadHTML('footer', '../../footer.html');
+            document.getElementById("logo-link")?.addEventListener("click", function (e) {
+                e.preventDefault();
+                window.location.href = "../../Index.html";
+            });
+        }
+        function renderizarCarrinho() {
+            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            const container = document.querySelector('.cart-left');
+            const totalEl = document.querySelector('.total-section .total span');
+
+            let total = 0;
+            carrinho.forEach((item, i) => {
+                const subtotal = item.preco * item.quantidade;
+                total += subtotal;
+
+                const itemHTML = `
+                <div class="cart-item">
+                    <img src="${item.imagem}" alt="${item.nome}" />
+                    <div class="item-info">
+                        <p class="title">${item.nome}</p>
+                        <p>Tamanho: ${item.tamanho}</p>
+                        <p>Quantidade: ${item.quantidade}</p>
+                        <p>Preço: ${item.preco.toFixed(2)}€</p>
+                        <p><strong>Subtotal:</strong> ${(subtotal).toFixed(2)}€</p>
+                    </div>
+                <span class="remove-btn" onclick="removerItem(${i})">&times;</span>
+                </div>
+            `;
+                container.insertAdjacentHTML('beforeend', itemHTML);
+            });
+            const totalSection = document.querySelector('.total-section');
+            if (carrinho.length === 0) {
+                totalSection.classList.add('hidden');
+            } else {
+                totalSection.classList.remove('hidden');
+            }
+            
+            const finalizarBtn = document.getElementById('finalizarCompraBtn');
+            if (carrinho.length === 0) {
+                finalizarBtn.classList.add('hidden');
+            } else {
+                finalizarBtn.classList.remove('hidden');
+            }
+
+            totalEl.textContent = `${total.toFixed(2)}€`;
+        }
+        function removerItem(index) {
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            carrinho.splice(index, 1);
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            location.reload();
+        }
+        window.addEventListener("DOMContentLoaded", renderizarCarrinho);
+        inicializarPagina();
+    </script>
+</body>
+
+</html>

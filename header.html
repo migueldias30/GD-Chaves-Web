@@ -14,6 +14,12 @@
             style="height: 90px; width: auto;" />
     </a>
 
+    <div class="hamburger" id="hamburgerBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
     <div class="main-nav">
         <div class="dropdown">
             <button class="dropbtn">Equipa</button>
@@ -34,7 +40,7 @@
                             <img src="GDChaves/Images/logo_chaves.png" alt="Logo GD Chaves" />
                             <div class="time-box">18:00</div>
                             <div class="team-right">
-                                <img src="GDChaves/Images/logo_vizela.png" alt="Logo Vizela" />
+                                <img src="GDChaves/Images/logo_fcvizela.png" alt="Logo Vizela" />
                             </div>
                         </div>
                         <a href="GDChaves/Pages/informacoes.html" class="match-centre">INFORMAÇÕES</a>
@@ -45,8 +51,7 @@
         <a href="GDChaves/Pages/bilheteira.html">Bilhetes</a>
         <a href="GDChaves/Pages/loja.html">Loja</a>
         <div class="dropdown">
-            <button class="dropbtn">Clube
-            </button>
+            <button class="dropbtn">Clube</button>
             <div class="dropdown-content">
                 <div class="column">
                     <a href="GDChaves/Pages/historia.html">História <span>›</span></a>
@@ -60,22 +65,11 @@
     </div>
 
     <div class="icon-buttons">
-        <div class="dropdown search-dropdown">
-            <button class="dropbtn">
-                <span class="material-symbols-outlined">search</span>
-            </button>
-            <div class="dropdown-content">
-                <div class="column">
-                    <form action="GDChaves/Pages/pesquisa.html" method="GET" class="search-form">
-                        <input type="text" name="q" placeholder="Pesquisar..." class="search-input" />
-                    </form>
-                </div>
-            </div>
-        </div>
+        <a href="GDChaves/Pages/carrinho.html">
+            <button><span class="material-symbols-outlined">shopping_bag</span></button>
+        </a>
         <div class="dropdown user-dropdown" id="userDropdown">
-            <button class="dropbtn">
-                <span class="material-symbols-outlined">person</span>
-            </button>
+            <button class="dropbtn"><span class="material-symbols-outlined">person</span></button>
             <div class="dropdown-content">
                 <div class="column">
                     <a href="GDChaves/Pages/conta.html">Conta <span>›</span></a>
@@ -85,3 +79,26 @@
             </div>
         </div>
     </div>
+
+    <div id="mobileMenu" class="mobile-menu">
+        <button class="mobile-dropdown-btn" onclick="toggleSubMenu('equipaMenu')">Equipa</button>
+        <div id="equipaMenu" class="mobile-submenu">
+            <a href="GDChaves/Pages/jogadores.html">Jogadores</a>
+            <a href="GDChaves/Pages/calendario.html">Calendário</a>
+            <a href="GDChaves/Pages/classificação.html">Classificação</a>
+        </div>
+
+        <a href="GDChaves/Pages/bilheteira.html">Bilhetes</a>
+        <a href="GDChaves/Pages/loja.html">Loja</a>
+
+        <button class="mobile-dropdown-btn" onclick="toggleSubMenu('clubeMenu')">Clube</button>
+        <div id="clubeMenu" class="mobile-submenu">
+            <a href="GDChaves/Pages/historia.html">História</a>
+            <a href="GDChaves/Pages/estrutura.html">Estrutura</a>
+            <a href="GDChaves/Pages/estadio.html">Estádio</a>
+            <a href="GDChaves/Pages/palmares.html">Palmarés</a>
+            <a href="GDChaves/Pages/Estatisticas.html">Estatísticas</a>
+        </div>
+    </div>
+
+</div>

@@ -31,6 +31,28 @@ public class Player {
     @Column(name = "pla_foto", length = 200)
     private String photo;
 
+    @Column(name = "pla_hei")
+    private Double height;
+
+    @Column(name = "pla_wei")
+    private Double weight;
+
+    public Double getHeight() {
+        return height;
+    }
+
+    public void setHeight(Double height) {
+        this.height = height;
+    }
+
+    public Double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Double weight) {
+        this.weight = weight;
+    }
+
     public Integer getId() {
         return id;
     }

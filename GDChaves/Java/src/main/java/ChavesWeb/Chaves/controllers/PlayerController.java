@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -46,5 +47,23 @@ public class PlayerController {
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/withPosition")
+    public ResponseEntity<List<HashMap<String, Object>>> getPlayersWithPosition() {
+        List<Player> results = playerService.getAllPlayersWithPosition();
+        List<HashMap<String, Object>> mapped = results.stream().map(obj -> {
+            HashMap<String, Object> map = new HashMap<>();
+            map.put("id", obj.getId());
+            map.put("name", obj.getName());
+            map.put("birthdate", obj.getBirthDate());
+            map.put("number", obj.getNumber());
+            map.put("nationality", obj.getNationality());
+            map.put("photo", obj.getPhoto());
+            map.put("height", obj.getHeight());
+            map.put("weight", obj.getWeight());
+            return map;
+        }).toList();
+        return ResponseEntity.ok(mapped);
     }
 }

@@ -73,21 +73,6 @@
                 alert("Sessão terminada com sucesso.");
                 window.location.href = "../../index.html";
             });
-            const loginLink = document.getElementById("openLoginModal");
-            const registerLink = document.getElementById("openRegisterModal");
-            const userDropdown = document.getElementById("userDropdown");
-
-            const userId = localStorage.getItem("userId");
-
-            if (userId) {
-                if (loginLink) loginLink.style.display = "none";
-                if (registerLink) registerLink.style.display = "none";
-                if (userDropdown) userDropdown.style.display = "block";
-            } else {
-                if (loginLink) loginLink.style.display = "inline-block";
-                if (registerLink) registerLink.style.display = "inline-block";
-                if (userDropdown) userDropdown.style.display = "none";
-            }
         }
         inicializarPagina();
     </script>

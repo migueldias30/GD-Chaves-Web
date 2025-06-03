@@ -148,7 +148,7 @@
                     </div>
                     <div class="team-row">
                         <div class="team-info">
-                            <img src="GDChaves/Images/logo_vizela.png" alt="Logo do Vizela" />
+                            <img src="GDChaves/Images/logo_fcvizela.png" alt="Logo do Vizela" />
                             <p class="team-name">FC Vizela</p>
                         </div>
                         <span class="score"></span>
@@ -315,7 +315,6 @@
 
                     localStorage.setItem('userId', (await response.json()).userId);
                     alert('Conta criada com sucesso!');
-                    //window.location.href = 'GDChaves/Pages/conta.html';
                 } catch (error) {
                     console.error(error);
                     alert('Ocorreu um erro ao criar a conta. Por favor, tente novamente.');
@@ -520,6 +519,22 @@
                             }
                         });
                     }
+                    const hamburgerBtn = document.getElementById("hamburgerBtn");
+                    const mobileMenu = document.getElementById("mobileMenu");
+                    const userBtn = document.getElementById("userBtn");
+                    const userMenuMobile = document.getElementById("userMenuMobile");
+
+                    if (hamburgerBtn && mobileMenu) {
+                        hamburgerBtn.addEventListener("click", () => {
+                            mobileMenu.classList.toggle("active");
+                        });
+                    }
+
+                    if (userBtn && userMenuMobile) {
+                        userBtn.addEventListener("click", () => {
+                            userMenuMobile.classList.toggle("active");
+                        });
+                    }
                 }
                 document.getElementById("logoutBtn")?.addEventListener("click", function (e) {
                     e.preventDefault();
@@ -539,7 +554,6 @@
                 if (registerLink) registerLink.style.display = "none";
                 if (userDropdown) userDropdown.style.display = "block";
             } else {
-                // Não está autenticado
                 if (loginLink) loginLink.style.display = "inline-block";
                 if (registerLink) registerLink.style.display = "inline-block";
                 if (userDropdown) userDropdown.style.display = "none";

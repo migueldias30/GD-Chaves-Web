@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GD Chaves - Equipamentos</title>
+    <title>GD Chaves - Comprar</title>
     <link rel="icon" type="image/png" href="GDChaves/Images/icon_chaves.png" />
     <link rel="stylesheet" href="../CSS/styles.css" />
     <link rel="stylesheet" href="../CSS/styles1.css" />
@@ -42,25 +42,11 @@
 
 
         <div class="details">
-            <span class="tag">Equipamentos</span>
             <h1>Equipamento Principal do GD CHaves para 24/25</h1>
             <div class="prices">
-                <div class="preco-socio">
-                    <span class="label-socio">Sócio</span>
-                    <span class="valor-socio">40,00€</span>
-                </div>
                 <div class="preco-normal">
-                    <span class="label-normal">PVP</span>
+                    <span class="label-normal">Preço:</span>
                     <span class="valor-normal">60,00€</span>
-                </div>
-            </div>
-            <div class="size-section">
-                <div class="sizes">
-                    <a>S</a>
-                    <a>M</a>
-                    <a>L</a>
-                    <a>XL</a>
-                    <a>XXL</a>
                 </div>
             </div>
             <div class="quantity-section">
@@ -70,13 +56,18 @@
 
 
             <button class="buy">COMPRAR</button>
-            <button class="cart">ADICIONAR AO CARRINHO</button>
+            <button class="cart" onclick="adicionarAoCarrinho()">ADICIONAR AO CARRINHO</button>
         </div>
     </div>
 
     <footer class="footer"></footer>
 
     <script src="main.js"></script>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const produtoId = urlParams.get("id");
+    </script>
 
     <script>
         const slider = document.getElementById('slider');
@@ -104,11 +95,6 @@
             await loadHTML('header', '../../header.html');
             await loadHTML('footer', '../../footer.html');
 
-            document.getElementById("logo-link")?.addEventListener("click", function (e) {
-                e.preventDefault();
-                window.location.href = "../../Index.html";
-            });
-
             const sizeLinks = document.querySelectorAll('.sizes a');
             sizeLinks.forEach(link => {
                 link.addEventListener('click', () => {
@@ -116,8 +102,81 @@
                     link.classList.add('active');
                 });
             });
+
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            if (!id) {
+                console.warn("ID do produto não foi fornecido na URL.");
+                return;
+            }
+
+            try {
+                const response = await fetch(`http://localhost:8080/api/produtos/${id}`);
+                if (!response.ok) throw new Error("Erro na resposta da API");
+
+                const produto = await response.json();
+                console.log("Produto recebido:", produto);
+
+                document.querySelector('h1').textContent = produto.prodName;
+
+
+                const preco = Number(produto.prodPreco);
+                if (!isNaN(preco)) {
+                    document.querySelector('.valor-normal').textContent = `${preco.toFixed(2)}€`;
+                } else {
+                    document.querySelector('.valor-normal').textContent = "Preço indisponível";
+                }
+
+                const slider = document.getElementById("slider");
+                slider.innerHTML = "";
+
+                const img = document.createElement("img");
+                img.src = produto.prodFoto;
+                img.alt = produto.prodName;
+                slider.appendChild(img);
+
+            } catch (error) {
+                console.error("Erro ao carregar produto:", error);
+            }
         }
-        inicializarPagina();
+        function adicionarAoCarrinho() {
+            const nome = document.querySelector('h1').textContent;
+            const precoStr = document.querySelector('.valor-normal').textContent.replace('€', '').replace(',', '.');
+            const preco = parseFloat(precoStr);
+            const imagem = document.querySelector('#slider img')?.src || '';
+            const quantidade = parseInt(document.getElementById('quantity').value);
+
+            let tamanho = null;
+            const tamanhoEl = document.querySelector('.sizes .active');
+            if (tamanhoEl) {
+                tamanho = tamanhoEl.textContent;
+            }
+
+            const produto = {
+                nome,
+                preco,
+                imagem,
+                quantidade,
+                tamanho
+            };
+
+            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            carrinho.push(produto);
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+            const mensagem = document.createElement("div");
+            mensagem.textContent = "Produto adicionado ao carrinho!";
+            mensagem.style.background = "#dff0d8";
+            mensagem.style.color = "#3c763d";
+            mensagem.style.padding = "10px";
+            mensagem.style.marginTop = "20px";
+            mensagem.style.border = "1px solid #3c763d";
+            mensagem.style.borderRadius = "5px";
+            document.querySelector(".details").appendChild(mensagem);
+
+            setTimeout(() => mensagem.remove(), 3000);
+        }
+        window.addEventListener("DOMContentLoaded", inicializarPagina);
 
 
     </script>

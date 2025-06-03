@@ -17,7 +17,6 @@ window.addEventListener('DOMContentLoaded', async () => {
   await loadHTML('header', '../../header.html');
   await loadHTML('footer', '../../footer.html');
 
-  // Reativar os listeners só depois do header estar carregado
   document.getElementById("logo-link")?.addEventListener("click", function (e) {
     e.preventDefault();
     window.location.href = "../../Index.html";
@@ -30,7 +29,21 @@ window.addEventListener('DOMContentLoaded', async () => {
       filtrarJogos(this.getAttribute('data-fixture'));
     });
   });
+  const loginLink = document.getElementById("openLoginModal");
+  const registerLink = document.getElementById("openRegisterModal");
+  const userDropdown = document.getElementById("userDropdown");
 
+  const userId = localStorage.getItem("userId");
+
+  if (userId) {
+    if (loginLink) loginLink.style.display = "none";
+    if (registerLink) registerLink.style.display = "none";
+    if (userDropdown) userDropdown.style.display = "block";
+  } else {
+    if (loginLink) loginLink.style.display = "inline-block";
+    if (registerLink) registerLink.style.display = "inline-block";
+    if (userDropdown) userDropdown.style.display = "none";
+  }
 });
 
 // Adicione esta função temporária se não estiver definida em outro lugar

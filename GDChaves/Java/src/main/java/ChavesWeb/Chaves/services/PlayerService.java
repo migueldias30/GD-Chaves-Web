@@ -5,6 +5,7 @@ import ChavesWeb.Chaves.repositories.PlayerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
@@ -45,5 +46,9 @@ public class PlayerService {
             throw new RuntimeException("Player not found with id " + id);
         }
         playerRepository.deleteById(id);
+    }
+
+    public List<Player> getAllPlayersWithPosition() {
+        return playerRepository.findAll();
     }
 }

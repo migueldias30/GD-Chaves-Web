@@ -127,12 +127,12 @@
 
     <div class="graficos-container">
         <div class="grafico-box">
-            <h2>Distribuição das Idades (Jogadores)</h2>
+            <h2>Histograma das Idades (Jogadores)</h2>
             <canvas id="grafico-idades2"></canvas>
         </div>
 
         <div class="grafico-box">
-            <h2>Distribuição das Idades (Exemplo)</h2>
+            <h2>Distribuição das Idades (Sócios)</h2>
             <canvas id="grafico-idades1"></canvas>
         </div>
     </div>
@@ -143,8 +143,10 @@
             <canvas id="grafico-precos"></canvas>
         </div>
         <div class="grafico-box-vendas">
-            <h2>Histograma das Vendas de Acessórios</h2>
-            <canvas id="grafico-vendas"></canvas>
+            <div class="grafico-box">
+                <h2>Gráfico das Vendas de Acessórios</h2>
+                <canvas id="grafico-vendas"></canvas>
+            </div>
         </div>
     </div>
 
@@ -158,12 +160,12 @@
             window.location.href = "../../Index.html";
         });
 
-        const idades = [17, 22, 30, 25, 35, 40, 45, 50, 19, 28, 17, 22, 30, 25, 35,
+        const idadesSocios = [17, 22, 30, 25, 35, 40, 45, 50, 19, 28, 17, 22, 30, 25, 35,
             40, 45, 50, 19, 28, 17, 22, 30, 25, 35, 40, 45, 50, 19, 28, 17, 22, 30, 25,
             35, 40, 45, 50, 17, 18];
-        const min = Math.min(...idades);
-        const max = Math.max(...idades);
-        const media = (idades.reduce((a, b) => a + b, 0) / idades.length).toFixed(1);
+        const min = Math.min(...idadesSocios);
+        const max = Math.max(...idadesSocios);
+        const media = (idadesSocios.reduce((a, b) => a + b, 0) / idadesSocios.length).toFixed(1);
         const percent = ((media - min) / (max - min)) * 100;
 
         document.getElementById("idade-min").innerText = `${min} anos`;
@@ -171,233 +173,166 @@
         document.getElementById("barra-esquerda").style.width = `${percent}%`;
         document.getElementById("media-texto-1").innerText = `Média de Idades (Sócios): ${media}`;
 
-        const idades2 = [
-            38, 24, 28, 22, 24, 37, 31, 23, 28, 24,
-            22, 19, 23, 23, 22, 21, 24, 36, 23, 22,
-            24, 31, 27, 33, 20, 24, 28
-        ];
-        const min2 = Math.min(...idades2);
-        const max2 = Math.max(...idades2);
-        const media2 = (idades2.reduce((a, b) => a + b, 0) / idades2.length).toFixed(1);
-        const percent2 = ((media2 - min2) / (max2 - min2)) * 100;
+        async function carregarDadosJogadores() {
+            try {
+                const response = await fetch("http://localhost:8080/players/withPosition");
+                const jogadores = await response.json();
+                console.log(jogadores)
+                const hoje = new Date();
+                const idades = jogadores.map(j => {
+                    const nascimento = new Date(j.birthdate);
+                    let idade = hoje.getFullYear() - nascimento.getFullYear();
+                    const m = hoje.getMonth() - nascimento.getMonth();
+                    if (m < 0 || (m === 0 && hoje.getDate() < nascimento.getDate())) idade--;
+                    return idade;
+                });
 
-        document.getElementById("idade-min-2").innerText = `${min2} anos`;
-        document.getElementById("idade-max-2").innerText = `${max2} anos`;
-        document.getElementById("media-texto-2").innerText = `Média de Idades (Jogadores): ${media2}`;
-        document.getElementById("barra-esquerda-2").style.width = `${percent2}%`;
+                const alturas = jogadores.map(j => j.height).filter(h => h);
+                const pesos = jogadores.map(j => j.weight).filter(p => p);
 
-        const alturas = [168, 170, 172, 174, 176, 178, 180, 182, 184, 186, 188, 190, 192, 194];
-        const minAltura = Math.min(...alturas);
-        const maxAltura = Math.max(...alturas);
-        const mediaAltura = (alturas.reduce((a, b) => a + b, 0) / alturas.length).toFixed(1);
-        const percentAltura = ((mediaAltura - minAltura) / (maxAltura - minAltura)) * 100;
+                const minIdade = Math.min(...idades);
+                const maxIdade = Math.max(...idades);
+                const mediaIdade = (idades.reduce((a, b) => a + b, 0) / idades.length).toFixed(1);
+                const percentIdade = ((mediaIdade - minIdade) / (maxIdade - minIdade)) * 100;
 
-        document.getElementById("altura-min").innerText = `${minAltura} cm`;
-        document.getElementById("altura-max").innerText = `${maxAltura} cm`;
-        document.getElementById("altura-media-texto").innerText = `Média de Alturas (Jogadores): ${mediaAltura} cm`;
-        document.getElementById("barra-altura").style.width = `${percentAltura}%`;
+                document.getElementById("idade-min-2").innerText = `${minIdade} anos`;
+                document.getElementById("idade-max-2").innerText = `${maxIdade} anos`;
+                document.getElementById("media-texto-2").innerText = `Média de Idades (Jogadores): ${mediaIdade}`;
+                document.getElementById("barra-esquerda-2").style.width = `${percentIdade}%`;
 
-        const pesos = [65, 68, 70, 72, 74, 75, 76, 78, 80, 82]; // Exemplo de dados de peso
-        const minPeso = Math.min(...pesos);
-        const maxPeso = Math.max(...pesos);
-        const mediaPeso = (pesos.reduce((a, b) => a + b, 0) / pesos.length).toFixed(1);
-        const percentPeso = ((mediaPeso - minPeso) / (maxPeso - minPeso)) * 100;
+                const minAltura = Math.min(...alturas);
+                const maxAltura = Math.max(...alturas);
+                const mediaAltura = (alturas.reduce((a, b) => a + b, 0) / alturas.length).toFixed(1);
+                const percentAltura = ((mediaAltura - minAltura) / (maxAltura - minAltura)) * 100;
 
-        document.getElementById("peso-min").innerText = `${minPeso} kg`;
-        document.getElementById("peso-max").innerText = `${maxPeso} kg`;
-        document.getElementById("peso-media-texto").innerText = `Média de Peso (Jogadores): ${mediaPeso} kg`;
-        document.getElementById("barra-peso").style.width = `${percentPeso}%`;
+                document.getElementById("altura-min").innerText = `${minAltura} cm`;
+                document.getElementById("altura-max").innerText = `${maxAltura} cm`;
+                document.getElementById("altura-media-texto").innerText = `Média de Alturas (Jogadores): ${mediaAltura} cm`;
+                document.getElementById("barra-altura").style.width = `${percentAltura}%`;
 
-        const golos = 40;
-        const jogos = 34;
-        const mediaGolos = (golos / jogos).toFixed(2); // = 1.18
-        const maxGolosEsperado = 5; // valor de referência para barra completa
-        const percentGolos = (mediaGolos / maxGolosEsperado) * 100;
+                const minPeso = Math.min(...pesos);
+                const maxPeso = Math.max(...pesos);
+                const mediaPeso = (pesos.reduce((a, b) => a + b, 0) / pesos.length).toFixed(1);
+                const percentPeso = ((mediaPeso - minPeso) / (maxPeso - minPeso)) * 100;
 
-        document.getElementById("golos-media-texto").innerText = `Média de Golos por Jogo: ${mediaGolos}`;
-        document.getElementById("barra-golos").style.width = `${percentGolos}%`;
+                document.getElementById("peso-min").innerText = `${minPeso} kg`;
+                document.getElementById("peso-max").innerText = `${maxPeso} kg`;
+                document.getElementById("peso-media-texto").innerText = `Média de Peso (Jogadores): ${mediaPeso} kg`;
+                document.getElementById("barra-peso").style.width = `${percentPeso}%`;
 
-        const bins = {
-            '18-21': 0,
-            '22-25': 0,
-            '26-29': 0,
-            '30-33': 0,
-            '34-37': 0,
-            '38-41': 0
-        };
+                // Histograma das idades dos jogadores
+                const bins = {
+                    '18-21': 0, '22-25': 0, '26-29': 0,
+                    '30-33': 0, '34-37': 0, '38-41': 0
+                };
+                idades.forEach(idade => {
+                    if (idade <= 21) bins['18-21']++;
+                    else if (idade <= 25) bins['22-25']++;
+                    else if (idade <= 29) bins['26-29']++;
+                    else if (idade <= 33) bins['30-33']++;
+                    else if (idade <= 37) bins['34-37']++;
+                    else bins['38-41']++;
+                });
 
-        idades2.forEach(idade => {
-            if (idade <= 21) bins['18-21']++;
-            else if (idade <= 25) bins['22-25']++;
-            else if (idade <= 29) bins['26-29']++;
-            else if (idade <= 33) bins['30-33']++;
-            else if (idade <= 37) bins['34-37']++;
-            else bins['38-41']++;
-        });
-
-        const labels2 = Object.keys(bins);
-        const dados2 = Object.values(bins);
-
-        const ctx2 = document.getElementById("grafico-idades2").getContext("2d");
-        new Chart(ctx2, {
-            type: 'bar',
-            data: {
-                labels: labels2,
-                datasets: [{
-                    label: 'Nº de Jogadores',
-                    data: dados2,
-                    backgroundColor: '#541833',
-                    borderColor: '#541833',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Idade (anos)'
-                        }
+                new Chart(document.getElementById("grafico-idades2"), {
+                    type: 'bar',
+                    data: {
+                        labels: Object.keys(bins),
+                        datasets: [{
+                            label: 'Nº de Jogadores',
+                            data: Object.values(bins),
+                            backgroundColor: '#541833'
+                        }]
                     },
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Frequência'
+                    options: {
+                        scales: {
+                            x: { title: { display: true, text: 'Idade (anos)' } },
+                            y: { beginAtZero: true, title: { display: true, text: 'Frequência' } }
                         }
                     }
-                }
+                });
+
+            } catch (erro) {
+                console.error("Erro ao carregar dados dos jogadores:", erro);
             }
-        });
+        }
 
-        const idadeFrequencias1 = {};
-        idades.forEach(idade => {
-            idadeFrequencias1[idade] = (idadeFrequencias1[idade] || 0) + 1;
-        });
+        window.addEventListener("DOMContentLoaded", () => {
+            carregarDadosJogadores();
 
-        const labels1 = Object.keys(idadeFrequencias1).sort((a, b) => a - b);
-        const dados1 = labels1.map(idade => idadeFrequencias1[idade]);
+            const golos = 40;
+            const jogos = 34;
+            const mediaGolos = (golos / jogos).toFixed(2);
+            const maxGolosEsperado = 5;
+            const percentGolos = (mediaGolos / maxGolosEsperado) * 100;
 
-        const ctx1 = document.getElementById("grafico-idades1").getContext("2d");
-        new Chart(ctx1, {
-            type: 'bar',
-            data: {
-                labels: labels1,
-                datasets: [{
-                    label: 'Nº de pessoas',
-                    data: dados1,
-                    backgroundColor: '#541833',
-                    borderColor: '#541833',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Idade (anos)'
-                        }
-                    },
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Frequência'
-                        }
+            document.getElementById("golos-media-texto").innerText = `Média de Golos por Jogo: ${mediaGolos}`;
+            document.getElementById("barra-golos").style.width = `${percentGolos}%`;
+
+            // Histograma das idades dos sócios
+            const idadeFrequencias1 = {};
+            idadesSocios.forEach(idade => {
+                idadeFrequencias1[idade] = (idadeFrequencias1[idade] || 0) + 1;
+            });
+
+            const labels1 = Object.keys(idadeFrequencias1).sort((a, b) => a - b);
+            const dados1 = labels1.map(idade => idadeFrequencias1[idade]);
+
+            new Chart(document.getElementById("grafico-idades1"), {
+                type: 'bar',
+                data: {
+                    labels: labels1,
+                    datasets: [{
+                        label: 'Nº de pessoas',
+                        data: dados1,
+                        backgroundColor: '#541833'
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: { title: { display: true, text: 'Idade (anos)' } },
+                        y: { beginAtZero: true, title: { display: true, text: 'Frequência' } }
                     }
                 }
-            }
-        });
+            });
 
-        const categorias = ["Camisolas", "Cachecois", "Bonés", "Mantas", "Mochilas", "Canecas"];
-        const vendas = [120, 80, 60, 40, 50, 50];
+            const categorias = ["Camisolas", "Cachecois", "Bonés", "Mantas", "Mochilas", "Canecas"];
+            const vendas = [120, 80, 60, 40, 50, 50];
 
-        const ctxVendas = document.getElementById("grafico-vendas").getContext("2d");
-        new Chart(ctxVendas, {
-            type: 'pie',
-            data: {
-                labels: categorias,
-                datasets: [{
-                    label: 'Vendas',
-                    data: vendas,
-                    backgroundColor: [
-                        '#541833',
-                        '#7a2a52',
-                        '#a13c6c',
-                        '#c94e86',
-                        '#f05fa0',
-                        '#ff77b8'
+            new Chart(document.getElementById("grafico-vendas"), {
+                type: 'pie',
+                data: {
+                    labels: categorias,
+                    datasets: [{
+                        data: vendas,
+                        backgroundColor: ['#541833', '#7a2a52', '#a13c6c', '#c94e86', '#f05fa0', '#ff77b8']
+                    }]
+                }
+            });
+
+            new Chart(document.getElementById('grafico-precos'), {
+                type: 'bar',
+                data: {
+                    labels: [
+                        'Camisola Principal', 'Camisola Alternativa', 'Camisola 3º Equipamento',
+                        'Mochila', 'Canecas', 'Toalhas', 'Cachecois', 'Mantas', 'Bola', 'Gorros'
                     ],
-                    borderColor: '#ffffff',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Categoria'
-                        }
-                    },
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Unidades Vendidas'
-                        },
-                        ticks: {
-                            stepSize: 20
-                        }
+                    datasets: [{
+                        label: 'Preço (€)',
+                        data: [60, 60, 60, 20, 7.5, 20, 5, 20, 20, 7.5],
+                        backgroundColor: '#541833'
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: { beginAtZero: true, title: { display: true, text: 'Preço (€)' } },
+                        x: { title: { display: true, text: 'Produto' } }
                     }
                 }
-            }
-        });
-
-        const ctxPrecos = document.getElementById('grafico-precos').getContext('2d');
-        new Chart(ctxPrecos, {
-            type: 'bar',
-            data: {
-                labels: [
-                    'Camisola Principal',
-                    'Camisola Alternativa',
-                    'Camisola 3º Equipamento',
-                    'Mochila ',
-                    'Canecas',
-                    'Toalhas',
-                    'Cachecois',
-                    'Mantas',
-                    'Bola',
-                    'Gorros'
-                ],
-                datasets: [{
-                    label: 'Preço (€)',
-                    data: [60.00, 60.00, 60.00, 20.00, 7.50, 20.00, 5.00, 20.00, 20.00, 7.50],
-                    backgroundColor: '#541833',
-                    borderColor: '#541833',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: 'Preço (€)'
-                        }
-                    },
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Produto'
-                        }
-                    }
-                }
-            }
+            });
         });
     </script>
+
 </body>
 
 </html>
