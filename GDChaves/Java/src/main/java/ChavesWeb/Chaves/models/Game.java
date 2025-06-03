@@ -1,5 +1,6 @@
 package ChavesWeb.Chaves.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -23,7 +24,7 @@ public class Game {
     private Date date;
 
     @ManyToOne
-    @JoinColumn(name = "game_sta_id")
+    @JsonBackReference
     private Stadium stadium;
 
     @ManyToOne

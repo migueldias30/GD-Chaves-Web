@@ -1,5 +1,6 @@
 package ChavesWeb.Chaves.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -29,6 +30,7 @@ public class Opponent {
     private Competition comp;
 
     @OneToMany(mappedBy = "opponent")
+    @JsonIgnore
     private Set<Game> games = new LinkedHashSet<>();
 
     public Set<Game> getGames() {

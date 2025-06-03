@@ -1,6 +1,9 @@
 package ChavesWeb.Chaves.models;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 import java.util.Date;
 
 @Entity
@@ -36,6 +39,41 @@ public class Player {
 
     @Column(name = "pla_wei")
     private Double weight;
+
+    @Size(max = 400)
+    @NotNull
+    @Column(name = "pla_info", nullable = false, length = 400)
+    private String plaInfo;
+
+    @Column(name = "pla_height")
+    private Double plaHeight;
+
+    @Column(name = "pla_weight")
+    private Double plaWeight;
+
+    public Double getPlaWeight() {
+        return plaWeight;
+    }
+
+    public void setPlaWeight(Double plaWeight) {
+        this.plaWeight = plaWeight;
+    }
+
+    public Double getPlaHeight() {
+        return plaHeight;
+    }
+
+    public void setPlaHeight(Double plaHeight) {
+        this.plaHeight = plaHeight;
+    }
+
+    public String getPlaInfo() {
+        return plaInfo;
+    }
+
+    public void setPlaInfo(String plaInfo) {
+        this.plaInfo = plaInfo;
+    }
 
     public Double getHeight() {
         return height;

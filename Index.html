@@ -29,7 +29,7 @@
             </div>
 
             <div class="carousel-slide kits-slide">
-                <a href="GDChaves/Pages/equipamentoprincipal.html" class="kit-item">
+                <a href="GDChaves/Pages/roupa.html?id=1" data-id="1" class="kit-item">
                     <div class="kits-container">
                         <img src="GDChaves/Images/equipamento_principal.png" alt="Equipamento Principal">
                         <div class="kit-info">
@@ -48,7 +48,7 @@
                     </div>
                 </a>
 
-                <a href="GDChaves/Pages/equipamentoalternativo.html" class="kit-item">
+                <a href="GDChaves/Pages/roupa.html?id=2" data-id="2" class="kit-item">
                     <div class="kits-container">
                         <img src="GDChaves/Images/equipamento_alternativo.png" alt="Equipamento Alternativo">
                         <div class="kit-info">
@@ -67,7 +67,7 @@
                     </div>
                 </a>
 
-                <a href="GDChaves/Pages/terceiroequipamento.html" class="kit-item">
+                <a href="GDChaves/Pages/roupa.html?id=3" data-id="3" class="kit-item">
                     <div class="kits-container">
                         <img src="GDChaves/Images/terceiro_equipamento.png?" alt="Terceiro Equipamento">
                         <div class="kit-info">
@@ -103,91 +103,8 @@
         <h1>Acompanha os jogos do GD Chaves</h1>
         <p>Fica a par dos nossos jogos</p>
 
-        <div class="card-container">
-            <div class="match-card">
-                <div class="match-info">
-                    <p><strong>Terminado</strong></p>
-                    <p>LIGA PORTUGAL 2 MEU SUPER 24/25 | <span class="canal">SPORT TV +</span></p>
-                </div>
-
-                <div class="teams-vertical">
-                    <div class="team-row">
-                        <div class="team-info">
-                            <img src="GDChaves/Images/logo_pacosdeferreira.png" alt="Logo do Paços de Ferreira" />
-                            <p class="team-name">Paços de Ferreira</p>
-                        </div>
-                        <span class="score">2</span>
-                    </div>
-                    <div class="team-row">
-                        <div class="team-info">
-                            <img src="GDChaves/Images/logo_chaves.png" alt="Logo do Chaves" />
-                            <p class="team-name-chaves">GD Chaves</p>
-                        </div>
-                        <span class="score">0</span>
-                    </div>
-                </div>
-                <div class="match-action">
-                    <a href="https://www.youtube.com/watch?v=1qjucyCbkc4&pp=ygUJZ2QgY2hhdmVz" target="_blank">Resumo
-                        <span>›</span></a>
-                </div>
-            </div>
-
-            <div class="match-card">
-                <div class="match-info">
-                    <p><strong>Dom 5 Abr, 18h00</strong></p>
-                    <p>LIGA PORTUGAL 2 MEU SUPER 24/25 | <span class="canal">SPORT TV +</span></p>
-                </div>
-
-                <div class="teams-vertical">
-                    <div class="team-row">
-                        <div class="team-info">
-                            <img src="GDChaves/Images/logo_chaves.png" alt="Logo do Chaves" />
-                            <p class="team-name-chaves">GD Chaves</p>
-                        </div>
-                        <span class="score"></span>
-                    </div>
-                    <div class="team-row">
-                        <div class="team-info">
-                            <img src="GDChaves/Images/logo_fcvizela.png" alt="Logo do Vizela" />
-                            <p class="team-name">FC Vizela</p>
-                        </div>
-                        <span class="score"></span>
-                    </div>
-                </div>
-
-                <div class="match-action">
-                    <a href="GDChaves/Pages/informacoes.html">Informações
-                        <span>›</span></a>
-                </div>
-            </div>
-
-            <div class="match-card">
-                <div class="match-info">
-                    <p><strong>Sab 12 Abr, 14h00</strong></p>
-                    <p>LIGA PORTUGAL 2 MEU SUPER 24/25 | <span class="canal">SPORT TV +</span></p>
-                </div>
-
-                <div class="teams-vertical">
-                    <div class="team-row">
-                        <div class="team-info">
-                            <img src="GDChaves/Images/logo_portimonense.png" alt="Logo do Portimonense" />
-                            <p class="team-name">Portimonense</p>
-                        </div>
-                        <span class="score"></span>
-                    </div>
-                    <div class="team-row">
-                        <div class="team-info">
-                            <img src="GDChaves/Images/logo_chaves.png" alt="Logo do Chaves" />
-                            <p class="team-name-chaves">GD Chaves</p>
-                        </div>
-                        <span class="score"></span>
-                    </div>
-                </div>
-
-                <div class="match-action">
-                    <a href="#">Informações <span>›</span></a>
-                </div>
-            </div>
+        <div class="card-container" id="ultimos-jogos-container">
+            <p class="sem-jogos">A carregar jogos...</p>
         </div>
     </div>
 
@@ -559,6 +476,85 @@
                 if (userDropdown) userDropdown.style.display = "none";
             }
         }
+
+        async function carregarUltimosJogos() {
+            const response = await fetch("http://localhost:8080/games");
+            const jogos = await response.json();
+
+            const hoje = new Date();
+            hoje.setHours(0, 0, 0, 0);
+
+            const jogosPassados = jogos
+                .filter(j => new Date(j.date) < hoje)
+                .sort((a, b) => new Date(b.date) - new Date(a.date))
+                .slice(0, 3);
+
+            const container = document.getElementById("ultimos-jogos-container");
+
+            if (!jogosPassados.length) {
+                container.innerHTML = '<p class="sem-jogos">Sem jogos realizados</p>';
+                return;
+            }
+
+            container.innerHTML = jogosPassados.map(jogo => {
+                const data = new Date(jogo.date);
+                const diaSemana = data.toLocaleDateString('pt-PT', { weekday: 'short' }).slice(0, 3).toUpperCase();
+                const diaMes = data.toLocaleDateString('pt-PT', { day: '2-digit', month: '2-digit' });
+                const hora = jogo.gameHr;
+
+                const chavesEmCasa = jogo.name.toLowerCase().startsWith("gd chaves") || jogo.name.toLowerCase().startsWith("chaves");
+                const equipaCasa = chavesEmCasa ? "GD Chaves" : jogo.opponent.name;
+                const equipaFora = chavesEmCasa ? jogo.opponent.name : "GD Chaves";
+
+                const logoCasa = equipaCasa === "GD Chaves"
+                    ? "GDChaves/Images/logo_chaves.png"
+                    : `GDChaves/Images/logo_${limparNome(equipaCasa)}.png`;
+
+                const logoFora = equipaFora === "GD Chaves"
+                    ? "GDChaves/Images/logo_chaves.png"
+                    : `GDChaves/Images/logo_${limparNome(equipaFora)}.png`;
+
+                const resultado = jogo.gameRes ?? " : ";
+
+                return `
+        <div class="match-card horizontal-layout">
+            <div class="match-info">
+                <p><strong>${diaSemana} ${diaMes}, ${hora}</strong></p>
+                <p>${jogo.competition?.name ?? "Competição"} | <span class="canal">SPORT TV +</span></p>
+            </div>
+            <div class="match-content-horizontal">
+                <div class="team-horizontal">
+                    <img src="${logoCasa}" alt="${equipaCasa}" onerror="this.src='GDChaves/Images/logo_default.png'">
+                    <p>${equipaCasa}</p>
+                </div>
+                <div class="score-horizontal">
+                        <span class="score">${resultado.split(" : ")[0]}</span>
+                </div>
+                <div class="team-horizontal">
+                    <img src="${logoFora}" alt="${equipaFora}" onerror="this.src='GDChaves/Images/logo_default.png'">
+                    <p>${equipaFora}</p>
+                </div>
+            </div>
+            <div class="match-action">
+                <a href="${jogo.summaryUrl || "#"}" target="_blank">Resumo <span>›</span></a>
+            </div>
+        </div>
+    `;
+            }).join("");
+
+        }
+
+        function limparNome(nome) {
+            return nome
+                .toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/\s+/g, '');
+        }
+
+        window.addEventListener("DOMContentLoaded", async () => {
+            await carregarUltimosJogos();
+        });
     </script>
 
 

@@ -205,8 +205,8 @@
                 const mediaAltura = (alturas.reduce((a, b) => a + b, 0) / alturas.length).toFixed(1);
                 const percentAltura = ((mediaAltura - minAltura) / (maxAltura - minAltura)) * 100;
 
-                document.getElementById("altura-min").innerText = `${minAltura} cm`;
-                document.getElementById("altura-max").innerText = `${maxAltura} cm`;
+                document.getElementById("altura-min").innerText = `${minAltura} m`;
+                document.getElementById("altura-max").innerText = `${maxAltura} m`;
                 document.getElementById("altura-media-texto").innerText = `Média de Alturas (Jogadores): ${mediaAltura} cm`;
                 document.getElementById("barra-altura").style.width = `${percentAltura}%`;
 

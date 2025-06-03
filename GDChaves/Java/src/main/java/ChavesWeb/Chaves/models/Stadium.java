@@ -1,8 +1,10 @@
 package ChavesWeb.Chaves.models;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -24,14 +26,15 @@ public class Stadium {
     private String photo;
 
     @OneToMany(mappedBy = "stadium")
-    private Set<Game> games = new LinkedHashSet<>();
+    @JsonManagedReference
+    private List<Game> games;
 
     public Set<Game> getGames() {
-        return games;
+        return (Set<Game>) games;
     }
 
     public void setGames(Set<Game> games) {
-        this.games = games;
+        this.games = (List<Game>) games;
     }
 
     public Integer getId() {

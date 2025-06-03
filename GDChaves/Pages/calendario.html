@@ -41,7 +41,7 @@
             const jogos = await response.json();
 
             const agora = new Date();
-            agora.setHours(0, 0, 0, 0); // Ignora a hora atual para comparação precisa
+            agora.setHours(0, 0, 0, 0);
 
             const jogosOrdenados = jogos.sort((a, b) => new Date(a.date) - new Date(b.date));
             const jogosFuturos = [];
@@ -49,18 +49,17 @@
 
             jogosOrdenados.forEach(jogo => {
                 const dataJogo = new Date(jogo.date);
-                dataJogo.setHours(0, 0, 0, 0); // Garante que a comparação é apenas por data
+                dataJogo.setHours(0, 0, 0, 0);
 
                 const isFuturo = dataJogo >= agora;
-
                 const opcoesData = { weekday: 'short', day: '2-digit', month: 'long', year: 'numeric' };
                 const dataFormatada = dataJogo.toLocaleDateString('pt-PT', opcoesData).toUpperCase();
 
                 const opponentName = jogo.opponent?.name || "Adversário";
-                const competitionName = jogo.competition?.name || "Competição";
-                const resultado = jogo.result ?? ":";
-
                 const opponentSlug = limparNome(opponentName);
+                const competitionName = jogo.competition?.name || "Competição"; // ← ESTA LINHA AQUI!
+                const resultado = jogo.gameRes ?? ":";
+
                 const logoChaves = "GDChaves/Images/logo_chaves.png";
                 const logoOpponent = `GDChaves/Images/logo_${opponentSlug}.png`;
 
@@ -70,30 +69,36 @@
                 const equipaEsquerda = chavesJogaEmCasa ? "GD Chaves" : opponentName;
                 const equipaDireita = chavesJogaEmCasa ? opponentName : "GD Chaves";
 
-                const logoEsquerda = chavesJogaEmCasa ? logoChaves : logoOpponent;
-                const logoDireita = chavesJogaEmCasa ? logoOpponent : logoChaves;
+                const logoEsquerda = chavesJogaEmCasa
+                    ? `<img src="GDChaves/Images/logo_chaves.png" alt="${equipaEsquerda}">`
+                    : `<img src="GDChaves/Images/logo_${opponentSlug}.png" alt="${equipaEsquerda}">`;
+
+                const logoDireita = chavesJogaEmCasa
+                    ? `<img src="GDChaves/Images/logo_${opponentSlug}.png" alt="${equipaDireita}">`
+                    : `<img src="GDChaves/Images/logo_chaves.png" alt="${equipaDireita}">`;
 
                 const cardHTML = `
-                    <div class="match-card ${isFuturo ? "futuro" : "passado"}">
-                        <div class="match-header">
-                            <p>${dataFormatada}</p>
-                            <span>${competitionName}</span>
-                        </div>
-                        <div class="match-content">
-                            <div class="team">
-                                <img src="${logoEsquerda}" alt="${equipaEsquerda}">
-                                <span>${equipaEsquerda}</span>
-                            </div>
-                            <div class="score">
-                                <span>${resultado}</span>
-                            </div>
-                            <div class="team">
-                                <img src="${logoDireita}" alt="${equipaDireita}">
-                                <span>${equipaDireita}</span>
-                            </div>
-                        </div>
-                        <a href="${jogo.summaryUrl || '#'}" class="match-link" target="_blank">Resumo</a>
-                    </div>`;
+    <div class="match-card ${isFuturo ? "futuro" : "passado"}">
+        <div class="match-header">
+            <p>${dataFormatada}</p>
+            <span>${competitionName}</span>
+        </div>
+        <div class="match-content">
+            <div class="team">
+                ${logoEsquerda}
+                <span>${equipaEsquerda}</span>
+            </div>
+            <div class="score">
+                <span>${resultado}</span>
+            </div>
+            <div class="team">
+                ${logoDireita}
+                <span>${equipaDireita}</span>
+            </div>
+        </div>
+        <a href="${jogo.summaryUrl || '#'}" class="match-link" target="_blank">Resumo</a>
+    </div>`;
+
 
                 if (isFuturo) {
                     jogosFuturos.push(cardHTML);
@@ -111,8 +116,10 @@
             filtrarJogos("futuro");
         }
 
-
         function limparNome(nome) {
+            if (!nome || nome.toLowerCase().includes("adversário")) {
+                return "default";
+            }
             return nome
                 .toLowerCase()
                 .normalize("NFD")
