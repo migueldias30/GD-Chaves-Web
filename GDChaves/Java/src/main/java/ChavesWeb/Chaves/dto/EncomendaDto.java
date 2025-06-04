@@ -11,6 +11,6 @@ public class EncomendaDto {
     public static class ProdutoDto {
         public Integer id;
         public String nome;
-        public double preco;
+        public Double preco;
     }
 }

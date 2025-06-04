@@ -26,14 +26,13 @@ public class Encomenda {
     private String encAdress;
 
     @ManyToOne
-    @JoinColumn(name = "enc_users_id", nullable = true)
+    @JoinColumn(name = "enc_users_id", nullable = false)
     private User user;
 
-    @OneToMany(mappedBy = "encomenda", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "encomenda", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JsonManagedReference
     private List<EncomendaProduto> produtos;
 
-    // Getters e setters
     public Integer getEncId() { return encId; }
     public void setEncId(Integer encId) { this.encId = encId; }
 

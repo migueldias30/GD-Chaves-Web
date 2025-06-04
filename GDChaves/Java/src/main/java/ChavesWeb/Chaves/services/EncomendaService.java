@@ -1,36 +1,30 @@
 package ChavesWeb.Chaves.services;
 
 import ChavesWeb.Chaves.models.Encomenda;
-import ChavesWeb.Chaves.repositories.EncomendaProdutoRepository;
 import ChavesWeb.Chaves.repositories.EncomendaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class EncomendaService {
 
     private final EncomendaRepository encomendaRepository;
-    private final EncomendaProdutoRepository encomendaProdutoRepository;
 
-    public EncomendaService(EncomendaRepository encomendaRepository, EncomendaProdutoRepository encomendaProdutoRepository) {
+    public EncomendaService(EncomendaRepository encomendaRepository) {
         this.encomendaRepository = encomendaRepository;
-        this.encomendaProdutoRepository = encomendaProdutoRepository;
     }
 
     public List<Encomenda> getAllEncomendas() {
         return encomendaRepository.findAll();
     }
 
-    public Optional<Encomenda> getEncomendaById(Integer id) {
-        return encomendaRepository.findById(id);
-    }
-
     public Encomenda createEncomenda(Encomenda encomenda) {
-        Encomenda saved = encomendaRepository.save(encomenda);
-        encomendaProdutoRepository.saveAll(encomenda.getProdutos());
-        return saved;
+        if (encomenda.getProdutos() != null) {
+            encomenda.getProdutos().forEach(p -> p.setEncomenda(encomenda));
+        }
+
+        return encomendaRepository.save(encomenda);
     }
 
     public Encomenda updateEncomenda(Integer id, Encomenda updatedEncomenda) {

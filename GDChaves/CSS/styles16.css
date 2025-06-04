@@ -60,5 +60,6 @@ body {
     text-align: center;
     margin-top: 40px;
     font-size: 1.2em;
+    min-height: 300px;
     color: #777;
 }

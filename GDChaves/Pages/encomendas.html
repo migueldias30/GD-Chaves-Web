@@ -53,19 +53,19 @@
                     const total = enc.produtos?.reduce((sum, p) => sum + p.preco, 0).toFixed(2) || "0.00";
 
                     itemDiv.innerHTML = `
-                <div class="info">
-                    <p><strong>Encomenda #${enc.encId}</strong></p>
-                    <p><strong>Nome:</strong> ${enc.nome}</p>
-                    <p><strong>Email:</strong> ${enc.email}</p>
-                    <p><strong>Morada:</strong> ${enc.encAdress}</p>
-                    <p><strong>Data:</strong> ${enc.encDate}</p>
-                    <div class="produtos">
-                        <p><strong>Produtos:</strong></p>
-                        ${produtosHTML}
-                    </div>
-                    <p class="total"><strong>Total:</strong> ${total}€</p>
-                </div>
-            `;
+                        <div class="info">
+                            <p><strong>Encomenda #${enc.encId}</strong></p>
+                            <p><strong>Nome:</strong> ${enc.nome}</p>
+                            <p><strong>Email:</strong> ${enc.email}</p>
+                            <p><strong>Morada:</strong> ${enc.encAdress}</p>
+                            <p><strong>Data:</strong> ${enc.encDate}</p>
+                            <div class="produtos">
+                                <p><strong>Produtos:</strong></p>
+                                ${produtosHTML}
+                            </div>
+                            <p class="total"><strong>Total:</strong> ${total}€</p>
+                        </div>
+                    `;
                     lista.appendChild(itemDiv);
                 });
             } catch (err) {

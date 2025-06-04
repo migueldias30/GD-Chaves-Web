@@ -128,10 +128,12 @@
                 return;
             }
 
+            const sessionUserId = 5;
             const encomenda = {
                 nome,
                 email,
                 endereco: morada,
+                userId: sessionUserId,
                 produtos: carrinho.map(p => ({
                     id: p.id,
                     nome: p.nome,

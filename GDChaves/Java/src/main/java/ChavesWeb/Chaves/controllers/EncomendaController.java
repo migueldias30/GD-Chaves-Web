@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -50,12 +49,15 @@ public class EncomendaController {
             EncomendaProduto ep = new EncomendaProduto();
             ep.setNome(p.nome);
             ep.setPreco(p.preco);
-            ep.setProdutoId(p.id);
-            ep.setEncomenda(encomenda);
+            ep.setEncprodProdId(p.id);
             return ep;
         }).collect(Collectors.toList());
 
         encomenda.setProdutos(produtos);
-        return ResponseEntity.ok(encomendaService.createEncomenda(encomenda));
+
+        Encomenda encomendaSalva = encomendaService.createEncomenda(encomenda);
+        return ResponseEntity.ok(encomendaSalva);
     }
 }
+
+
