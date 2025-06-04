@@ -37,31 +37,6 @@ public class User {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date birthdate;
 
-    @Size(max = 80)
-    @NotNull
-    @Column(name = "user_name", nullable = false, length = 80)
-    private String userName;
-
-    @NotNull
-    @Column(name = "users_bdate", nullable = false)
-    private Integer usersBdate;
-
-    public Integer getUsersBdate() {
-        return usersBdate;
-    }
-
-    public void setUsersBdate(Integer usersBdate) {
-        this.usersBdate = usersBdate;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
