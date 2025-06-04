@@ -64,8 +64,25 @@
             </div>
 
 
-            <button class="buy">COMPRAR</button>
+            <button class="buy" onclick="abrirModal()">COMPRAR</button>
             <button class="cart" onclick="adicionarAoCarrinho()">ADICIONAR AO CARRINHO</button>
+        </div>
+    </div>
+
+    <div id="modal-dados" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" onclick="fecharModal()">&times;</span>
+            <h2>Finalizar Encomenda</h2>
+            <div class="input-group">
+                <input type="text" id="nome" placeholder="Nome" />
+            </div>
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Email" />
+            </div>
+            <div class="input-group">
+                <input type="text" id="morada" placeholder="Morada" />
+            </div>
+            <button onclick="submeterEncomenda()">Submeter</button>
         </div>
     </div>
 
@@ -208,8 +225,36 @@
 
             setTimeout(() => mensagem.remove(), 3000);
         }
-        window.addEventListener("DOMContentLoaded", inicializarPagina);
+        function abrirModal() {
+            const nome = document.querySelector('h1').textContent;
+            const precoStr = document.querySelector('.valor-normal').textContent.replace('€', '').replace(',', '.');
+            const preco = parseFloat(precoStr);
+            const imagem = document.querySelector('#slider img')?.src || '';
+            const quantidade = parseInt(document.getElementById('quantity').value);
 
+            let tamanho = null;
+            const tamanhoEl = document.querySelector('.sizes .active');
+            if (tamanhoEl) {
+                tamanho = tamanhoEl.textContent;
+            }
+
+            const produto = {
+                id: produtoId,
+                nome,
+                preco,
+                imagem,
+                quantidade,
+                tamanho
+            };
+
+            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            carrinho.push(produto);
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+            window.location.href = "GDChaves/Pages/carrinho.html";
+        }
+
+        window.addEventListener("DOMContentLoaded", inicializarPagina);
 
     </script>
 </body>
